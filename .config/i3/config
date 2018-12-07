@@ -1,0 +1,444 @@
+# i3 config file
+
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+set $mod Mod4
+set $alt Mod1
+
+# font pango: Droid Sans 9
+font pango: FontAwesome 9
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+set $Browser chromium
+# set $Browser chromium --flag-switches-begin --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=true --enable-fast-unload --enable-gpu-rasterization --enable-tcp-fastopen --ignore-gpu-blacklist --num-raster-threads=2 --top-chrome-md=material --enable-features=OmniboxUIExperimentHideSteadyStateUrlSchemeAndSubdomains,OverlayScrollbar --disable-features=AutofillShowTypePredictions,OptimizationHints --flag-switches-end
+# set $Browser `chromium --enable-native-gpu-memory-buffers --enable-features="CheckerImaging"`
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+q kill
+bindsym --release $mod+Shift+q exec xkill
+bindsym $mod+Escape [class="^.*"] kill
+
+# start dmenu (a program launcher)
+bindsym $mod+End exec dmenu_run
+# bindsym $mod+End exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 20"
+# bindsym $mod+d exec dmenu_run -fn 'Terminus-12' -nb '#021215' -nf '#657b83' -sb '#002b36' -sf '#93a1a1'
+# bindsym $alt+d exec dmenu_run
+bindsym $alt+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 20"
+
+# if Insert kbkey
+bindsym KP_Insert focus 
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# next/previous workspace
+# bindsym $mod+Tab workspace back_and_forth, focus
+bindsym $mod+BackSpace workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Next workspace next
+bindsym $mod+Prior workspace prev
+
+# change focus between tiling / floating windows
+# bindsym $mod+space focus mode_toggle
+bindsym $alt+Tab focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+# bindsym $mod+d focus child
+
+# Name the workspaces
+#           ♬ ➤                 
+# http://fortawesome.github.io/Font-Awesome/cheatsheet/
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
+set $ws6 6:
+set $ws7 7:
+set $ws8 8:
+set $ws9 9:
+
+# switch to workspace
+bindsym F1 workspace $ws1
+bindsym F2 workspace $ws2
+bindsym F3 workspace $ws3
+bindsym $mod+F4 workspace $ws4
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "" {
+   set $resize_big 30
+   set $resize_medium 5
+   set $resize_small 1
+
+   bindsym Shift+Left resize shrink width $resize_big px or $resize_medium ppt
+   bindsym Shift+Down resize grow height $resize_big px or $resize_medium ppt
+   bindsym Shift+Up resize shrink height $resize_bigpx or $resize_medium ppt
+   bindsym Shift+Right resize grow width $resize_big px or $resize_medium ppt
+
+   bindsym Left resize shrink width $resize_medium px or $resize_small ppt
+   bindsym Down resize grow height $resize_medium px or $resize_small ppt
+   bindsym Up resize shrink height $resize_medium px or $resize_small ppt
+   bindsym Right resize grow width $resize_medium px or $resize_small ppt
+
+
+   bindsym 1 mode "default", resize set 1000 600
+   bindsym 2 mode "default", resize set 1200 600
+   bindsym 3 mode "default", resize set 1200 1000
+
+   bindsym Return mode "default"
+   bindsym Escape mode "default"
+}
+bindsym $mod+r mode ""
+
+# set $mode_system System [l]ock, [e]logout, [s]uspend, [h]ibernate, [r]eboot, (Pause) shutdown
+# set $mode_system System:  L:  | S:  | P:  | R:  | E: 
+set $mode_system System:  P:  | Q:  | E: 
+mode "$mode_system" {
+   # bindsym l exec --no-startup-id $Locker, mode "default"
+   bindsym e exec --no-startup-id i3-msg exit, mode "default"
+   # bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+   # bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+   bindsym q exec --no-startup-id systemctl reboot, mode "default"
+   bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"
+   bindsym Pause exec --no-startup-id systemctl poweroff -i, mode "default"
+
+   # back to normal: Enter or Escape
+   bindsym Return mode "default"
+   bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+# bindsym XF86Sleep mode "$mode_system"
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+# Start Conky
+exec_always --no-startup-id conky
+
+# Start Polybar
+# exec_always --no-startup-id sleep 6 && ~/.config/polybar/launch.sh
+# polybar Depends: jsoncpp
+
+# Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
+bar {
+   status_command sleep 6 && py3status -c ~/.config/i3/.pyi3status.conf
+   ## output DVI-I-2
+   ## tray_output HDMI-0
+   position top
+   separator_symbol "|"
+   strip_workspace_numbers yes
+   height 20
+  ## mode hide #dock|hide|invisible
+  ## mode invisible #dock|hide|invisible
+
+   colors {
+      background $bg
+      statusline $bar_text
+      separator  $separator
+
+      ##Type			border		background	text
+      focused_workspace     	$bg		$bg   		$focused
+      active_workspace      	#444444 	#5f676a   	#ffffff
+      inactive_workspace    	$bg		$bg   		#2f3640
+      urgent_workspace      	#aa0000		#990000		#ffffff
+      binding_mode          	#323232 	#32323200 	#ffffff
+
+      # focused_workspace	#008fff		#0093b0		#ffffff
+      # focused_workspace     	$client_border	$focused   	#adadad
+   }
+}
+# https://github.com/raingart/dotfiles/blob/e449b8912d6ba3b5187ecac01e2f276b9f7b92c1/.config/i3/.i3blocks.conf
+
+# workspace 3 output
+# workspace 1 output DVI-0
+# workspace 2 output DVI-I-1
+# workspace 3 output DVI-D-0
+# workspace 4 output HDMI-0
+# workspace $ws1  output eDP1
+
+#Theme colors
+set $client_border "#101010"
+set $child_border "#191919"
+set $bg "#11111155"
+set $bar_text "#DADADA"
+set $separator "#2683DF"
+set $focused "#4682b4"
+
+#colorclass		border		background	text		indicator	child_border
+# client.focused  	$client_border	"#0093b0"	"#ffffff"	"#6093b0"	$child_border
+client.focused		$client_border	"#323232"	"#ffffff"	"#6093b0"	$child_border
+client.focused_inactive	#client_border	"#191919"	"#E5E5E5"	"#454948"	$child_border
+client.unfocused	#client_border	"#222222"	"#888888"	"#000000"	$child_border
+client.urgent		#client_border	"#900000"	"#ffffff"	"#900000"	$child_border
+client.placeholder	#client_border	"#0c0c0c"	"#ffffff"	"#000000"	$child_border
+client.background	#client_border	
+
+
+# Gaps
+# Set inner/outer gaps
+gaps inner 1
+gaps outer 0
+
+# smart_gaps on
+# smart_borders on
+# smart_borders no_gaps
+
+# Borders
+# new_float pixel 1
+new_float normal
+new_window none
+hide_edge_borders none
+
+bindsym $mod+b border toggle
+
+
+# hide_edge_borders both
+# workspace_layout <default|stacking|tabbed>
+focus_follows_mouse no
+# focus_follows_mouse yes
+# force_focus_wrapping yes
+# popup_during_fullscreen smart
+workspace_auto_back_and_forth yes
+# force_display_urgency_hint 400 ms
+# focus_on_window_activation smart|urgent|focus|none
+focus_on_window_activation smart
+workspace_layout tabbed
+
+# auto-focus to all new windows
+for_window [class="(?i)"] focus
+# for_window [class=".*"] focus
+# for_window [class="^.*"]] focus
+
+# switch to workspace with urgent window automatically
+# for_window [urgent=latest] focus
+no_focus [class="conkypanel"]
+# no_focus [window_role="*"]
+# no_focus [tiling]
+# no_focus [class=".*"]
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+KP_Subtract [floating] move scratchpad
+# Show the first scratchpad window
+bindsym $mod+KP_Subtract scratchpad show
+
+
+# multimedia keys
+# set $volumeStep 1dB
+set $volumeStep 1%
+set $MasterDefaultLevel 50%
+set $MicStatus `amixer get Capture |grep "Front Left:" | awk '{ print ($7) }'`
+
+# Alsa Audio controls
+bindsym XF86AudioRaiseVolume  exec amixer -q set Master $volumeStep+ unmute
+bindsym XF86AudioLowerVolume  exec amixer -q set Master $volumeStep- unmute
+bindsym XF86AudioMute         exec ~/.config/i3/scripts/toggle_vol.sh
+bindsym $alt+XF86AudioMute    exec amixer -q set Capture toggle && notify-send "Asla Mic/Capture" "$MicStatus" -u low -t 1000;
+bindsym $mod+XF86AudioMute    exec tilix -e "alsamixer"
+bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set Master $MasterDefaultLevel
+
+# Pulse Audio controls
+# set $output_sink "$(pactl list short sinks | grep output | head -n1 | cut -f2)"
+# set $input_source "$(pactl list short sources | grep input | head -n1 | cut -f2)"
+# bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume $output_sink +2%
+# bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume $output_sink -2%
+# bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-volume $output_sink 0%
+
+# bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +$volumeStep; pkill -RTMIN i3blocks"
+# bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -$volumeStep; pkill -SIGUSR1 i3blocks"
+# bindsym XF86AudioMute 		 exec pactl set-sink-mute 0 toggle
+# bindsym $mod+XF86AudioRaiseVolume    exec pactl set-sink-volume 0 $MasterDefaultLevel
+
+# bindsym XF86AudioPlay exec "deadbeef --play-pause||mpc toggle"
+# bindsym XF86AudioStop exec "deadbeef --stop||mpc stop"
+# bindsym XF86AudioNext exec "deadbeef --next||mpc next"
+# bindsym XF86AudioPrev exec "deadbeef --previous||mpc previous"
+
+bindsym XF86Calculator      exec gnome-calculator
+bindsym XF86HomePage        exec $Browser
+bindsym XF86Mail            exec --no-startup-id spacefm
+# bindsym $mod+XF86Mail       exec --no-startup-id gthumb
+bindsym $mod+XF86Mail       exec --no-startup-id xnviewmp
+bindsym XF86Search          exec smplayer
+# bindsym $mod+XF86Search     exec --no-startup-id deadbeef
+bindsym $mod+XF86Search     exec --no-startup-id sh -c '~/bin/deadbeef'
+# bindsym $mod+XF86Back       exec --no-startup-id QOwnNotes
+bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes
+bindsym XF86Favorites       exec --no-startup-id code
+bindsym $mod+XF86Favorites  exec --no-startup-id geany
+
+bindsym $mod+Shift+F12	    exec "pgrep 'wvdial' | xargs kill; killall conky; conky"
+bindsym $mod+Control+F12    exec --no-startup-id tilix -e 'wvdial'
+
+bindsym $mod+Shift+d	exec "killall dunst; exec notify-send 'dunst' 'restart' -u low"
+bindsym $mod+F12    	exec --no-startup-id tilix -s ~/.config/tilix/default.json
+# bindsym $mod+F11    exec --no-startup-id tilix -a session-add-down -e htop
+bindsym $mod+F11    	exec --no-startup-id tilix -s ~/.config/tilix/htop.json
+bindsym $mod+Insert 	exec --no-startup-id telegram-desktop
+bindsym Print       	exec --no-startup-id gnome-screenshot --interactive --clipboard
+bindsym Control+Print	exec --no-startup-id sh -c "gnome-screenshot --area --clipboard"
+bindsym $mod+Home   	exec "killall conky; conky"
+bindsym $mod+F10    	exec --no-startup-id qbittorrent
+# bindsym $mod+Delete	exec "lockscreen off"
+# bindsym $mod+Delete     exec --no-startup-id sh -c 'i3lock -c 000000 -n'
+
+bindsym F12        [class="Tilix"]            scratchpad show
+bindsym Insert     [class="TelegramDesktop"]  scratchpad show
+bindsym $alt+grave [class="Deadbeef"]         scratchpad show
+bindsym $mod+grave [class="QOwnNotes"]         scratchpad show
+
+
+# Where to run
+assign [class="Chromium"]               $ws1
+assign [class="Code|Geany|QOwnNotes"]        $ws2
+assign [class="Filezilla|qBittorrent"]  $ws3
+assign [class="Spacefm"]                $ws4
+assign [class="XnView|(?i)inkscape|Pinta"]    $ws5
+assign [class="smplayer"]               $ws6
+assign [class="Meld"]                   $ws7
+assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|(?i)Godot|Steam"]   $ws8
+# assign [class="(?i)Wire"]               $ws9
+
+
+# for_window [class="^Chromium$"] border none, move container to workspace $ws1
+for_window [window_role="(?i)pop-up|(?i)task_dialog|(?i)dialog|bubble|page-info|(?i)Preferences|(?)Warning"]  floating enable
+for_window [title="(?)Warning|(?)Open File|(?)Save Playlist As|(?)Save File|(?)Save image|(?)Add location"]  floating enable
+# for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable
+# for_window [class="(?i)imagewriter"]	floating enable
+# for_window [class="(?i)pavucontrol"]  floating enable
+
+for_window [class="Steam"]                    floating enable
+for_window [class="Steam" title="^Steam$"]    floating disable
+# for_window [class="Steam" instance="Friends"] floating enable
+# for_window [class="^Steam$" title="^Friends$"]    floating enable
+# for_window [class="^Steam$" title="Steam - News"] floating enable
+# for_window [class="^Steam$" title=".* - Chat"]    floating enable
+# for_window [class="^Steam$" title="^Settings$"]   floating enable
+# for_window [class="^Steam$" title=".* - event started"]     floating enable
+# for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+# for_window [class="^Steam$" title="^Screenshot Uploader$"]  floating enable
+# for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+# for_window [title="^Steam Keyboard$"]                floating enable
+
+for_window [title="^Task Manager - Chromium$"]  floating enable
+for_window [class="Nitrogen"]          floating enable
+for_window [class="mpv|smplayer"]      floating enable
+for_window [class="qBittorrent"]       floating enable
+for_window [class="Lxappearance"]      floating enable
+for_window [class="qt5ct"]             floating enable
+for_window [class="Gnome-calculator"]  floating enable
+for_window [class="GParted"]           floating enable
+for_window [class="Godot"]             floating enable
+for_window [class="Godot" title=".*Godot Engine*."]	  floating disable
+for_window [class="ppsspp|PPSSPPSDL"]	  floating enable
+for_window [class="(?i)Flashplayer"]	  floating enable
+for_window [class="SimpleScreenRecorder"]	floating enable
+for_window [class="(?i)gsimplecal|(?i)orage"]	floating enable, move position mouse
+for_window [class="WoeUSB"]                     floating enable
+for_window [class="QOwnNotes"]                  floating enable
+for_window [class="QOwnNotes" title="Settings"] floating disable
+
+for_window [class="(?i)xxkb"]  move window to scratchpad
+for_window [class="(?i)tilix"] move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
+for_window [class="Deadbeef"]  move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
+for_window [class="QOwnNotes" title="- QOwnNotes"]  move window to scratchpad, move position 0 0,  resize set 1050 700, move scratchpad
+for_window [class="(?i)TelegramDesktop" title="Telegram"] move window to scratchpad, move position 640 50, resize set 640 730, move scratchpad
+
+# move scratchpad - minimize
+# scratchpad show - restore
+
+
+# startup applications
+# exec --no-startup-id i3lock -c 000000 -n
+# exec --no-startup-id sleep 5 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical; nohup mpg123 -q ~/.config/i3/noti.mp3
+exec --no-startup-id sleep 5 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
+exec --no-startup-id tilix
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id unclutter --timeout 2
+exec --no-startup-id sleep 60; xset -dpms && xset s off
+exec --no-startup-id amixer -q set Headphone 100% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
+exec --no-startup-id xxkb
+# exec --no-startup-id $Browser; megasync
+exec --no-startup-id $Browser
+exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
+exec --no-startup-id QOwnNotes
+exec --no-startup-id telegram-desktop
+# exec --no-startup-id sh -c 'export FONTCONFIG_FILE=/etc/fonts/ && telegram-desktop'
+# exec --no-startup-id telegram-desktop -startintray
+exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid
+# exec --no-startup-id i3-msg "workspace $ws2; append_layout ~/.config/i3/scripts/workspace_2.json"
+# exec --no-startup-id i3-msg "workspace $ws3; exec spacefm --no-desktop; layout tabbed"

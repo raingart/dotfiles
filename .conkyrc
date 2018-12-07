@@ -1,0 +1,125 @@
+# RSS News Conky by https://github.com/tr37ion
+own_window_class conkypanel
+own_window_type desktop
+# normal, desktop, dock, panel or override
+#avoid flicker
+# background no
+background yes
+double_buffer yes
+
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+#~ own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_colour black
+double_buffer yes
+# Borders
+draw_borders no
+border_inner_margin 3
+
+# Contour
+draw_outline no
+draw_shades no
+draw_outline no
+draw_borders no
+
+# Shades
+#draw_shades no
+#default_shade_color 000000
+
+# Position
+gap_y 2
+#~ gap_x 0
+gap_x 120
+#~ gap_x 130
+
+# Alignment
+alignment top_left
+# alignment top_middle
+#alignment botton_left top_middle
+
+# Interval
+update_interval 2
+
+# Colors
+default_color FFFFFF
+#separator
+color1 005391
+color2 gray
+#speed kb
+color3 ccc
+color4 gray
+#graph kb
+color5 5f676a
+color6 30B930
+color7 1E90FF
+
+# default_color FFFFFF
+# color1 005391
+# color2 gray
+# color3 FFFFFF
+# color4 CCCCCC
+# color5 2683DF
+# color6 30B930
+# color7 1E90FF
+# color8 1793D1
+
+# to prevent window from moving
+use_spacer none
+maximum_width 1280
+# default_bar_size 505 30
+default_bar_size 0 0
+xftfont Droid Sans:size=8.7
+override_utf8_locale yes
+use_xft yes
+short_units yes
+
+
+TEXT
+${if_existing /proc/net/route ppp0} \
+${color3}${upspeedf ppp0}KB \
+${color5}${voffset -7}${upspeedgraph ppp0 16,30 scale -t} \
+\
+${color5}${downspeedgraph ppp0 16,120 scale -t} \
+${color3}${voffset 8} ${downspeedf ppp0}KB\
+# \#
+# ${color1} / \
+# ${color3}${totaldown ppp0} \
+# ${color1}| \
+# ${color2}${totalup ppp0}\
+# \#
+${else}Network disconnected ${endif}\
+# | ${color7}CPU: ${color7}${cpubar cpu0 8,50} \
+#~   ${exec amixer get Master -c 0 -M | grep -oE "[[:digit:]]*%"} \
+# | ${color2}GHz: ${color3}${freq_g} GHz${color5} \
+
+${if_match $memperc > 85} \
+| ${color6}RAM: ${color6}${membar 6,100}  \
+${color2}${mem}${color5} / \
+${color2}$memperc% ${color5} \
+${endif} \
+# [${exec skb 0,2}] \
+# [${exec xxkb 0,2}] aa \
+# ${color2} asdasd ${color5} \ \
+# | ${color2}OS: ${color3}${fs_free /}${color5} \
+#~ ${color2}${font FontAwesome:size=9}${font}: ${color3}${fs_free /home}${color5} \
+#~ | ${color2}Uptime: ${color3}${uptime} ${color5} \
+#~ | ${color2}Kernel: ${color3}${kernel} ${color5} \
+#~ | ${color2}Process: ${color4}${threads} ${color5} \
+#~ ${if_running deadbeef-main} \#
+#~ Artist:%a, Album:%b, Title:%t, File:%f, Time:"%e of %l" \
+#~ ${if_match "${exec pidof /usr/sbin/deadbeef}" != ""} \
+#~ ${if_match "${exec deadbeef --nowplaying '%a'}" != "nothing"} \
+#~ ${color2}${color3}${exec deadbeef --nowplaying "%a"} \
+#~ ${color2}- ${color3}${exec deadbeef --nowplaying "%t"} \
+#~ ${if_match "${exec deadbeef --nowplaying %l}" < "100"} \
+#~ ${color2}${color2}${exec deadbeef --nowplaying "[%e/%l]"} \
+#~ ${endif} \
+#~ ${else}${color2}deadbeef stop${endif}${else} \
+#~ ${color2}Top: ${color3}${top name 1} \
+#~ ${endif} \
+\#
+${if_existing /proc/net/route ppp0}${voffset -20}${endif}#${color2}${time %a %d %b %H:%M} \#

@@ -1,0 +1,60 @@
+[global]
+    font = "Droid Sans 10"
+    allow_markup = yes
+    format = "<b>%s</b>\n%b"
+    # format = "%I <b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = left
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    # geometry = "200x5-6+30"
+    # geometry = "300x5-24+25"
+    geometry = "250x5-6+30"
+    transparency = 0
+    idle_threshold = 120
+    monitor = 0
+    follow = mouse
+    sticky_history = yes
+    history_length = 50
+    line_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    separator_color = "#585858"
+    # separator_color = auto
+    startup_notification = false
+    #icon_position = left
+    #icon_folders = /usr/share/icons/elementary/actions/16/
+    # /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_folders = /usr/share/icons/Faenza-Dark/status/32/:/usr/share/icons/Faenza-Dark/devices/32/
+    # icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+
+[frame]
+    width = 0
+    color = "#383838"
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#26282B"
+    foreground = "#C3D7DF"
+    timeout = 3
+
+[urgency_normal]
+    background = "#181818"
+    foreground = "#CECFD1"
+    timeout = 8
+    
+[urgency_critical]
+    background = "#267fb5"
+    foreground = "#ffffff"
+    # background = "#fbc02d"
+    # foreground = "#000000"
+    timeout = 8

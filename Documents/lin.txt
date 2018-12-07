@@ -1,0 +1,530 @@
+wget -r -A .jpg http://
+wget -c --content-disposition --trust-server-names=on --restrict-file-names=nocontrol
+wget ‐‐refer=http:// ‐‐user-agent=”Mozilla/5.0 Firefox/4.0.1″ http://losst.ru
+wget -Q10m http://
+
+
+dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync
+dd if=/dev/zero of=/dev/sdx bs=1k count=1
+dd if=archlinux.iso of=/dev/sdx
+
+watch -n 10 killall -USR1 dd
+watch -n1 sensors
+watch -n1 'cat /proc/cpuinfo | grep "^[c]pu MHz"'
+
+pgrep -l '^dd$'
+sudo watch -n 60  kill -USR1 7491
+kill
+    - 9 (KILL)
+    - 15 (TERM) = Ctrl-C = kill %1 / PID
+    - 19 (STOP) = Ctrl-Z
+    - 18 (CONT) = fg / fg %2
+    - jobs - чтобы узнать статус этого процесса
+
+
+systemd-analyze    - скорость загрузки системы
+systemd-analyze blame - просмотреть список всех запущенных юнитов, отсортированных по времени, затраченному на инициализацию
+systemd-analyze critical-chain - список запускаемых файлов юнитов в виде древа
+systemd-analyze plot > /tmp/$(date +%Y_%m_%d_%H_%M)_$HOSTNAME-$(uname -r).svg
+systemd-analyze plot > /tmp/boot_analysis.svg
+
+systemctl is-enabled NAME.service - show status
+systemctl cat NAME.service - view unit file
+
+systemctl start name    - Незамедлительно запустить юнит
+systemctl stop name      - Незамедлительно остановить юнит
+systemctl restart name    - Перезапустить юнит
+systemctl reload name    - Запросить у юнита перезагрузку его настроек
+systemctl status name    - Показать статус юнита, а также запущен он или нет
+systemctl is-enabled name  - Проверить, включен ли юнит в автозапуск при загрузке системы
+systemctl enable name    - Включить юнит в автозапуск при загрузке системы
+systemctl disable name    - Убрать юнит из автозапуска при загрузке системы
+systemctl mask name     - Маскировать юнит, чтобы сделать невозможным его запуск
+systemctl unmask name   - Снять маску юнита
+systemctl help name    - Показать man
+systemctl daemon-reload  - Перезагрузить systemd для поиска новых или измененных юнитов
+
+
+gsettings list-recursively | grep font  - show sys font
+gsettings set org.gnome.desktop.interface monospace-font-name 'Droid Sans Mono 10' - change font
+gsettings set org.gnome.desktop.interface font-name 'Droid Sans 10' - change font
+
+ip addr      - show ip
+ifconfig ppp0   - показать конфигурацию сетевого интерфейса
+ifup eth0       - активировать (поднять) интерфейс eth0
+ifdown eth0     - деактивировать (опустить) интерфейс eth0
+free -htw    - использование памяти RAM & Swap
+lscpu      - информация о процессоре
+grep 'model name\|MHz' /proc/cpuinfo - информация о процессоре
+cat /proc/net/dev   - показать сетевые интерфейсы и статистику по ним
+cat /proc/meminfo -7
+    - cpuinfo
+    - version
+    - devices
+    - partitions
+
+lspci | grep VGA   - модель видеокарты
+cat /etc/issue     - дистрибутив и версия
+lspci | grep Audio   - аудио-контроллеры
+
+ps -AH          - список всех процессов
+ps T            - процеси запущені у цьому ж терміналі
+ps a            - процеси зв'язані з поточним терміналом
+ps axu | grep   - найти процессе по имене
+pidof           - узнать id процеса
+kill -9 id      - принудительно завершить процесс
+kill -15 id     - корректно завершить процесс с PID 98989
+lsof -p 98989   - отобразить список файлов, открытых процессом с PID 98989
+killall         - закрыть риложение из терминала
+xkill           - убить окно
+xprop      - window name
+xwininfo    - size of the window and the position absolute (to the screen) and relative (to the area for windows)
+xprop | grep WM_CLASS  - узнать имя окна
+xev            - узнать клавишу
+xrandr --output DIN --off
+xrandr --output DVI-1 --auto
+xrandr --output DVI-1 --mode 1280x1024
+
+grep                - найти сочитание текста
+grep '^text' file   - вывести на экран строки начинающиеся со слова text
+grep -rl text /dir  - найти текст в файлах и вывести только имена файлов
+grep -rnT text      - найти текст в файлах и вывести его и номер строки
+    -w - только отделенные пробелом слова
+    -i - игнорировать регистр при поиске
+    -E - указать несколько условий поиска -E "text1|text2"
+
+find ./ -type f -exec grep -H 'my_text' '{}' \;     - найти файлы с именем+текстом text
+find ./ -name file1           - найти файлы с именем file1
+find . -type d -empty -delete  - удаление пустых каталогов
+find . -type l -! -exec test -e {} \; -print  - Сломанные симлинки
+find ./ -type l | while read link; do [ -e `readlink $link` ] || echo $link; done
+  - find /path -type l - ищем все ссылки в каталоге /path и передаем их по конвееру while'у
+  - while read link - while'ом построчно читаем и засовываем в переменную link
+  - readlink $link - читаем ссылку (т.е. куда она указывает)
+  - [ -e `readlink $link` ] - проверяем результат выполнения readlink'а на существование
+  - || echo $link - ИНАЧЕ файла, на который указывает ссылка, не существует - выводим его в stdout
+
+gksu     - запусить окно от root
+gksudo   - выполняйте графические приложения с привилегиями администратора root
+alias rm="rm -i"    - создать алиас
+rm -rf dir1 dir2    - удалить две директории и рекурсивно их содержимое
+lsof     - отобразить список открытых файлов
+mkdir -p - создать вложенной структуры директорий
+mv -v    - переименовать/переместить файл
+^foo^bar - замена foo на bar
+ctrl+r   - Для продолжения поиска нужно повторно нажимать
+pwd      - вывести адрес текущей рабочей директории
+cat -n   - просмотр файла
+tail -f  - просмотр файла в режиме реального времени
+head -n30 file  - вывести первые 30 строк файла
+ln -s file1 file2    - Создавать символические ссылки можно с помощью утилиты ln.
+loadkeys ru  - Ставим русскую раскладку
+
+rename .txt .text *.txt  - Переименуем все файлы с расширением .txt на .text
+rename abc dda *ffa*  - Заменим во всех файлах c подстрокой ffa, подстроку abc на dda
+
+tracepath www - трассировках пинг до каждой точки (до каждого пункта маршрута, иначе называемого хопом – прыжком)
+/sbin/ip addr show ppp0 | grep peer | awk ' { print $4 } ' | sed 's/\/32//' - find out your gateway address
+
+lsattr   - узнать атрибуты
+ls -lh   - просмотр полномочий на файлы и директории
+sudo chattr +i file — делает файл недоступным для любых изменений: редактирование, удаление, перемещение, создание линков на него.
+sudo chattr +a file — позволить открывать файл на запись только в режиме добавления
+sudo chattr +S file — указывает, что, при сохранении изменений, будет произведена синхронизация, как при выполнении команды sync
+chattr -R +i dir    — защита всей директории вместе файлами
+    -A - не обновлять время последнего доступа к файлу
+    -S - синхронное обновление
+    -D - синхронное обновление каталогов
+    -a - только добавление к файлу
+    -c - сжатый
+    -d - не архивировать
+    -i - неизменяемый
+    -s - безопасное удаление
+    -T - вершина иерархического дерева
+    -t - запрет слияния в конце файла
+    -u - неудаляемый
+
+
+groups username      - view groups user
+groupmod -n new_group_name old_group_name   - переименовать группу old_group_name в new_group_nam
+groupadd group_name     - создать новую группу с именем group_name
+groupdel group_name     - удалить группу group_name
+chgrp group1 file       - сменить группу-владельца файла file на group1
+chmod go-rwx dir        - отобрать у группы и всех остальных все полномочия на директорию directory1.
+chown user file         - назначить владельцем файла file пользователя user
+chmod +x file           - сделать файл испоняемым
+
+
+chsh -l			- print list of shells and exit
+chsh -s shell_patch 	- set as default shell
+
+
+chmod 755 $(find /path/to/base/dir -type d)  - Рекурсивно задать права доступа для всех папок и для всех файлов
+chmod 644 $(find /path/to/base/dir -type f)
+
+chattr -i -a && ls -la && lsattr -a - удалить в неудаляемого файл/директории защитные атрибуты
+
+lsof -c apache 	- найти все файлы открытые программой.
+lsof -u art 	- Список всех файлов открытых пользователем.
+    - a		- Параметр -a. Комбинирует опции с условием И
+    - ^ 	- lsof -u ^root  символ ^ ставится до имени пользователя root. Этот трюк инвертирует совпадение для lsof на обратное, распечатывая все файлы пользователей отличных от root.
+    -p 1	- Список всех файлов открытых процессом с определенным PID.
+    -i		- Lsof с опцией -i выводит список всех Интернет сокетов (TCP и UDP).  ( lsof -i tcp:80 )
+
+оставать файлы с памяти:
+lsof -nP | grep '(deleted)'
+ls -l /proc/<pid>/fd
+cp /proc/<pid>/fd/<fdno> /new/path/to/file
+
+git config --global core.editor "gedit --wait --new-window"
+
+md5sum file  - хеш md5
+sha1sum file - хеш sha1
+
+sudo blkid                                  - узнать uuid диска
+mount -o loop file.iso /mnt/cdrom           - смонтировать ISO-образ
+sudo dd if=/home/user/file.iso of=/dev/sdc  - Запись образа на флешку
+fuser -km /mnt/hda2                         - принудительное размонтирование раздела
+mount -o bind /home/user/prg /var/ftp/user  - «монтирует» директорию в директорию (например ftp)
+sudo mkfs.vfat -n 'name' -I /dev/sdb1       - форматировать в mkfs.bfs, mkfs.ext4, mkfs.minix, mkfs.msdos, mkfs.vfat,
+
+
+sudo fsck -y -f -c /dev/sda1 — проводим проверку файловой системы.
+    y - отвечать yes на все вопросы (альтернатива: ключ p — запускает проверку в полностью автоматическом режиме);
+    f - принудительная проверка (проводится даже если файловая система помечена как работоспособная);
+    c - искать битые блоки (bad blocks) и помечать их соответствующим образом;
+
+sudo ntfsfix /dev/sdXY  - fix NTFS
+
+sudo badblocks -v /dev/hda1 > ~/badblocks.list #список битых секторов
+sudo fsck -t ext4 -l ~/badblocks.list /dev/hda1
+
+fsck.ext3 -y /dev/sda2
+
+sudo mount -o remount,rw /
+
+sudo cp -Rfv  /boot  /boot_old  - бекап загрузчика
+
+sudo nano /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="quiet ..."
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+cfdisk /dev/sda  - разметка дисков
+lsblk        - древо дисков
+df -h       - заполненость дисков
+xdiskusage
+du -sh ~/     - сколько места занимают файлы
+
+CPU:
+cat /proc/cpuinfo
+Memory
+cat /proc/meminfo
+
+Devices:
+PCI Devices (cards, chipset)
+sudo lspci -v
+
+Usb devices
+sudo lsusb -v
+
+
+gzip ename.ext        - Файл будет сжат в .ext.gz.
+gunzip filename.ext.gz    - развернуть сжатый файл
+zip -r name.zip files/directories  - name  файла, а files файлы/папки включить в архив
+unzip name.zip            - развернуть сжатый файл .zip
+tar -cvf name.tar files/directories  - создать файл .tar
+tar -tvf name.tar  - просмотреть содержимое файла tar
+tar -xvf name.tar  - извлечь содержимое файла .tar
+tar -xzvf name.tgz  - извлечь содержимое файла .tartgz
+
+7z a name.7z -p -mhe file  - зашифровать файл
+
+shutdown -h                     — остановить систему
+shutdown -h hours:minutes &     — запланировать остановку системы на указанное время
+shutdown -c                     — отменить запланированную по расписанию остановку системы
+shutdown -r now или reboot      — перегрузить систему
+logout                          — выйти из системы
+
+
+SSH
+ssh u1234567@123.123.123.123
+
+alsamixer       - настроить звук
+lsmod | grep    - загруженые модули ядра
+dmesg | grep epop   - сис лог
+
+
+sudo asdasd | sort > all_files.txt
+
+xmacrorec2 > log.txt
+xmacroplay ":0.0"
+
+rclone copy <from> <to>
+rclone copy ~/patch gdrive:dir
+
+chromium local extension settings saved patch
+rclone copy gdrive:conf/sync '~/.config/chromium/Default/databases'
+rclone copy gdrive:conf/sync '~/.config/chromium/Default/Local Extension Settings'
+
+sudo apt-get install apache2
+/127.0.0.1  - test
+sudo apt-get install php5 php5-common libapache2-mod-php5 php5-cli php5-cgi php5-mysql
+php -v      - test
+sudo apt-get install mysql-server mysql-client
+sudo apt-get install phpmyadmin
+
+sudo
+  -b - выполнять запускаемую утилиту в фоне
+  -g - запустить команду от группы
+  -i - не выполнять команду, а войти в оболочку, эквивалентно su -
+
+
+sudo rm /etc/resolv.conf ;and sudo sh -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf '
+
+[работает только с под root не sudo]
+su
+cp /etc/pacman.d/mirrorlist.pacnew /etc/pacman.d/mirrorlist.backup
+sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.backup
+echo 'SELECT pacman mirror-Servers'
+geany /etc/pacman.d/mirrorlist.backup
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist
+su art
+
+su
+curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist
+su art
+# pacman -Syy
+# sudo meld /etc/pacman.d/mirrorlist*
+
+sudo reflector --country UA --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist
+
+sudo pacman -Sy     #Синхронизация списка пакетов с репозиториями
+sudo pacman -Syy    #Принудительная синхронизация списка пакетов с репозиториями
+sudo pacman -Syu    #Синхронизация списка пакетов и обновление
+
+
+pacman -Syu        #Update package list and upgrade all packages afterwards.
+pacman -S name     #Install an application
+pacman -S name --asdeps	- temp install
+pacman -U name     #Install name package from a local file /url.
+pacman -Rnsc name  #Delete an application
+
+pacman -Ss name    #Search for regexp "name" in package database.
+pacman -Qs name    #Поиск среди установленных пакетов
+pacman -Si         #Получение информации о пакете
+pacman -Qlq        #вывести список файлов, связанных с пакетом.
+pacman -Qk name    #вывести ко-во файлов, связанных с пакетом.
+pacman -Qu         #вывести список устаревших пакетов.
+pacman -Qen        #cписок явно установленных пакетов, которые доступны в официальных репозиториях
+pacman -Qem        #список явно установленных пакетов, которые не доступны в официальных репозиториях
+
+pacman -Sw имя_пакета   #cкачать пакет, но не устанавливать его
+
+pacman -Rns $(pacman -Qtdq) #удаления сирот
+pacman -Scc        #Очистка кэша пакетов
+
+paclog-pkglist <(tail -100 /var/log/pacman.log  | grep installed)  #To view last installed history
+pacman -Qet        #пакетов, которые были установлены явно и от которых не зависят другие пакеты
+pactree name -d 1    #отображения зависимостей в виде дерева
+pactree -r name     #списка пакетов, которые зависят от конкретного установленного пакета
+pacman -Qlq name | grep -v '/$' | xargs du -h | sort -h    #Построение списка файлов, принадлежащих пакету, с указанием размера
+pacman -Qii name    #список резервных копий файлов и список измененных файлов
+pacman -Qii | awk '/^MODIFIED/ {print $2}'  #список модифицированные файлы
+pacman -Qlq package | grep -v '/$' | xargs du -h | sort -h	- Построение списка файлов, принадлежащих пакету, с указанием размера
+
+yaourt -Syua     #Update Arch Linux system, run
+yaourt name      #Search for regexp "name" in package database.
+yaourt -S --depends name  #список пакетов, которые зависят от packagename
+yaourt -P dir     #Build package from PKGBUILD found in a local directory
+yaourt --stats    #статистика по установленным пакетам
+yaourt -Q --date  #To view last installed history
+expac -HM "%-20n\t%10d" $( comm -23 <(pacman -Qqt|sort) <(pacman -Qqg base base-devel|sort) )    #явно установленные + описание
+pacman -Qdttq #пакеты которые нужны другим пакетам только опционально,
+pacman -Qo /path - какому пакету принадлежит нужный файл
+
+Идентификация файлов, не принадлежащих какому-либо пакету
+1 Создайте отсортированный список файлов, владение на которые вы хотите проверить:
+sudo find /etc /opt /usr | sort > all_files.txt
+2 Создайте отсортированный список файлов, прослеживаемых pacman’ом (и удалите слеши в конце директорий):
+sudo pacman -Qlq | sed 's|/$||' | sort > owned_files.txt
+3 Найдите строки, которые есть в первом списке, но отсутствуют во втором:
+meld all_files.txt owned_files.txt
+
+
+xset dpms 600 600 900     - поменять время для выкл монитора
+xset -q            - статус энергосбережения монитора
+xset -dpms         - выкл выключения монитора
+
+
+# date +%T -s "10:50:30        - Что бы изменить время  -s (--set) с указанием формата %T (--time)
+# date -s  "28 SEP 2013 10:51:00"  - дату – пропускаем опцию %T:
+
+[time sync]
+ntpd -qg
+sudo ntpq -p
+
+su
+which wvdial
+wvdialconf /etc/wvdial.conf
+wvdial
+
+
+[printer]
+sudo pacman -S gutenprint
+# Epson Stylus CX-4300 CX-4400 CX-4450 CX-5500 CX-5600 DX-4400 DX-4450
+SYSFS{idVendor}=="04b8", SYSFS{idProduct}=="083f", MODE="664", GROUP="lp"
+
+
+lsusb
+
+1) установить cups
+2) скачать дрова (набор драйверов gutenprint)
+or
+sudo nano /etc/udev/rules.d
+SYSFS{idVendor}=="04b8", SYSFS{idProduct}=="083f", MODE="664", GROUP="lp"
+3) установить их
+
+sudo systemctl enable org.cups.cupsd.service
+sudo systemctl start org.cups.cupsd.service
+
+затем в браузере:
+http://localhost:631/admin
+
+
+[scan]
+#find scan
+lsusb gives
+scanimage -L
+sane-find-scanner
+
+#install driver
+iscan iscan-data
+iscan-plugin-cx4400
+
+#I added myself to groups
+sudo usermod -a -G lp art
+sudo usermod -a -G scanner art
+sudo usermod -a -G saned art
+
+[scan need test]
+sudo nano /etc/sane.d/dll.conf
+
+"# /etc/sane.d/dll.conf – Configuration file for the SANE dynamic backend loader
+net
+epkowa"
+# epkowa.conf — sample configuration for the EPKOWA SANE backend
+usb
+scsi
+# net X.X.X.10
+# net autodiscovery
+sudo nano /etc/sane.d/epkowa.conf
+
+
+[scan old]
+сканирование -- через программу gscan2pdf:
+yaourt -S gscan2pdf --noconfirm
+or
+
+systemctl start org.cups.cupsd  - epson
+sudo udevadm control --reload-rules
+sudo usermod -a -G <groupname> art
+  - lp
+  - scanner
+sane-find-scanner
+iscan-registry -r interpreter usb 0x04b8 0x083f
+or
+
+/etc/udev/rules.d/49-sane-missing-scanner.rules
+# Epson Stylus CX-4300 CX-4400 CX-4450 CX-5500 CX-5600 DX-4400 DX-4450
+ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="083f", MODE="0664", GROUP="scanner", ENV{libsane_matched}="yes"
+
+
+
+LAMP
+sudo pacman -S apache php php-apache mysql php-mcrypt phpmyadmin
+systemctl start httpd.service
+su
+mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+systemctl start mysqld.service
+mysql_secure_installation
+
+
+
+
+/etc/default/rcS и заменить UTC=yes на UTC=no. Вы можете сделать это командой:
+$ sudo sed -i 's/UTC=yes/UTC=no/' /etc/default/rcS
+
+
+# i3 save works tab
+pac -S perl-anyevent-i3
+i3-save-tree --workspace 2 > ~/.config/i3/workspace_2.json
+tail -n +2 ~/.config/i3/workspace_2.json | fgrep -v '// splitv' | sed 's|//||g' > ~/.config/i3/workspace_2.json
+
+
+
+[bild pac]
+libtoolize --force
+aclocal
+autoheader
+automake --force-missing --add-missing
+autoconf
+cd ./src
+aclocal
+autoconf
+autoheader
+automake --add-missin
+cd ..
+./configure
+
+autoheader && aclocal && libtoolize --ltdl --copy --force && automake --add-missing --copy && autoconf && ./configure
+autoheader ;and aclocal ;and libtoolize --ltdl --copy --force ;and automake --add-missing --copy ;and autoconf ;and ./configure
+
+
+bash
+CTRL-A  Перемещение курсора в начало строки
+CTRL-E  Перемещение курсора в конец строки
+CTRL-W  Вырезать последнее слово
+CTRL-U  Вырезать всё до курсора
+CTRL-K  Вырезать всё после курсора
+CTRL-Y  Вернуть последнюю вырезанную строку
+CTRL-_  Отмена
+CTRL-L  Очистка экрана терминала
+
+[vim]
+dd   - вырезать строку
+P — вставка содержимого неименнованного буфера перед курсором
+J   - УДАЛЕНИЕ ПЕРЕНОСА СТРОКИ
+u   - Отмена операции
+CTRL-R   - ПОВТОРНОЕ ВЫПОЛНЕНИЕ КОМАНДЫ (ОТМЕНА ОТМЕНЫ)j
+:q!   - ВЫХОД БЕЗ СОХРАНЕНИЯ ИЗМЕНЕНИЙ
+0 ("ноль") — в начало текущей строки;
+^ — в начало текущей строки (к первому непробельному символу);
+$ — в конец текущей строки
+w — на слово вправо
+b — на слово влево
+W — до пробела вправо
+B — до пробела влево
+gg — перейти в начало файла
+G — перейти в конец файла
+
+i — перейти в режим ввода с текущей позиции
+a — перейти в режим ввода после курсора
+I — переместиться в начало строки и перейти в режим ввода
+А — переместиться в конец строки и перейти в режим ввода
+o — перейти в режим ввода с новой строки под курсором
+S - удаляет всю текущую строку и переходит в режим ввода
+
+R — перейти в режим ввода с заменой текста (аналог insert).
+r — заменить один символ
+
+x — удалить символ под курсором
+X — удалить символ влево (удалить символ перед курсором)
+
+pacr arch-install-scripts broadcom-wl feh gmrun l3afpad laptop-detect lxterminal mate-themes network-manager-applet xf86-video-voodoo xf86-video-vesa xf86-video-openchrome xf86-video-nouveau xf86-video-intel xf86-video-fbdev xf86-video-dummy xf86-input-void xf86-input-synaptics xf86-input-evdev volumeicon vi usb_modeswitch xdg-user-dirs refind-efi firefox licenses networkmanager obconf openbox openbox-themes pcmanfm ncdu nbd s-nail scrot slock tcl tint2 ttf-bitstream-vera wpa_supplicant dropbear efitools
+
+sed -r "s#'''[a-z]{9,20}@gmail\.com'''#'''xxxxxxxxxxx@gmail.com'''#g" -i ~/.dotfiles/.bar/panel
+
+/usr/lib/chromium/chromium --enable-features=CheckerImaging --flag-switches-begin --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=true --enable-fast-unload --enable-gpu-rasterization --enable-tcp-fastopen --ignore-gpu-blacklist --num-raster-threads=2 --enable-features=CheckerImaging,OverlayScrollbar --disable-features=AutofillShowTypePredictions,OptimizationHints --flag-switches-end

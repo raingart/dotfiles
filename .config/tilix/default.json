@@ -1,0 +1,18 @@
+{
+    "child": {
+        "directory": "/tmp",
+        "height": 600,
+        "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+        "readOnly": false,
+        "synchronizedInput": true,
+	"title": "${id}: ${title}",
+        "type": "Terminal",
+        "width": 1280
+    },
+    "height": 600,
+    "name": "Default",
+    "synchronizedInput": false,
+    "type": "Session",
+    "version": "1.0",
+    "width": 1280
+}

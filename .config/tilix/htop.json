@@ -1,0 +1,18 @@
+{
+    "child": {
+        "directory": "~/",
+        "height": 500,
+	"overrideCommand": "htop",
+        "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+        "readOnly": false,
+        "synchronizedInput": true,
+        "type": "Terminal",
+        "width": 1280
+    },
+    "height": 500,
+    "name": "htop",
+    "synchronizedInput": false,
+    "type": "Session",
+    "version": "1.0",
+    "width": 1280
+}
