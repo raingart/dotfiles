@@ -53,8 +53,8 @@
     timeout = 8
     
 [urgency_critical]
-    background = "#267fb5"
-    foreground = "#ffffff"
-    # background = "#fbc02d"
-    # foreground = "#000000"
+    # background = "#267fb5"
+    # foreground = "#ffffff"
+    background = "#181818"
+    foreground = "#CECFD1"
     timeout = 8

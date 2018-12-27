@@ -33,7 +33,7 @@ pacman -Sy yaourt --noconfirm
 # gst-plugins-ugly 
 # pacman -S  htop xf86-video-ati alsa-utils lxappearance wget gsimplecal dmenu mc dconf-editor conky --noconfirm
 
-pacman -S lxdm avahi fish i3-gaps i3status chromium git reflector file-roller nitrogen geany dunst qt5ct xorg-xprop xclip xxkb ttf-droid ttf-dejavu ttf-liberation faenza-icon-theme mpg123 gnome-calculator python-pip xdiskusage meld gnome-screenshot smplayer qbittorrent filezilla xnviewmp --noconfirm
+pacman -S lxdm avahi fish i3-gaps i3status chromium git reflector file-roller nitrogen geany dunst qt5ct xorg-xprop xclip xxkb ttf-droid ttf-dejavu ttf-liberation faenza-icon-theme mpg123 gnome-calculator python-pip xdiskusage meld gnome-screenshot smplayer qbittorrent filezilla xnviewmp fzf --noconfirm
 #conky-manager inkscape pinta gthumb ppsspp  
 #inxi dmidecode gnome-disk-utility neofetch woeusb-git
 

@@ -31,7 +31,7 @@ include-file = ~/.config/polybar/modules/gmail.conf
 include-file = ~/.config/polybar/modules/deadbeef.conf
 include-file = ~/.config/polybar/modules/weather.conf
 
-# include-file = ~/.config/polybar/modules/xwindow.conf
+include-file = ~/.config/polybar/modules/xwindow.conf
 # include-file = ~/.config/polybar/modules/updates.conf
 # include-file = ~/.config/polybar/modules/memory.conf
 # include-file = ~/.config/polybar/modules/cpu.conf
@@ -84,10 +84,10 @@ include-file = ~/.config/polybar/modules/powermenu.conf
 
 
 [bar/main_bar]
-# modules-left = i3 gmail wmname
 modules-left = i3 gmail wmname
-modules-center = deadbeef xwindow
-modules-right =  kbd weather volume-bar date powermenu
+# modules-center = deadbeef xwindow
+modules-center = deadbeef
+modules-right =  weather volume-bar kbd date powermenu
 ; wlan  powermenu  cpu memory
 
 # monitor = ${env:MONITOR:HDMI-0}

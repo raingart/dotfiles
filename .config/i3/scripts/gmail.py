@@ -142,7 +142,7 @@ def open_rss_link(URL):
    #  from urllib import parse
     rss = feedparser.parse(URL)
     count = 0
-    max_open_email = 8
+    max_open_email = 5
     debug_echo( "Feed Title %s" % rss.feed.title )
 
     for entry in rss.entries:

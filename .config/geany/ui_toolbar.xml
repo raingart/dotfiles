@@ -18,16 +18,15 @@ at http://www.geany.org/manual/current/index.html#customizing-the-toolbar.
 		<toolitem action='New' />
 		<toolitem action='Open' />
 		<toolitem action='Save' />
-		<separator/>
 		<toolitem action='SaveAs' />
-		<toolitem action='SaveAll' />
 		<separator/>
 		<toolitem action='Undo' />
 		<toolitem action='Redo' />
 		<separator/>
 		<toolitem action='Color' />
-		<separator/>
+		<toolitem action='Replace' />
 		<toolitem action='SearchEntry' />
+		<separator/>
 		<toolitem action='Search' />
 		<separator/>
 		<toolitem action='GotoEntry' />

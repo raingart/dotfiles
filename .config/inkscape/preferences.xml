@@ -7,7 +7,7 @@
      id="window">
     <group
        id="task"
-       taskset="0" />
+       taskset="1" />
     <group
        id="menu"
        state="1" />
@@ -16,7 +16,7 @@
        state="1" />
     <group
        id="snaptoolbox"
-       state="1" />
+       state="0" />
     <group
        id="toppanel"
        state="1" />
@@ -28,13 +28,13 @@
        state="1" />
     <group
        id="panels"
-       state="1" />
+       state="0" />
     <group
        id="rulers"
        state="0" />
     <group
        id="scrollbars"
-       state="1" />
+       state="0" />
   </group>
   <group
      id="fullscreen">
@@ -132,8 +132,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="0"
-         height="0"
+         width="117.143"
+         height="871.429"
          rx="0"
          ry="0" />
       <eventcontext
@@ -172,17 +172,17 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="159.644"
-         ry="84.4753"
+         rx="318.571"
+         ry="374.286"
          open="0" />
       <eventcontext
          id="star"
-         magnitude="15"
+         magnitude="5"
          style="fill:yellow;"
          usecurrent="1"
          proportion="0.5"
          rounded="0"
-         randomized="0"
+         randomized="0.2"
          isflatsided="0" />
       <eventcontext
          id="spiral"
@@ -331,7 +331,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -361,8 +361,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="-32.9311"
-       y="619.963"
+       x="429.919"
+       y="674.131"
        edit_clipping_paths="1"
        edit_masks="1" />
     <eventcontext
@@ -437,7 +437,7 @@
        precision="2"
        scale="100"
        offset="5"
-       unit="px" />
+       unit="mm" />
   </group>
   <group
      id="palette">
@@ -584,11 +584,11 @@
        page="0"
        x="0"
        y="0"
-       w="303"
-       h="421"
+       w="1"
+       h="1"
        visible="1"
-       state="2"
-       placement="5" />
+       state="3"
+       placement="1" />
     <group
        id="filtereffects" />
     <group
@@ -605,11 +605,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="292"
-       h="381"
+       w="294"
+       h="483"
        align-to="0"
-       visible="1"
-       state="3"
+       visible="0"
+       state="2"
        placement="1" />
     <group
        id="xml" />
@@ -629,15 +629,25 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       x="736"
-       y="225"
-       w="511"
-       h="594"
+       x="1031"
+       y="121"
+       w="519"
+       h="614"
        visible="0"
        placement="1" />
     <group
        id="preferences"
-       state="1" />
+       state="1"
+       page="1"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="412"
+       y="383"
+       w="456"
+       h="257" />
     <group
        id="gradienteditor" />
     <group
@@ -654,24 +664,27 @@
        panel_border="0"
        x="0"
        y="0"
-       w="303"
-       h="421"
+       w="309"
+       h="449"
        visible="1"
        state="2"
-       placement="5">
+       placement="1">
       <group
          id="exportarea"
          value="drawing" />
       <group
          id="defaultxdpi"
          value="96.4" />
+      <group
+         id="hideexceptselected"
+         value="0" />
     </group>
     <group
        id="save_as"
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/art/projects/godot/my/assets/sprites"
+       path="/home/art/projects/godot/svg/sprites/svg"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -682,7 +695,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/art/Pictures/" />
+       path="/home/art/projects/godot/svg/sprites/svg/" />
     <group
        id="import"
        enable_preview="1"
@@ -726,7 +739,7 @@
        h="154"
        visible="1"
        state="2"
-       placement="1" />
+       placement="2" />
     <group
        id="extensioneditor" />
     <group
@@ -756,6 +769,20 @@
        on-focus="1.0"
        on-blur="0.50"
        animate-time="100" />
+    <group
+       id="pixelart"
+       panel_size="1"
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="294"
+       h="251"
+       visible="0"
+       state="2"
+       placement="1" />
   </group>
   <group
      id="printing">
@@ -1045,7 +1072,7 @@
      id="extensions" />
   <group
      id="desktop"
-     style="line-height:1.25;fill:#000000;fill-opacity:1;opacity:1">
+     style="line-height:1.25;fill:#121212;fill-opacity:1;opacity:1;stroke:none;stroke-opacity:1;fill-rule:evenodd">
     <group
        width="1280"
        height="1004"
