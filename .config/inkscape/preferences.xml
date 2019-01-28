@@ -177,13 +177,13 @@
          open="0" />
       <eventcontext
          id="star"
-         magnitude="5"
+         magnitude="3"
          style="fill:yellow;"
          usecurrent="1"
          proportion="0.5"
          rounded="0"
          randomized="0.2"
-         isflatsided="0" />
+         isflatsided="1" />
       <eventcontext
          id="spiral"
          style="fill:none;stroke:black"
@@ -361,8 +361,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="429.919"
-       y="674.131"
+       x="0"
+       y="0"
        edit_clipping_paths="1"
        edit_masks="1" />
     <eventcontext
@@ -671,7 +671,7 @@
        placement="1">
       <group
          id="exportarea"
-         value="drawing" />
+         value="page" />
       <group
          id="defaultxdpi"
          value="96.4" />
@@ -1000,6 +1000,7 @@
        masks="65535" />
     <group
        id="svgoutput"
+       disable_optimizations="0"
        usenamedcolors="0"
        numericprecision="8"
        minimumexponent="-8"

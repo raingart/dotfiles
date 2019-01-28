@@ -38,7 +38,7 @@ pacman -S lxdm avahi fish i3-gaps i3status chromium git reflector file-roller ni
 #inxi dmidecode gnome-disk-utility neofetch woeusb-git
 
 yaourt -S tilix-bin py3status spacefm-git downgrade unclutter-xfixes-git qt5-styleplugins ttf-ms-fonts ttf-font-awesome visual-studio-code-bin deadbeef-git qownnotes telegram-desktop-bin --noconfirm
-#epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder
+#epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb
 
 # coredump OFF
 echo -e 'Storage=none' >> /etc/systemd/coredump.conf

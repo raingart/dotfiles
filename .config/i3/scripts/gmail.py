@@ -148,19 +148,24 @@ def open_rss_link(URL):
     for entry in rss.entries:
         debug_echo("Title: %s" % entry.title)
         debug_echo("link: %s" % entry.link)
+        
+        if entry.author == "Patreon (no-reply@patreon.com)":
+            debug_echo("skip: %s" % entry.author)
+            continue
 
         f = parse.parse_qsl(parse.urlsplit(entry.link).query)
         message_id = dict(f)['message_id']
         debug_echo("message_id: %s" % message_id)
-
-        # webbrowser.open_new_tab(entry.link)
-        webbrowser.open_new_tab('https://mail.google.com/mail/u/0/h/?&v=c&th=' + message_id)
-
+        
         count += 1
         if int(count) > int(max_open_email):
             webbrowser.open_new_tab('https://mail.google.com/')
             print("to many open new mail!")
             break
+
+        # webbrowser.open_new_tab(entry.link)
+        webbrowser.open_new_tab('https://mail.google.com/mail/u/0/h/?&v=c&th=' + message_id)
+
 
     # return entry.link
 

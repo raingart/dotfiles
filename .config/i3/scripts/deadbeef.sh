@@ -8,7 +8,8 @@ web_open_url="\youtube.com/results?search_query="
 # \[     #match [
 # [^]]*  #match any non "]" chars
 # \]     #match ]
-player_track_name=$(deadbeef --nowplaying "%a - %t" 2>/dev/null | sed 's/\[[^]]*\]//g' | sed 's/|[0-9]\{7\}//g' )
+#player_track_name=$(deadbeef --nowplaying "%a - %t" 2>/dev/null | sed 's/\[[^]]*\]//g' | sed 's/|[0-9]\{7\}//g' )
+player_track_name=$(deadbeef --nowplaying "%a - %t" 2>/dev/null)
 
 # -eq:"==", -ne:"!=", -lt:"<", -le "<=": , -gt:">" -ge:">="
 
