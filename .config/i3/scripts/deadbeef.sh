@@ -2,7 +2,7 @@
 
 # Specifying the icon(s) in the script
 # This allows us to change its appearance conditionally
-web_open_url="\youtube.com/results?search_query="
+# web_open_url="\youtube.com/results?search_query="
 
 # the regex is actually straightforward:
 # \[     #match [
@@ -10,8 +10,6 @@ web_open_url="\youtube.com/results?search_query="
 # \]     #match ]
 #player_track_name=$(deadbeef --nowplaying "%a - %t" 2>/dev/null | sed 's/\[[^]]*\]//g' | sed 's/|[0-9]\{7\}//g' )
 player_track_name=$(deadbeef --nowplaying "%a - %t" 2>/dev/null)
-
-# -eq:"==", -ne:"!=", -lt:"<", -le "<=": , -gt:">" -ge:">="
 
 # show_play_track() {
   if [[ $player_track_name == "nothing" ]];then

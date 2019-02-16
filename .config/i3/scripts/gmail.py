@@ -133,7 +133,7 @@ def send_noti(HEAD="mail notify", MSG="test", LEVEL="low"):
     }[True]
     # import os
     # --icon=mail-forward
-    return os.system('notify-send "%s" "%s" -u %s' % (HEAD, MSG, level))
+    #return os.system('notify-send "%s" "%s" -u %s' % (HEAD, MSG, level))
 
 
 def open_rss_link(URL):

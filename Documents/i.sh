@@ -1,41 +1,26 @@
 #!/bin/bash
 
 #!!!Script must be run as sudo, not root!!!
-#help how to use:
-
 #chmod +x i.sh
 #sudo ./i.sh
-
-# mkinitcpio -p linux
 
 curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /etc/pacman.d/mirrorlist
 cat /etc/pacman.d/mirrorlist
 
 # Upgrade System
-# pacman -Syuu --noconfirm #generated new mirrorlist
 pacman -Syuw --noconfirm #generated new mirrorlist
-
-#pacman-key --populate archlinux #импортировать ключи
-# pacman -Syyuu; pacman -Suu
-
-# pacs archlinux-keyring
-
-pacman -S base-devel --needed --noconfirm
 
 # Add AUR repo
 echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
-# echo -e '[archlinuxcn]\nSigLevel = Never\nServer = https://cdn.repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
-
 pacman -Sy yaourt --noconfirm
 
 # Install Apps
 # pulseaudio pavucontrol / alsa-firmware  alsa-oss
 # gst-plugins-ugly 
-# pacman -S  htop xf86-video-ati alsa-utils lxappearance wget gsimplecal dmenu mc dconf-editor conky --noconfirm
+#htop xf86-video-ati alsa-utils lxappearance wget gsimplecal dmenu mc dconf-editor conky --noconfirm
+#conky-manager inkscape pinta gthumb
 
-pacman -S lxdm avahi fish i3-gaps i3status chromium git reflector file-roller nitrogen geany dunst qt5ct xorg-xprop xclip xxkb ttf-droid ttf-dejavu ttf-liberation faenza-icon-theme mpg123 gnome-calculator python-pip xdiskusage meld gnome-screenshot smplayer qbittorrent filezilla xnviewmp fzf --noconfirm
-#conky-manager inkscape pinta gthumb ppsspp  
-#inxi dmidecode gnome-disk-utility neofetch woeusb-git
+pacman -S lxdm avahi fish i3-gaps i3status chromium git file-roller nitrogen geany dunst qt5ct xorg-xprop xclip xxkb ttf-droid ttf-dejavu ttf-liberation faenza-icon-theme mpg123 gnome-calculator python-pip xdiskusage meld gnome-screenshot smplayer qbittorrent filezilla xnviewmp fzf --noconfirm
 
 yaourt -S tilix-bin py3status spacefm-git downgrade unclutter-xfixes-git qt5-styleplugins ttf-ms-fonts ttf-font-awesome visual-studio-code-bin deadbeef-git qownnotes telegram-desktop-bin --noconfirm
 #epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb
@@ -76,10 +61,6 @@ chmod u+s /usr/bin/wvdial
 # set fish default shell
 # chsh -s /usr/bin/fish
 
-reflector --country UA --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-
-# chmod 4755 /bin/ping
-
 # from GTK 3
 # mkdir -p ~/.config/gtk-3.0
 # echo -e "[Settings]\ngtk-recent-files-max-age=0\ngtk-recent-files-limit=0" > ~/.config/gtk-3.0/settings.ini
@@ -98,6 +79,9 @@ echo -e '127.0.0.1	ssl.google-analytics.com' >> /etc/hosts
 # OFF swap
 systemctl disable swap.target
 
+# sync time ON
+timedatectl set-ntp true
+
 # Отключение и удаление служб, созданных archiso
 systemctl disable pacman-init.service choose-mirror.service
 rm -r /etc/systemd/system/{choose-mirror.service,pacman-init.service,etc-pacman.d-gnupg.mount,getty@tty1.service.d}
@@ -110,4 +94,5 @@ sed -i.bak 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /boot/grub/grub.cfg
 # sed -i.bak 's/timeout=5/timeout=1/g' /boot/grub/grub.cfg
 grub-mkconfig -o /boot/grub/grub.cfg
 
+read -p "pause 1- sec" -t 10
 #reboot

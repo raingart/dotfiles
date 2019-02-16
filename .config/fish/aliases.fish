@@ -43,7 +43,7 @@ alias up='yaourt -Syua' # ;and pacman -Scc'
 # alias upyx='yaourt -Syyu --aur --noconfirm; shutdown -h now'
 alias upy='yaourt -Syua --noconfirm ;and pacman -Scc'
 alias upyx='yaourt -Syua --noconfirm; shutdown -P now'
-alias upmiror='sudo reflector --country UA --protocol https --sort rate --save /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist'
+alias upmiror="sudo curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
 
 alias fishr='source ~/.config/fish/config.fish'
 alias dunstr='killall dunst; notify-send "dunst restart" "test critical" -u critical & notify-send "dunst" "test normal" -u normal & notify-send "dunst" "test low" -u low'
@@ -51,6 +51,6 @@ alias dunstr='killall dunst; notify-send "dunst restart" "test critical" -u crit
 alias xprop='xprop | grep -E "^(WM_CLASS|_NET_WM_NAME|WM_NAME)"'
 alias xoff='shutdown -P now'
 alias x='exit'
-alias usbsw='sudo /usr/sbin/usb_modeswitch -v 12d1 -p 1446 -c /usr/share/usb_modeswitch/12d1:1446'
+# alias usbsw='sudo /usr/sbin/usb_modeswitch -v 12d1 -p 1446 -c /usr/share/usb_modeswitch/12d1:1446'
 alias steam="env LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' \
             STEAM_RUNTIME=1 steam"
