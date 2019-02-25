@@ -4,15 +4,13 @@
 set $mod Mod4
 set $alt Mod1
 
+floating_modifier $mod
+
 # font pango: Droid Sans 9
 font pango: FontAwesome 8
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
 set $Browser chromium
-# set $Browser chromium --flag-switches-begin --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=true --enable-fast-unload --enable-gpu-rasterization --enable-tcp-fastopen --ignore-gpu-blacklist --num-raster-threads=2 --top-chrome-md=material --enable-features=OmniboxUIExperimentHideSteadyStateUrlSchemeAndSubdomains,OverlayScrollbar --disable-features=AutofillShowTypePredictions,OptimizationHints --flag-switches-end
-# set $Browser `chromium --enable-native-gpu-memory-buffers --enable-features="CheckerImaging"`
+# set $Browser /usr/lib/chromium/chromium --flag-switches-begin --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=true --enable-fast-unload --enable-gpu-rasterization --enable-oop-rasterization --enable-tcp-fastopen --ignore-gpu-blacklist --num-raster-threads=2 --enable-features=OverlayScrollbar --disable-features=AutofillShowTypePredictions,OptimizationHints --flag-switches-end
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -24,9 +22,6 @@ bindsym $mod+Escape [class="^.*"] kill
 
 # start dmenu (a program launcher)
 bindsym $mod+End exec dmenu_run
-# bindsym $mod+End exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 20"
-# bindsym $mod+d exec dmenu_run -fn 'Terminus-12' -nb '#021215' -nf '#657b83' -sb '#002b36' -sf '#93a1a1'
-# bindsym $alt+d exec dmenu_run
 bindsym $alt+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 20"
 
 # if Insert kbkey
@@ -85,8 +80,7 @@ bindsym $mod+Prior workspace prev
 bindsym $alt+Tab focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
-
+# bindsym $mod+a focus parent
 # focus the child container
 # bindsym $mod+d focus child
 
@@ -161,36 +155,31 @@ mode "" {
 }
 bindsym $mod+r mode ""
 
-# set $mode_system System [l]ock, [e]logout, [s]uspend, [h]ibernate, [r]eboot, (Pause) shutdown
+# set $mode_system System [L]ock, [E]logout, [S]uspend, [H]ibernate, [R]eboot, (Pause) shutdown
 # set $mode_system System:  L:  | S:  | P:  | R:  | E: 
-set $mode_system System:  P:  | Q:  | E: 
+set $mode_system System: (Pause) shutdown | [Q]reboot | [E]logout
 mode "$mode_system" {
-   # bindsym l exec --no-startup-id $Locker, mode "default"
    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-   # bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-   # bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
    bindsym q exec --no-startup-id systemctl reboot, mode "default"
-   bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"
    bindsym Pause exec --no-startup-id systemctl poweroff -i, mode "default"
 
    # back to normal: Enter or Escape
    bindsym Return mode "default"
    bindsym Escape mode "default"
 }
-bindsym $mod+Pause mode "$mode_system"
+bindsym Pause mode "$mode_system"
 # bindsym XF86Sleep mode "$mode_system"
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+# gap mode.
+# set $mode_gaps Gaps: (o) outer, (i) inner
+# set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# bindsym $mod+Shift+g mode "$mode_gaps"
 
 # Start Polybar
 # exec_always --no-startup-id sleep 6 && ~/.config/polybar/launch.sh
 # polybar Depends: jsoncpp
 
-# Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
    status_command sleep 6 && py3status -c ~/.config/i3/.pyi3status.conf
    ## output DVI-I-2
@@ -218,7 +207,6 @@ bar {
       # focused_workspace     	$client_border	$focused   	#adadad
    }
 }
-# https://github.com/raingart/dotfiles/blob/e449b8912d6ba3b5187ecac01e2f276b9f7b92c1/.config/i3/.i3blocks.conf
 
 # workspace 3 output
 # workspace 1 output DVI-0
@@ -236,7 +224,6 @@ set $separator #2683DF
 set $focused #4682b4
 
 #colorclass		border		background	text		indicator	child_border
-# client.focused  	$client_border	"#0093b0"	"#ffffff"	"#6093b0"	$child_border
 client.focused		$client_border	"#323232"	"#ffffff"	"#6093b0"	$child_border
 client.focused_inactive	#client_border	"#191919"	"#E5E5E5"	"#454948"	$child_border
 client.unfocused	#client_border	"#222222"	"#888888"	"#000000"	$child_border
@@ -261,7 +248,6 @@ new_window none
 hide_edge_borders none
 
 bindsym $mod+b border toggle
-
 
 # hide_edge_borders both
 # workspace_layout <default|stacking|tabbed>
@@ -301,10 +287,8 @@ set $MicStatus `amixer get Capture |grep "Front Left:" | awk '{ print ($7) }'`
 # Alsa Audio controls
 bindsym XF86AudioRaiseVolume  exec amixer -q set Master $volumeStep+ unmute
 bindsym XF86AudioLowerVolume  exec amixer -q set Master $volumeStep- unmute
-
 bindsym XF86AudioMute         exec ~/.config/i3/scripts/toggle_vol.sh
 bindsym $alt+XF86AudioMute    exec amixer -q set Capture toggle && notify-send "Asla Mic/Capture" "$MicStatus" -u low -t 1000;
-
 bindsym $mod+XF86AudioMute    exec tilix -e "alsamixer"
 bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set Master $MasterDefaultLevel
 
@@ -342,24 +326,22 @@ bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes
 bindsym XF86Favorites       exec --no-startup-id code
 bindsym $mod+XF86Favorites  exec --no-startup-id geany
 
-# bindsym $mod+Shift+F12	    exec "pgrep 'wvdial' | xargs kill; killall conky; conky"
+# bindsym $mod+Shift+F12      exec "pgrep 'wvdial' | xargs kill; killall conky; conky"
 # bindsym $mod+Control+F12    exec --no-startup-id tilix -e 'wvdial'
-bindsym $mod+Control+F12	    exec "pgrep 'wvdial' | xargs kill; wvdial"
+bindsym $mod+Control+F12      exec "pgrep 'wvdial' | xargs kill; wvdial"
 
-bindsym $mod+Shift+d	exec "killall dunst; exec notify-send 'dunst' 'restart' -u low"
-bindsym $mod+F12    	exec --no-startup-id tilix -s ~/.config/tilix/default.json
-# bindsym $mod+F11    exec --no-startup-id tilix -a session-add-down -e htop
-bindsym $mod+F11    	exec --no-startup-id tilix -s ~/.config/tilix/htop.json
-bindsym $mod+Insert 	exec --no-startup-id telegram-desktop
-bindsym Print       	exec --no-startup-id gnome-screenshot --interactive --clipboard
-bindsym Control+Print	exec --no-startup-id sh -c "gnome-screenshot --area --clipboard"
-# bindsym $mod+Home   	exec "killall conky; conky"
-bindsym $mod+F10    	exec --no-startup-id qbittorrent
-# bindsym $mod+Delete	exec "lockscreen off"
-# bindsym $mod+Delete     exec --no-startup-id sh -c 'i3lock -c 000000 -n'
+bindsym $mod+Shift+d  exec "killall dunst; exec notify-send 'dunst' 'restart' -u low"
+bindsym $mod+F12      exec --no-startup-id tilix -s ~/.config/tilix/default.json
+# bindsym $mod+F11      exec --no-startup-id tilix -a session-add-down -e htop
+bindsym $mod+F11      exec --no-startup-id tilix -s ~/.config/tilix/htop.json
+bindsym $mod+Insert   exec --no-startup-id telegram-desktop
+bindsym Print         exec --no-startup-id gnome-screenshot --interactive --clipboard
+bindsym Control+Print exec --no-startup-id sh -c "gnome-screenshot --area --clipboard"
+bindsym $mod+Home     exec "killall conky; conky"
+bindsym $mod+F10      exec --no-startup-id qbittorrent
+# bindsym $mod+Delete   exec --no-startup-id sh -c 'i3lock -c 000000 -n'
 
-# bindsym F12 [class="Tilix"]           scratchpad show
-bindsym Menu [class="Tilix"]          scratchpad show
+bindsym Menu       [class="Tilix"]            scratchpad show
 bindsym Insert     [class="TelegramDesktop"]  scratchpad show
 bindsym $alt+grave [class="Deadbeef"]         scratchpad show
 bindsym $mod+grave [class="QOwnNotes"]        scratchpad show
@@ -381,23 +363,22 @@ assign [class="Liferea"]                $ws9
 for_window [window_role="(?i)pop-up|(?i)task_dialog|(?i)dialog|bubble|page-info|(?i)Preferences|(?)Warning"]  floating enable
 for_window [title="(?)Warning|(?)Open File|(?)Save Playlist As|(?)Save File|(?)Save image|(?)Add location"]  floating enable
 # for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable
-# for_window [class="(?i)imagewriter"]	floating enable
 # for_window [class="(?i)pavucontrol"]  floating enable
 
 for_window [class="Steam"]                    floating enable
 for_window [class="Steam" title="^Steam$"]    floating disable
-# for_window [class="Steam" instance="Friends"] floating enable
+# for_window [class="Steam" instance="Friends"]     floating enable
 # for_window [class="^Steam$" title="^Friends$"]    floating enable
 # for_window [class="^Steam$" title="Steam - News"] floating enable
 # for_window [class="^Steam$" title=".* - Chat"]    floating enable
 # for_window [class="^Steam$" title="^Settings$"]   floating enable
+# for_window [class="Steam" title="^Steam Keyboard$"]         floating enable
 # for_window [class="^Steam$" title=".* - event started"]     floating enable
 # for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 # for_window [class="^Steam$" title="^Screenshot Uploader$"]  floating enable
 # for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
-# for_window [title="^Steam Keyboard$"]                floating enable
 
-for_window [class="System-config-printer.py"] floating enable
+for_window [class="System-config-printer.py"]   floating enable
 for_window [title="^Task Manager - Chromium$"]  floating enable
 for_window [class="multibootusb"]      floating enable
 for_window [class="Nitrogen"]          floating enable
@@ -409,22 +390,21 @@ for_window [class="Gnome-calculator"]  floating enable
 for_window [class="GParted"]           floating enable
 for_window [class="Godot"]             floating enable
 for_window [class="Godot" title=".*Godot Engine*."]	  floating disable
-for_window [class="ppsspp|PPSSPPSDL"]	  floating enable
-for_window [class="(?i)Flashplayer"]	  floating enable
+for_window [class="ppsspp|PPSSPPSDL"]  floating enable
+for_window [class="(?i)Flashplayer"]   floating enable
 for_window [class="SimpleScreenRecorder"]	floating enable
 for_window [class="(?i)gsimplecal|(?i)orage"]	floating enable, move position mouse
 for_window [class="WoeUSB"]                     floating enable
 for_window [class="QOwnNotes"]                  floating enable
 for_window [class="QOwnNotes" title="Settings"] floating disable
 
+# move scratchpad - minimize
+# scratchpad show - restore
 for_window [class="(?i)xxkb"]  move window to scratchpad
 for_window [class="(?i)tilix"] move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
 for_window [class="Deadbeef"]  move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
-for_window [class="QOwnNotes" title="- QOwnNotes"]  move window to scratchpad, move position 0 0,  resize set 1050 700, move scratchpad
+for_window [class="QOwnNotes" title="- QOwnNotes"]        move window to scratchpad, move position 0 0,  resize set 1050 700, move scratchpad
 for_window [class="(?i)TelegramDesktop" title="Telegram"] move window to scratchpad, move position 640 20, resize set 640 740, move scratchpad
-
-# move scratchpad - minimize
-# scratchpad show - restore
 
 # Start Conky
 exec_always --no-startup-id conky
@@ -439,8 +419,7 @@ exec --no-startup-id sleep 60; xset -dpms && xset s off
 exec --no-startup-id amixer -q set Headphone 90% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
 exec --no-startup-id xxkb
 exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser & megasync & sleep 60 && killall megasync'
-# exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && telegram-desktop'
-exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && $Browser'
+# exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && $Browser'
 exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
 exec --no-startup-id QOwnNotes
 # exec --no-startup-id sh -c 'export FONTCONFIG_FILE=/etc/fonts/ && telegram-desktop'
