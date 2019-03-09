@@ -6,7 +6,7 @@
 # Gtk themes
 export DESKTOP_SESSION="gnome"
 export QT_QPA_PLATFORMTHEME="qt5ct"
-
+export FONTCONFIG_FILE="/etc/fonts/"
 export PATH="$PATH:$HOME/bin"
 
 ## Ensure that GTK themes are applied uniformly in the Desktop Environment

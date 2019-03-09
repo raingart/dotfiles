@@ -200,11 +200,11 @@ bar {
       focused_workspace     	$bg		$bg   		$focused
       active_workspace      	#444444 	#5f676a   	#ffffff
       inactive_workspace    	$bg		$bg   		#2f3640
-      urgent_workspace      	#aa0000		#990000		#ffffff
+      # urgent_workspace      	#aa0000		#990000		#ffffff
       binding_mode          	#323232 	#32323200 	#ffffff
 
       # focused_workspace	#008fff		#0093b0		#ffffff
-      # focused_workspace     	$client_border	$focused   	#adadad
+      urgent_workspace     	$client_border	$focused   	#CBCBCB
    }
 }
 
@@ -272,6 +272,7 @@ no_focus [class="conkypanel"]
 # no_focus [window_role="*"]
 # no_focus [tiling]
 # no_focus [class=".*"]
+no_focus [title="conky (pc)"]
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+KP_Subtract [floating] move scratchpad
@@ -306,7 +307,6 @@ bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set Master $MasterDefaultLev
 # bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume $output_sink -2%
 # bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-volume $output_sink 0%
 
-
 # multimedia hotkey
 # bindsym XF86AudioPlay exec "deadbeef --play-pause||mpc toggle"
 # bindsym XF86AudioStop exec "deadbeef --stop||mpc stop"
@@ -319,8 +319,7 @@ bindsym XF86Mail            exec --no-startup-id spacefm
 # bindsym $mod+XF86Mail       exec --no-startup-id gthumb
 bindsym $mod+XF86Mail       exec --no-startup-id xnviewmp
 bindsym XF86Search          exec smplayer
-# bindsym $mod+XF86Search     exec --no-startup-id deadbeef
-bindsym $mod+XF86Search     exec --no-startup-id sh -c '~/bin/deadbeef'
+bindsym $mod+XF86Search     exec --no-startup-id ~/bin/deadbeef
 # bindsym $mod+XF86Back       exec --no-startup-id ???
 bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes
 bindsym XF86Favorites       exec --no-startup-id code
@@ -330,13 +329,12 @@ bindsym $mod+XF86Favorites  exec --no-startup-id geany
 # bindsym $mod+Control+F12    exec --no-startup-id tilix -e 'wvdial'
 bindsym $mod+Control+F12      exec "pgrep 'wvdial' | xargs kill; wvdial"
 
-bindsym $mod+Shift+d  exec "killall dunst; exec notify-send 'dunst' 'restart' -u low"
 bindsym $mod+F12      exec --no-startup-id tilix -s ~/.config/tilix/default.json
 # bindsym $mod+F11      exec --no-startup-id tilix -a session-add-down -e htop
 bindsym $mod+F11      exec --no-startup-id tilix -s ~/.config/tilix/htop.json
-bindsym $mod+Insert   exec --no-startup-id telegram-desktop
+bindsym $mod+Insert   exec --no-startup-id telegram-desktop -startintray
 bindsym Print         exec --no-startup-id gnome-screenshot --interactive --clipboard
-bindsym Control+Print exec --no-startup-id sh -c "gnome-screenshot --area --clipboard"
+bindsym Control+Print exec --no-startup-id sh -c 'gnome-screenshot --area --clipboard'
 bindsym $mod+Home     exec "killall conky; conky"
 bindsym $mod+F10      exec --no-startup-id qbittorrent
 # bindsym $mod+Delete   exec --no-startup-id sh -c 'i3lock -c 000000 -n'
@@ -361,12 +359,11 @@ assign [class="Liferea"]                $ws9
 
 # for_window [class="^Chromium$"] border none, move container to workspace $ws1
 for_window [window_role="(?i)pop-up|(?i)task_dialog|(?i)dialog|bubble|page-info|(?i)Preferences|(?)Warning"]  floating enable
-for_window [title="(?)Warning|(?)Open File|(?)Save Playlist As|(?)Save File|(?)Save image|(?)Add location"]  floating enable
+for_window [title="(?)Open*.|(?)^Save*.|(?)Add location"]  floating enable
 # for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable
 # for_window [class="(?i)pavucontrol"]  floating enable
-
-for_window [class="Steam"]                    floating enable
-for_window [class="Steam" title="^Steam$"]    floating disable
+for_window [class="Steam"]			floating enable
+for_window [class="Steam" title="^Steam$"]	floating disable
 # for_window [class="Steam" instance="Friends"]     floating enable
 # for_window [class="^Steam$" title="^Friends$"]    floating enable
 # for_window [class="^Steam$" title="Steam - News"] floating enable
@@ -377,33 +374,31 @@ for_window [class="Steam" title="^Steam$"]    floating disable
 # for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 # for_window [class="^Steam$" title="^Screenshot Uploader$"]  floating enable
 # for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
-
-for_window [class="System-config-printer.py"]   floating enable
-for_window [title="^Task Manager - Chromium$"]  floating enable
-for_window [class="multibootusb"]      floating enable
-for_window [class="Nitrogen"]          floating enable
-for_window [class="mpv|smplayer"]      floating enable
-for_window [class="qBittorrent"]       floating enable
-for_window [class="Lxappearance"]      floating enable
-for_window [class="qt5ct"]             floating enable
-for_window [class="Gnome-calculator"]  floating enable
-for_window [class="GParted"]           floating enable
-for_window [class="Godot"]             floating enable
-for_window [class="Godot" title=".*Godot Engine*."]	  floating disable
-for_window [class="ppsspp|PPSSPPSDL"]  floating enable
-for_window [class="(?i)Flashplayer"]   floating enable
+for_window [class="(?i)gsimplecal"]		floating enable, move position mouse
+for_window [class="System-config-printer.py"]	floating enable
+for_window [title="^Task Manager - Chromium$"]	floating enable
+for_window [class="multibootusb"]		floating enable
+for_window [class="Nitrogen"]			floating enable
+for_window [class="mpv|smplayer"]		floating enable
+for_window [class="qBittorrent"]		floating enable
+for_window [class="Lxappearance"]		floating enable
+for_window [class="qt5ct"]			floating enable
+for_window [class="Gnome-calculator"]		floating enable
+for_window [class="GParted"]			floating enable
+for_window [class="ppsspp|PPSSPPSDL"]		floating enable
+for_window [class="(?i)Flashplayer"]		floating enable
 for_window [class="SimpleScreenRecorder"]	floating enable
-for_window [class="(?i)gsimplecal|(?i)orage"]	floating enable, move position mouse
-for_window [class="WoeUSB"]                     floating enable
-for_window [class="QOwnNotes"]                  floating enable
-for_window [class="QOwnNotes" title="Settings"] floating disable
+for_window [class="QOwnNotes"]			floating enable
+for_window [class="QOwnNotes" title="Settings"]	floating disable
+for_window [class="Godot"]			floating enable
+for_window [class="Godot" title=".*Godot Engine*."] floating disable
 
 # move scratchpad - minimize
 # scratchpad show - restore
 for_window [class="(?i)xxkb"]  move window to scratchpad
 for_window [class="(?i)tilix"] move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
-for_window [class="Deadbeef"]  move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
-for_window [class="QOwnNotes" title="- QOwnNotes"]        move window to scratchpad, move position 0 0,  resize set 1050 700, move scratchpad
+for_window [class="Deadbeef" title="^DeaDBeeF-devel$"]  move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
+for_window [class="QOwnNotes" title="- QOwnNotes"]        move window to scratchpad, move position 0 20,  resize set 1050 700, move scratchpad
 for_window [class="(?i)TelegramDesktop" title="Telegram"] move window to scratchpad, move position 640 20, resize set 640 740, move scratchpad
 
 # Start Conky
@@ -415,15 +410,14 @@ exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial"
 exec --no-startup-id tilix
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
-exec --no-startup-id sleep 60; xset -dpms && xset s off
-exec --no-startup-id amixer -q set Headphone 90% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
+exec --no-startup-id amixer -q set Headphone 50% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
 exec --no-startup-id xxkb
+exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
 exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser & megasync & sleep 60 && killall megasync'
 # exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && $Browser'
-exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
+exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid
 exec --no-startup-id QOwnNotes
-# exec --no-startup-id sh -c 'export FONTCONFIG_FILE=/etc/fonts/ && telegram-desktop'
-# exec --no-startup-id telegram-desktop -startintray
-# exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid
+exec --no-startup-id sleep 60; xset -dpms && xset s off
+
 # exec --no-startup-id i3-msg "workspace $ws2; append_layout ~/.config/i3/scripts/workspace_2.json"
 # exec --no-startup-id i3-msg "workspace $ws3; exec spacefm --no-desktop; layout tabbed"

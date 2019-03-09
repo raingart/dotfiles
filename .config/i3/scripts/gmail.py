@@ -133,7 +133,7 @@ def send_noti(HEAD="mail notify", MSG="test", LEVEL="low"):
     }[True]
     # import os
     # --icon=mail-forward
-    #return os.system('notify-send "%s" "%s" -u %s' % (HEAD, MSG, level))
+    # return os.system('notify-send "%s" "%s" -u %s' % (HEAD, MSG, level))
 
 
 def open_rss_link(URL):
@@ -141,30 +141,28 @@ def open_rss_link(URL):
    #  import webbrowser
    #  from urllib import parse
     rss = feedparser.parse(URL)
-    count = 0
     max_open_email = 5
-    debug_echo( "Feed Title %s" % rss.feed.title )
+    debug_echo("Feed Title %s" % rss.feed.title)
+    
+    if (len(rss.entries) > int(max_open_email)):
+       webbrowser.open_new_tab('https://mail.google.com/')
+       print("to many open new mail!")
 
-    for entry in rss.entries:
-        debug_echo("Title: %s" % entry.title)
-        debug_echo("link: %s" % entry.link)
-        
-        if entry.author == "Patreon (no-reply@patreon.com)":
-            debug_echo("skip: %s" % entry.author)
-            continue
-
-        f = parse.parse_qsl(parse.urlsplit(entry.link).query)
-        message_id = dict(f)['message_id']
-        debug_echo("message_id: %s" % message_id)
-        
-        count += 1
-        if int(count) > int(max_open_email):
-            webbrowser.open_new_tab('https://mail.google.com/')
-            print("to many open new mail!")
-            break
-
-        # webbrowser.open_new_tab(entry.link)
-        webbrowser.open_new_tab('https://mail.google.com/mail/u/0/h/?&v=c&th=' + message_id)
+    else:
+       for entry in rss.entries:
+          debug_echo("Title: %s" % entry.title)
+          debug_echo("link: %s" % entry.link)
+          
+          if entry.author == "Patreon (no-reply@patreon.com)":
+             debug_echo("skip: %s" % entry.author)
+             continue
+             
+          f=parse.parse_qsl(parse.urlsplit(entry.link).query)
+          message_id=dict(f)['message_id']
+          debug_echo("message_id: %s" % message_id)
+          
+          # webbrowser.open_new_tab(entry.link)
+          webbrowser.open_new_tab('https://mail.google.com/mail/u/0/h/?&v=c&th=' + message_id)
 
 
     # return entry.link
@@ -172,17 +170,17 @@ def open_rss_link(URL):
 
 def get_gmail(URL):
    #  from urllib.request import FancyURLopener
-    opener = FancyURLopener()
-    page = opener.open(URL)
-    contents = page.read().decode('utf-8')
+    opener=FancyURLopener()
+    page=opener.open(URL)
+    contents=page.read().decode('utf-8')
     # print(contents)
-    ifrom = contents.index('<fullcount>') + 11
-    ito = contents.index('</fullcount>')
+    ifrom=contents.index('<fullcount>') + 11
+    ito=contents.index('</fullcount>')
 
-    fullcount = contents[ifrom:ito]
+    fullcount=contents[ifrom:ito]
 
     if int(fullcount) > 0:
-        ed = "mail"
+        ed="mail"
         if int(fullcount) > 1:
             ed += "s"
 
@@ -223,8 +221,8 @@ def main():
         debug_echo("Working...")
 
         #  if check_inet_connect():
-        mail_url = parse_config(CONFIG_PATH)
-        new_gmail = get_gmail(mail_url)
+        mail_url=parse_config(CONFIG_PATH)
+        new_gmail=get_gmail(mail_url)
         # print(new_gmail)
         if new_gmail:
             open_rss_link(new_gmail)
