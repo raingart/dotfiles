@@ -342,8 +342,8 @@
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"
        selcue="1">
       <group
-         id="lineheight"
-         display_unit="0" />
+         display_unit="0"
+         id="lineheight" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -432,12 +432,12 @@
        offset="0"
        offsetunits="mm" />
     <group
-       id="measure"
-       fontsize="10"
-       precision="2"
-       scale="100"
+       unit="mm"
        offset="5"
-       unit="mm" />
+       scale="100"
+       precision="2"
+       fontsize="10"
+       id="measure" />
   </group>
   <group
      id="palette">
@@ -676,8 +676,8 @@
          id="defaultxdpi"
          value="96.4" />
       <group
-         id="hideexceptselected"
-         value="0" />
+         value="0"
+         id="hideexceptselected" />
     </group>
     <group
        id="save_as"
@@ -770,19 +770,19 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       id="pixelart"
-       panel_size="1"
-       panel_ratio="100"
-       panel_mode="1"
-       panel_wrap="0"
-       panel_border="0"
-       x="0"
-       y="0"
-       w="294"
-       h="251"
-       visible="0"
+       placement="1"
        state="2"
-       placement="1" />
+       visible="0"
+       h="251"
+       w="294"
+       y="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="pixelart" />
   </group>
   <group
      id="printing">

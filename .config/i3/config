@@ -88,8 +88,8 @@ bindsym $alt+Tab focus mode_toggle
 # http://fortawesome.github.io/Font-Awesome/cheatsheet/
 set $ws1 1:
 set $ws2 2:
-set $ws3 3:
-set $ws4 4:
+set $ws3 3:
+set $ws4 4:
 set $ws5 5:
 set $ws6 6:
 set $ws7 7:
@@ -181,9 +181,9 @@ bindsym Pause mode "$mode_system"
 # polybar Depends: jsoncpp
 
 bar {
-   status_command sleep 6 && py3status -c ~/.config/i3/.pyi3status.conf
-   ## output DVI-I-2
-   ## tray_output HDMI-0
+   status_command sleep 6 && py3status -c ~/.config/i3/py3status.conf
+   # output DVI-I-2
+   # tray_output HDMI-0
    position top
    separator_symbol "|"
    strip_workspace_numbers yes
@@ -347,36 +347,36 @@ bindsym $mod+grave [class="QOwnNotes"]        scratchpad show
 
 # Where to run
 assign [class="Chromium"]               $ws1
-assign [class="Code|Geany|QOwnNotes"]   $ws2
-assign [class="Filezilla|qBittorrent"]  $ws3
-assign [class="Spacefm"]                $ws4
-assign [class="XnView|(?i)inkscape|Pinta"]    $ws5
+assign [class="Code|Geany|Godot"]   	$ws2
+assign [class="Spacefm|Filezilla"]  	$ws3
+assign [class="qBittorrent"]            $ws4
+assign [class="XnView|inkscape|Pinta"]	$ws5
 assign [class="smplayer"]               $ws6
 assign [class="Meld"]                   $ws7
-assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|(?i)Godot|Steam"]   $ws8
-assign [class="Liferea"]                $ws9
+assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]   $ws8
+# assign [class=""]                $ws9
 
 
-# for_window [class="^Chromium$"] border none, move container to workspace $ws1
-for_window [window_role="(?i)pop-up|(?i)task_dialog|(?i)dialog|bubble|page-info|(?i)Preferences|(?)Warning"]  floating enable
-for_window [title="(?)Open*.|(?)^Save*.|(?)Add location"]  floating enable
+for_window [window_role="pop-up|task_dialog"] floating enable
+# move container to workspace $ws8
+for_window [title="(?)open*.|(?)^save*.|(?)add location|settings"]  floating enable
 # for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable
 # for_window [class="(?i)pavucontrol"]  floating enable
 for_window [class="Steam"]			floating enable
 for_window [class="Steam" title="^Steam$"]	floating disable
 # for_window [class="Steam" instance="Friends"]     floating enable
-# for_window [class="^Steam$" title="^Friends$"]    floating enable
-# for_window [class="^Steam$" title="Steam - News"] floating enable
-# for_window [class="^Steam$" title=".* - Chat"]    floating enable
-# for_window [class="^Steam$" title="^Settings$"]   floating enable
+# for_window [class="Steam" title="^Friends$"]    floating enable
+# for_window [class="Steam" title="Steam - News"] floating enable
+# for_window [class="Steam" title=".* - Chat"]    floating enable
+# for_window [class="Steam" title="^Settings$"]   floating enable
 # for_window [class="Steam" title="^Steam Keyboard$"]         floating enable
-# for_window [class="^Steam$" title=".* - event started"]     floating enable
-# for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
-# for_window [class="^Steam$" title="^Screenshot Uploader$"]  floating enable
-# for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+# for_window [class="Steam" title=".* - event started"]     floating enable
+# for_window [class="Steam" title="^Steam - Self Updater$"] floating enable
+# for_window [class="Steam" title="^Screenshot Uploader$"]  floating enable
+# for_window [class="Steam" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [class="(?i)gsimplecal"]		floating enable, move position mouse
 for_window [class="System-config-printer.py"]	floating enable
-for_window [title="^Task Manager - Chromium$"]	floating enable
+for_window [title="Task Manager - Chromium"]	floating enable
 for_window [class="multibootusb"]		floating enable
 for_window [class="Nitrogen"]			floating enable
 for_window [class="mpv|smplayer"]		floating enable
@@ -386,28 +386,29 @@ for_window [class="qt5ct"]			floating enable
 for_window [class="Gnome-calculator"]		floating enable
 for_window [class="GParted"]			floating enable
 for_window [class="ppsspp|PPSSPPSDL"]		floating enable
-for_window [class="(?i)Flashplayer"]		floating enable
+for_window [class="Flashplayer"]		floating enable
 for_window [class="SimpleScreenRecorder"]	floating enable
-for_window [class="QOwnNotes"]			floating enable
 for_window [class="QOwnNotes" title="Settings"]	floating disable
 for_window [class="Godot"]			floating enable
-for_window [class="Godot" title=".*Godot Engine*."] floating disable
+for_window [class="Godot" title=".*Godot Engine*."] floating disable, border 1px, move container to workspace $ws3
 
 # move scratchpad - minimize
 # scratchpad show - restore
-for_window [class="(?i)xxkb"]  move window to scratchpad
-for_window [class="(?i)tilix"] move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
-for_window [class="Deadbeef" title="^DeaDBeeF-devel$"]  move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
-for_window [class="QOwnNotes" title="- QOwnNotes"]        move window to scratchpad, move position 0 20,  resize set 1050 700, move scratchpad
-for_window [class="(?i)TelegramDesktop" title="Telegram"] move window to scratchpad, move position 640 20, resize set 640 740, move scratchpad
+for_window [class="(?i)xxkb"]  	move window to scratchpad
+for_window [class="Tilix"] 	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
+for_window [class="Deadbeef" title="^DeaDBeeF-devel$"]	move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
+for_window [class="QOwnNotes" title="- QOwnNotes"] 	move window to scratchpad, move position 0 20,  resize set 1050 700, move scratchpad
+for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad, move position 640 20, resize set 640 740, move scratchpad
 
 # Start Conky
 exec_always --no-startup-id conky
 
 # startup applications
 # exec --no-startup-id i3lock -c 000000 -n
-exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
-exec --no-startup-id tilix
+# exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
+exec --no-startup-id i3-sensible-terminal
+# exec --no-startup-id tilix
+exec --no-startup-id tilix -e 'sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical'
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
 exec --no-startup-id amixer -q set Headphone 50% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
@@ -416,8 +417,8 @@ exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg
 exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser & megasync & sleep 60 && killall megasync'
 # exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && $Browser'
 exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid
-exec --no-startup-id QOwnNotes
-exec --no-startup-id sleep 60; xset -dpms && xset s off
+exec --no-startup-id sleep 5 && QOwnNotes
+# exec --no-startup-id sleep 60; xset -dpms && xset s off
+exec --no-startup-id xset dpms 1800
 
-# exec --no-startup-id i3-msg "workspace $ws2; append_layout ~/.config/i3/scripts/workspace_2.json"
 # exec --no-startup-id i3-msg "workspace $ws3; exec spacefm --no-desktop; layout tabbed"
