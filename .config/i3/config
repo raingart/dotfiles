@@ -10,7 +10,6 @@ floating_modifier $mod
 font pango: FontAwesome 8
 
 set $Browser chromium
-# set $Browser /usr/lib/chromium/chromium --flag-switches-begin --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=true --enable-fast-unload --enable-gpu-rasterization --enable-oop-rasterization --enable-tcp-fastopen --ignore-gpu-blacklist --num-raster-threads=2 --enable-features=OverlayScrollbar --disable-features=AutofillShowTypePredictions,OptimizationHints --flag-switches-end
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -339,11 +338,6 @@ bindsym $mod+Home     exec "killall conky; conky"
 bindsym $mod+F10      exec --no-startup-id qbittorrent
 # bindsym $mod+Delete   exec --no-startup-id sh -c 'i3lock -c 000000 -n'
 
-bindsym Menu       [class="Tilix"]            scratchpad show
-bindsym Insert     [class="TelegramDesktop"]  scratchpad show
-bindsym $alt+grave [class="Deadbeef"]         scratchpad show
-bindsym $mod+grave [class="QOwnNotes"]        scratchpad show
-
 
 # Where to run
 assign [class="Chromium"]               $ws1
@@ -356,6 +350,10 @@ assign [class="Meld"]                   $ws7
 assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]   $ws8
 # assign [class=""]                $ws9
 
+bindsym Menu       [class="Tilix"]            scratchpad show
+bindsym Insert     [class="TelegramDesktop"]  scratchpad show
+bindsym $alt+grave [class="Deadbeef"]         scratchpad show
+bindsym $mod+grave [class="QOwnNotes"]        scratchpad show
 
 for_window [window_role="pop-up|task_dialog"] floating enable
 # move container to workspace $ws8
@@ -398,27 +396,26 @@ for_window [class="(?i)xxkb"]  	move window to scratchpad
 for_window [class="Tilix"] 	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
 for_window [class="Deadbeef" title="^DeaDBeeF-devel$"]	move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
 for_window [class="QOwnNotes" title="- QOwnNotes"] 	move window to scratchpad, move position 0 20,  resize set 1050 700, move scratchpad
-for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad, move position 640 20, resize set 640 740, move scratchpad
+for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad, move position 640 20, resize set 640 675, move scratchpad
 
 # Start Conky
 exec_always --no-startup-id conky
 
 # startup applications
 # exec --no-startup-id i3lock -c 000000 -n
-# exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
+exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
 exec --no-startup-id i3-sensible-terminal
-# exec --no-startup-id tilix
-exec --no-startup-id tilix -e 'sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical'
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
 exec --no-startup-id amixer -q set Headphone 50% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
 exec --no-startup-id xxkb
 exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
-exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser & megasync & sleep 60 && killall megasync'
-# exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && $Browser'
+# exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser & megasync & sleep 60 && killall megasync'
+exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser'
+exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && megasync & sleep 60 && killall megasync'
 exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid
 exec --no-startup-id sleep 5 && QOwnNotes
-# exec --no-startup-id sleep 60; xset -dpms && xset s off
-exec --no-startup-id xset dpms 1800
+exec --no-startup-id xset -dpms && xset s off
+# exec --no-startup-id xset dpms 1800
 
 # exec --no-startup-id i3-msg "workspace $ws3; exec spacefm --no-desktop; layout tabbed"
