@@ -51,6 +51,8 @@ alias dunstr='killall dunst; notify-send "dunst restart" "test critical" -u crit
 alias xprop='xprop | grep -E "^(WM_CLASS|_NET_WM_NAME|WM_NAME)"'
 alias xoff='shutdown -P now'
 alias x='exit'
+
+# alias wget='wget -c --content-disposition --trust-server-names=on --restrict-file-names=nocontrol --no-check-certificate'
 # alias usbsw='sudo /usr/sbin/usb_modeswitch -v 12d1 -p 1446 -c /usr/share/usb_modeswitch/12d1:1446'
 alias steam="env LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' \
             STEAM_RUNTIME=1 steam"

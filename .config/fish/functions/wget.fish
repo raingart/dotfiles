@@ -6,22 +6,23 @@ function wget --description 'wget'
    # site
    if test $argv[1] -eq "s"
       echo "wget site:"
-      command wget -r -k -l 10 -p -E -nc "$argv[2]"
+      command wget -r -k -l 10 -p -E -nc "$argv[2]" robots=off 
 
    # single file (manual name)
    else if begin; test (count $argv) -eq 2 ;and test $argv[1]; end
-      echo "wget referer url"
-      echo "referer:" $argv[1]
-      echo "Saving:" $argv[-1]
+      set -l name $argv[-1]'.'(string split "." -- $argv[1])[-1]
+      echo "url:" $argv[1]
+      echo "name:" $name
       echo "----------------"
-      command wget -c --content-disposition --trust-server-names=on --restrict-file-names=nocontrol --no-check-certificate $argv[1] -O $argv[-1]
+      
+      command wget -c --content-disposition --trust-server-names=on --restrict-file-names=nocontrol --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 6.1; WOW64; rv:26.0) Chrome/72.0.3626.96 Safari/537.36" $argv[1] -O "$name"
       
    # single file (auto name)
    else if test "$argv"
       echo "wget single file:"
-      command wget -c "$argv[1]"
+      command wget -c --content-disposition --trust-server-names=on --restrict-file-names=nocontrol --no-check-certificate --user-agent="Mozilla/5.0 (Windows NT 6.1; WOW64; rv:26.0) Chrome/72.0.3626.96 Safari/537.36" "$argv[1]"
       
    else
-      wget -h
+      command wget -h
    end
 end

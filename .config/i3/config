@@ -278,13 +278,12 @@ bindsym $mod+Shift+KP_Subtract [floating] move scratchpad
 # Show the first scratchpad window
 bindsym $mod+KP_Subtract scratchpad show
 
-# Multimedia keys
+# Alsa Audio controls
 # set $volumeStep 1dB
-set $volumeStep 1%
+set $volumeStep 4%
 set $MasterDefaultLevel 50%
 set $MicStatus `amixer get Capture |grep "Front Left:" | awk '{ print ($7) }'`
 
-# Alsa Audio controls
 bindsym XF86AudioRaiseVolume  exec amixer -q set Master $volumeStep+ unmute
 bindsym XF86AudioLowerVolume  exec amixer -q set Master $volumeStep- unmute
 bindsym XF86AudioMute         exec ~/.config/i3/scripts/toggle_vol.sh
@@ -292,21 +291,14 @@ bindsym $alt+XF86AudioMute    exec amixer -q set Capture toggle && notify-send "
 bindsym $mod+XF86AudioMute    exec tilix -e "alsamixer"
 bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set Master $MasterDefaultLevel
 
-# Pulseaudio way
-# Get sink id by pactl list sinks|sources
-# bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +5%
-# bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5%
-# bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-# bindsym XF86AudioMicMute exec pactl set-source-mute 2 toggle
-
 # Pulse Audio controls
-# set $output_sink "$(pactl list short sinks | grep output | head -n1 | cut -f2)"
-# set $input_source "$(pactl list short sources | grep input | head -n1 | cut -f2)"
-# bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume $output_sink +2%
-# bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume $output_sink -2%
-# bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-volume $output_sink 0%
+# bindsym XF86AudioRaiseVolume 	exec pactl set-sink-volume 0 +$volumeStep
+# bindsym XF86AudioLowerVolume 	exec pactl set-sink-volume 0 -$volumeStep
+# bindsym XF86AudioMute 		exec pactl set-sink-mute 0 toggle
+# bindsym XF86AudioMicMute 	exec pactl set-source-mute 2 toggle
+# bindsym $mod+XF86AudioMute    	exec pavucontrol
 
-# multimedia hotkey
+# Multimedia hotkey
 # bindsym XF86AudioPlay exec "deadbeef --play-pause||mpc toggle"
 # bindsym XF86AudioStop exec "deadbeef --stop||mpc stop"
 # bindsym XF86AudioNext exec "deadbeef --next||mpc next"
@@ -357,7 +349,7 @@ bindsym $mod+grave [class="QOwnNotes"]        scratchpad show
 
 for_window [window_role="pop-up|task_dialog"] floating enable
 # move container to workspace $ws8
-for_window [title="(?)open*.|(?)^save*.|(?)add location|settings"]  floating enable
+# for_window [title="(?)open*.|(?)^save*.|(?)add location|settings"]  floating enable, move container to workspace $ws9
 # for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable
 # for_window [class="(?i)pavucontrol"]  floating enable
 for_window [class="Steam"]			floating enable
@@ -374,7 +366,7 @@ for_window [class="Steam" title="^Steam$"]	floating disable
 # for_window [class="Steam" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [class="(?i)gsimplecal"]		floating enable, move position mouse
 for_window [class="System-config-printer.py"]	floating enable
-for_window [title="Task Manager - Chromium"]	floating enable
+for_window [class="Chromium" title="Task Manager - Chromium"]	floating enable
 for_window [class="multibootusb"]		floating enable
 for_window [class="Nitrogen"]			floating enable
 for_window [class="mpv|smplayer"]		floating enable
@@ -385,6 +377,7 @@ for_window [class="Gnome-calculator"]		floating enable
 for_window [class="GParted"]			floating enable
 for_window [class="ppsspp|PPSSPPSDL"]		floating enable
 for_window [class="Flashplayer"]		floating enable
+for_window [class="Pavucontrol"]		floating enable
 for_window [class="SimpleScreenRecorder"]	floating enable
 for_window [class="QOwnNotes" title="Settings"]	floating disable
 for_window [class="Godot"]			floating enable
@@ -410,12 +403,11 @@ exec --no-startup-id unclutter --timeout 2
 exec --no-startup-id amixer -q set Headphone 50% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
 exec --no-startup-id xxkb
 exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
-# exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser & megasync & sleep 60 && killall megasync'
 exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser'
-exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && megasync & sleep 60 && killall megasync'
+# & megasync & sleep 60 && killall megasync'
+# exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && megasync & sleep 60 && killall megasync'
 exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid
 exec --no-startup-id sleep 5 && QOwnNotes
 exec --no-startup-id xset -dpms && xset s off
-# exec --no-startup-id xset dpms 1800
 
 # exec --no-startup-id i3-msg "workspace $ws3; exec spacefm --no-desktop; layout tabbed"
