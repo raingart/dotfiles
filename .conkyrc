@@ -81,14 +81,16 @@ override_utf8_locale yes
 use_xft yes
 short_units yes
 
+# enp3s0
+# ppp0
 
 TEXT
-${if_existing /proc/net/route ppp0} \
-${color3}${upspeedf ppp0}KB \
-${color5}${voffset -7}${upspeedgraph ppp0 16,30 scale -t} \
+${if_existing /proc/net/route enp3s0} \
+${color3}${upspeedf enp3s0}KB \
+${color5}${voffset -7}${upspeedgraph enp3s0 16,30 scale -t} \
 \
-${color5}${downspeedgraph ppp0 16,120 scale -t} \
-${color3}${voffset 8} ${downspeedf ppp0}KB\
+${color5}${downspeedgraph enp3s0 16,120 scale -t} \
+${color3}${voffset 8} ${downspeedf enp3s0}KB\
 # \#
 # ${color1} / \
 # ${color3}${totaldown ppp0} \
@@ -126,4 +128,4 @@ ${endif} \
 #~ ${color2}Top: ${color3}${top name 1} \
 #~ ${endif} \
 \#
-${if_existing /proc/net/route ppp0}${voffset -20}${endif}#${color2}${time %a %d %b %H:%M} \#
+${if_existing /proc/net/route enp3s0}${voffset -20}${endif}#${color2}${time %a %d %b %H:%M} \#

@@ -396,7 +396,7 @@ exec_always --no-startup-id conky
 
 # startup applications
 # exec --no-startup-id i3lock -c 000000 -n
-exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
+# exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
