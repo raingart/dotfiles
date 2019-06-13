@@ -323,7 +323,8 @@ bindsym $mod+Control+F12      exec "pgrep 'wvdial' | xargs kill; wvdial"
 bindsym $mod+F12      exec --no-startup-id tilix -s ~/.config/tilix/default.json
 # bindsym $mod+F11      exec --no-startup-id tilix -a session-add-down -e htop
 bindsym $mod+F11      exec --no-startup-id tilix -s ~/.config/tilix/htop.json
-bindsym $mod+Insert   exec --no-startup-id telegram-desktop -startintray
+# bindsym $mod+Insert   exec --no-startup-id telegram-desktop -startintray
+bindsym $mod+Insert   exec --no-startup-id telegram-desktop
 bindsym Print         exec --no-startup-id gnome-screenshot --interactive --clipboard
 bindsym Control+Print exec --no-startup-id sh -c 'gnome-screenshot --area --clipboard'
 bindsym $mod+Home     exec "killall conky; conky"
@@ -396,7 +397,7 @@ exec_always --no-startup-id conky
 
 # startup applications
 # exec --no-startup-id i3lock -c 000000 -n
-# exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
+exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2

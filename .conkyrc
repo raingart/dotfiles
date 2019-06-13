@@ -85,47 +85,22 @@ short_units yes
 # ppp0
 
 TEXT
-${if_existing /proc/net/route enp3s0} \
-${color3}${upspeedf enp3s0}KB \
-${color5}${voffset -7}${upspeedgraph enp3s0 16,30 scale -t} \
-\
-${color5}${downspeedgraph enp3s0 16,120 scale -t} \
-${color3}${voffset 8} ${downspeedf enp3s0}KB\
-# \#
-# ${color1} / \
-# ${color3}${totaldown ppp0} \
-# ${color1}| \
-# ${color2}${totalup ppp0}\
-# \#
+${if_existing /proc/net/route ppp0} \
+${color3}${upspeedf ppp0}KB \
+${color5}${voffset -7}${upspeedgraph ppp0 16,30 scale -t} \
+${color5}${downspeedgraph ppp0 16,120 scale -t} \
+${color3}${voffset 8} ${downspeedf ppp0}KB\
+${color1}| \
+${color3}${totaldown ppp0} \
+${color1}/ \
+${color2}${totalup ppp0}\
 ${else}Network disconnected ${endif}\
 # | ${color7}CPU: ${color7}${cpubar cpu0 8,50} \
-#~   ${exec amixer get Master -c 0 -M | grep -oE "[[:digit:]]*%"} \
-# | ${color2}GHz: ${color3}${freq_g} GHz${color5} \
-
+# ${exec amixer get Master -c 0 -M | grep -oE "[[:digit:]]*%"} \
 ${if_match $memperc > 85} \
 | ${color6}RAM: ${color6}${membar 6,100}  \
 ${color2}${mem}${color5} / \
 ${color2}$memperc% ${color5} \
 ${endif} \
-# [${exec skb 0,2}] \
-# [${exec xxkb 0,2}] aa \
-# ${color2} asdasd ${color5} \ \
-# | ${color2}OS: ${color3}${fs_free /}${color5} \
-#~ ${color2}${font FontAwesome:size=9}${font}: ${color3}${fs_free /home}${color5} \
-#~ | ${color2}Uptime: ${color3}${uptime} ${color5} \
-#~ | ${color2}Kernel: ${color3}${kernel} ${color5} \
-#~ | ${color2}Process: ${color4}${threads} ${color5} \
-#~ ${if_running deadbeef-main} \#
-#~ Artist:%a, Album:%b, Title:%t, File:%f, Time:"%e of %l" \
-#~ ${if_match "${exec pidof /usr/sbin/deadbeef}" != ""} \
-#~ ${if_match "${exec deadbeef --nowplaying '%a'}" != "nothing"} \
-#~ ${color2}${color3}${exec deadbeef --nowplaying "%a"} \
-#~ ${color2}- ${color3}${exec deadbeef --nowplaying "%t"} \
-#~ ${if_match "${exec deadbeef --nowplaying %l}" < "100"} \
-#~ ${color2}${color2}${exec deadbeef --nowplaying "[%e/%l]"} \
-#~ ${endif} \
-#~ ${else}${color2}deadbeef stop${endif}${else} \
-#~ ${color2}Top: ${color3}${top name 1} \
-#~ ${endif} \
 \#
-${if_existing /proc/net/route enp3s0}${voffset -20}${endif}#${color2}${time %a %d %b %H:%M} \#
+${if_existing /proc/net/route ppp0}${voffset -20}${endif}#${color2}${time %a %d %b %H:%M} \#
