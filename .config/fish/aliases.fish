@@ -27,7 +27,7 @@ alias pacu='pacman -U'
 alias paci='pacman -Si'
 alias pacr='pacman -Rnsc'
 alias pacclear='pacman -Rnsc (pacman -Qtdq); yaourt -Qdt'
-alias pacfix='sudo rm -f /var/lib/pacman/db.lck ;and pacman -Syyuu '
+alias pacfix='sudo rm -f /var/lib/pacman/db.lck ;and pacman -Syyuu'
 # ;and pacman -Suu'
 alias yr='yaourt'
 alias yrsy='yaourt -S --noconfirm'
@@ -36,14 +36,14 @@ alias yrss='yaourt -Ss'
 alias yrq='yaourt -Q'
 alias yrr='yaourt -Rnsc'
 
+alias upmiror="sudo curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
+alias up='upmiror && yaourt -Syua' # ;and pacman -Scc'
 # alias up='pacman -Syu ;and yaourt -Su --aur'
-alias up='yaourt -Syua' # ;and pacman -Scc'
 # alias upy='pacman -Syu --noconfirm ;and yaourt -Su --aur --noconfirm'
 # alias upy='yaourt -Syyu --aur --noconfirm'
 # alias upyx='yaourt -Syyu --aur --noconfirm; shutdown -h now'
-alias upy='yaourt -Syua --noconfirm ;and pacman -Scc'
-alias upyx='yaourt -Syua --noconfirm; shutdown -P now'
-alias upmiror="sudo curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
+alias upy='up --noconfirm ;and pacman -Scc'
+alias upyx='up --noconfirm; shutdown -P now'
 
 alias fishr='source ~/.config/fish/config.fish'
 alias dunstr='killall dunst; notify-send "dunst restart" "test critical" -u critical & notify-send "dunst" "test normal" -u normal & notify-send "dunst" "test low" -u low'
@@ -52,7 +52,7 @@ alias xprop='xprop | grep -E "^(WM_CLASS|_NET_WM_NAME|WM_NAME)"'
 alias xoff='shutdown -P now'
 alias x='exit'
 
-# alias wget='wget -c --content-disposition --trust-server-names=on --restrict-file-names=nocontrol --no-check-certificate'
-# alias usbsw='sudo /usr/sbin/usb_modeswitch -v 12d1 -p 1446 -c /usr/share/usb_modeswitch/12d1:1446'
+alias ed='sudo geany'
+alias myip='curl ipinfo.io/ip ;or curl icanhazip.com'
 alias steam="env LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' \
             STEAM_RUNTIME=1 steam"

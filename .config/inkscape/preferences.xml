@@ -331,7 +331,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -342,8 +342,8 @@
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"
        selcue="1">
       <group
-         display_unit="0"
-         id="lineheight" />
+         id="lineheight"
+         display_unit="0" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -432,12 +432,12 @@
        offset="0"
        offsetunits="mm" />
     <group
-       unit="mm"
-       offset="5"
-       scale="100"
-       precision="2"
+       id="measure"
        fontsize="10"
-       id="measure" />
+       precision="2"
+       scale="100"
+       offset="5"
+       unit="px" />
   </group>
   <group
      id="palette">
@@ -638,7 +638,7 @@
     <group
        id="preferences"
        state="1"
-       page="1"
+       page="14"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -665,19 +665,19 @@
        x="0"
        y="0"
        w="309"
-       h="449"
+       h="552"
        visible="1"
-       state="2"
+       state="3"
        placement="1">
       <group
          id="exportarea"
-         value="page" />
+         value="drawing" />
       <group
          id="defaultxdpi"
          value="96.4" />
       <group
-         value="0"
-         id="hideexceptselected" />
+         id="hideexceptselected"
+         value="0" />
     </group>
     <group
        id="save_as"
@@ -695,14 +695,15 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/art/projects/godot/svg/sprites/svg/" />
+       path="/media/Data 1/" />
     <group
        id="import"
        enable_preview="1"
        path=""
        ask="1"
-       link="link"
-       scale="optimizeSpeed" />
+       link="embed"
+       scale="auto"
+       forcexdpi="0" />
     <group
        id="debug"
        redirect="0" />
@@ -735,11 +736,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="309"
-       h="154"
+       w="226"
+       h="401"
        visible="1"
        state="2"
-       placement="2" />
+       placement="1" />
     <group
        id="extensioneditor" />
     <group
@@ -770,19 +771,19 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       placement="1"
-       state="2"
-       visible="0"
-       h="251"
-       w="294"
-       y="0"
-       x="0"
-       panel_border="0"
-       panel_wrap="0"
-       panel_mode="1"
-       panel_ratio="100"
+       id="pixelart"
        panel_size="1"
-       id="pixelart" />
+       panel_ratio="100"
+       panel_mode="1"
+       panel_wrap="0"
+       panel_border="0"
+       x="0"
+       y="0"
+       w="294"
+       h="251"
+       visible="0"
+       state="2"
+       placement="1" />
   </group>
   <group
      id="printing">
@@ -1076,9 +1077,9 @@
      style="line-height:1.25;fill:#121212;fill-opacity:1;opacity:1;stroke:none;stroke-opacity:1;fill-rule:evenodd">
     <group
        width="1280"
-       height="1004"
+       height="986"
        x="0"
-       y="20"
+       y="38"
        fullscreen="0"
        id="geometry"
        maximized="0" />

@@ -52,12 +52,6 @@ tmpfs    /var/tmp                   tmpfs    defaults,nosuid,noatime,nodev,mode=
 tmpfs    /var/log                   tmpfs    defaults,nosuid,noatime,nodev,mode=1777  0 0
 tmpfs    /tmp                       tmpfs    defaults,nosuid,noatime,nodev,mode=1777,size=4G  0 0' >> /etc/fstab
 
-# access run wvdial
-groupadd dialout
-# gpasswd -a user dialout
-chgrp dialout /usr/bin/wvdial
-chmod u+s /usr/bin/wvdial
-
 # set fish default shell
 # chsh -s /usr/bin/fish
 

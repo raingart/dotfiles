@@ -316,10 +316,6 @@ bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes
 bindsym XF86Favorites       exec --no-startup-id code
 bindsym $mod+XF86Favorites  exec --no-startup-id geany
 
-# bindsym $mod+Shift+F12      exec "pgrep 'wvdial' | xargs kill; killall conky; conky"
-# bindsym $mod+Control+F12    exec --no-startup-id tilix -e 'wvdial'
-bindsym $mod+Control+F12      exec "pgrep 'wvdial' | xargs kill; wvdial"
-
 bindsym $mod+F12      exec --no-startup-id tilix -s ~/.config/tilix/default.json
 # bindsym $mod+F11      exec --no-startup-id tilix -a session-add-down -e htop
 bindsym $mod+F11      exec --no-startup-id tilix -s ~/.config/tilix/htop.json
@@ -327,7 +323,6 @@ bindsym $mod+F11      exec --no-startup-id tilix -s ~/.config/tilix/htop.json
 bindsym $mod+Insert   exec --no-startup-id telegram-desktop
 bindsym Print         exec --no-startup-id gnome-screenshot --interactive --clipboard
 bindsym Control+Print exec --no-startup-id sh -c 'gnome-screenshot --area --clipboard'
-bindsym $mod+Home     exec "killall conky; conky"
 bindsym $mod+F10      exec --no-startup-id qbittorrent
 # bindsym $mod+Delete   exec --no-startup-id sh -c 'i3lock -c 000000 -n'
 
@@ -390,14 +385,13 @@ for_window [class="(?i)xxkb"]  	move window to scratchpad
 for_window [class="Tilix"] 	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
 for_window [class="Deadbeef" title="^DeaDBeeF-devel$"]	move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
 for_window [class="QOwnNotes" title="- QOwnNotes"] 	move window to scratchpad, move position 0 20,  resize set 1050 700, move scratchpad
-for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad, move position 640 20, resize set 640 675, move scratchpad
+for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
 
 # Start Conky
-exec_always --no-startup-id conky
+# exec_always --no-startup-id conky
 
 # startup applications
 # exec --no-startup-id i3lock -c 000000 -n
-exec --no-startup-id sleep 3 && wvdial -n; notify-send "Internet down!" "wvdial" -u critical
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
