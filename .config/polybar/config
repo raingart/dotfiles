@@ -6,24 +6,18 @@
 ;   The README contains alot of information
 ;
 ;=====================================================
-
+# https://github.com/polybar/polybar/wiki/
 
 [colors]
 background = #101010
-# background = #181818
 # background = #1D1F21
-# background-alt = #444
-# background-alt = #555
-background-alt = #555
-separator = #555
-# text
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #267fb5
-secondary = #748aa6
-alert = #FF410D
+text = #dfdfdf
+icon = #707880
+active-workspaces = #444
+deactive-workspaces = #555
 # alert = #f00
-icon = #767676
+alert = #FF410D
+underline = #267fb5
 
 # [module/demo]
 # format-background = #f00
@@ -33,30 +27,28 @@ icon = #767676
 
 include-file = ~/.config/polybar/modules/i3.conf
 include-file = ~/.config/polybar/modules/dmenu.conf
-
 # include-file = ~/.config/polybar/modules/memory.conf
-include-file = ~/.config/polybar/modules/cpu.conf
-include-file = ~/.config/polybar/modules/network.conf
-include-file = ~/.config/polybar/modules/xwindow.conf
+# include-file = ~/.config/polybar/modules/cpu.conf
+# include-file = ~/.config/polybar/modules/network.conf
+
+# include-file = ~/.config/polybar/modules/xwindow.conf
 
 include-file = ~/.config/polybar/modules/gmail.conf
 include-file = ~/.config/polybar/modules/deadbeef.conf
 include-file = ~/.config/polybar/modules/weather.conf
-
 include-file = ~/.config/polybar/modules/xkeyboard.conf
 include-file = ~/.config/polybar/modules/volume.conf
 include-file = ~/.config/polybar/modules/date.conf
 include-file = ~/.config/polybar/modules/powermenu.conf
 
-# https://github.com/polybar/polybar/wiki/Module:-xwindow
-
 [bar/main_bar]
-modules-left = i3 gmail dmenu deadbeef cpu network
-modules-center = xwindow
+modules-left = i3 gmail dmenu deadbeef
+modules-center =
 modules-right = weather xkeyboard volume date powermenu
-; wlan cpu memory network xwindow network
+; wlan cpu memory network xwindow wmname
 
 # monitor = ${env:MONITOR:HDMI-0}
+# monitor = ${env:MONITOR:DVI-1}
 width = 100%
 height = 18
 # height = 25
@@ -69,7 +61,7 @@ radius = 0.0
 fixed-center = true
 
 background = ${colors.background}
-foreground = ${colors.foreground}
+foreground = ${colors.text}
 
 line-size = 2
 line-color = #f00
@@ -132,4 +124,3 @@ margin-top = 0
 margin-bottom = 0
 ;fixed-center = true
 ;override-redirect = true
-

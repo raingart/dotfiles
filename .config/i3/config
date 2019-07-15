@@ -365,7 +365,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
-exec --no-startup-id amixer -q set Headphone 50% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
+exec --no-startup-id amixer -q set Headphone 90% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% unmute; amixer -q set Master $MasterDefaultLevel;
 exec --no-startup-id xxkb
 exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
 exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser'
