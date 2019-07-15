@@ -13,82 +13,48 @@ background = #101010
 # background = #181818
 # background = #1D1F21
 # background-alt = #444
+# background-alt = #555
 background-alt = #555
+separator = #555
+# text
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #267fb5
 secondary = #748aa6
-# alert = #FF410D
-alert = #fba922
+alert = #FF410D
+# alert = #f00
+icon = #767676
+
+# [module/demo]
+# format-background = #f00
+# format-foreground = #000
+# format-padding = 4
+# format-name-underline = ${self.format-connected-underline}
 
 include-file = ~/.config/polybar/modules/i3.conf
+include-file = ~/.config/polybar/modules/dmenu.conf
 
-include-file = ~/.config/polybar/modules/date.conf
-include-file = ~/.config/polybar/modules/volume-bar.conf
+# include-file = ~/.config/polybar/modules/memory.conf
+include-file = ~/.config/polybar/modules/cpu.conf
+include-file = ~/.config/polybar/modules/network.conf
+include-file = ~/.config/polybar/modules/xwindow.conf
 
-include-file = ~/.config/polybar/modules/kbd.conf
 include-file = ~/.config/polybar/modules/gmail.conf
 include-file = ~/.config/polybar/modules/deadbeef.conf
 include-file = ~/.config/polybar/modules/weather.conf
 
-include-file = ~/.config/polybar/modules/xwindow.conf
-# include-file = ~/.config/polybar/modules/updates.conf
-# include-file = ~/.config/polybar/modules/memory.conf
-# include-file = ~/.config/polybar/modules/cpu.conf
-# include-file = ~/.config/polybar/modules/mpd.conf
-# include-file = ~/.config/polybar/modules/network.conf
-# include-file = ~/.config/polybar/modules/filesystem.conf
-# include-file = ~/.config/polybar/modules/volume.conf
-# include-file = ~/.config/polybar/modules/xkeyboard.conf
-
-# include-file = ~/.config/polybar/modules/temperature.conf
+include-file = ~/.config/polybar/modules/xkeyboard.conf
+include-file = ~/.config/polybar/modules/volume.conf
+include-file = ~/.config/polybar/modules/date.conf
 include-file = ~/.config/polybar/modules/powermenu.conf
 
-
-# [module/backlight]
-# type = internal/xbacklight
-
-# format = <label> <bar>
-# label = BL
-
-# bar-width = 10
-# bar-indicator = │
-# bar-indicator-foreground = #ff
-# bar-indicator-font = 2
-# bar-fill = ─
-# bar-fill-font = 2
-# bar-fill-foreground = #9f78e1
-# bar-empty = ─
-# bar-empty-font = 2
-# bar-empty-foreground = #55
-
-# [module/backlight-acpi]
-# inherit = module/backlight
-# type = internal/backlight
-# card = ati_backlight
-
-# [module/demo]
-# type = custom/ipc
-# hook-0 = echo foobar
-# hook-1 = date +%s
-# hook-2 = whoami
-# initial = 1
-# click-left = polybar-msg -p %pid% hook demo 1
-# click-right = polybar-msg -p %pid% hook demo 2
-# double-click-left = polybar-msg -p %pid% hook demo 3
-
-# [module/wmname]
-# type = custom/script
-# interval = 2
-# exec = "xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d\  -f5) _NET_WM_NAME WM_CLASS | sed 's/.*\ =\ "\|\",\ \".*\|"$//g;s/\\\"/"/g'"
-
+# https://github.com/polybar/polybar/wiki/Module:-xwindow
 
 [bar/main_bar]
-modules-left = i3 gmail wmname
-# modules-center = deadbeef xwindow
-modules-center = deadbeef
-modules-right =  weather volume-bar kbd date powermenu
-; wlan  powermenu  cpu memory
+modules-left = i3 gmail dmenu deadbeef cpu network
+modules-center = xwindow
+modules-right = weather xkeyboard volume date powermenu
+; wlan cpu memory network xwindow network
 
 # monitor = ${env:MONITOR:HDMI-0}
 width = 100%
@@ -121,8 +87,11 @@ module-margin-right = 0
 # font-0 = Droid Sans:size=10
 # font-1 = FontAwesome:size=10
 
-font-0 = Hack:fontformat=truetype:size=9;3
-font-1 = FontAwesome:fontformat=truetype:size=9;3
+# font-0 = Droid Sans:fontformat=truetype:size=9;3
+font-0 = Hack:fontformat=truetype:size=8;4
+font-1 = FontAwesome5Free:style=Solid:size=8;4
+font-2 = FontAwesome5Free:style=Regular:size=8;4
+font-3 = FontAwesome5Brands:style=Regular:size=8;4
 
 # tray-position = right
 # tray-padding = 3

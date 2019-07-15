@@ -21,7 +21,7 @@ bindsym $mod+Escape [class="^.*"] kill
 
 # start dmenu (a program launcher)
 bindsym $mod+End exec dmenu_run
-bindsym $alt+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 20"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 20"
 
 # if Insert kbkey
 bindsym KP_Insert focus 
@@ -85,15 +85,15 @@ bindsym $alt+Tab focus mode_toggle
 
 # Name the workspaces
 # http://fortawesome.github.io/Font-Awesome/cheatsheet/
-set $ws1 1:
-set $ws2 2:
-set $ws3 3:
-set $ws4 4:
-set $ws5 5:
-set $ws6 6:
-set $ws7 7:
-set $ws8 8:
-set $ws9 9:
+# set $ws1 1:
+# set $ws2 2:
+# set $ws3 3:
+# set $ws4 4:
+# set $ws5 5:
+# set $ws6 6:
+# set $ws7 7:
+# set $ws8 8:
+# set $ws9 9:
 
 # switch to workspace
 bindsym F1 workspace $ws1
@@ -155,8 +155,8 @@ mode "" {
 bindsym $mod+r mode ""
 
 # set $mode_system System [L]ock, [E]logout, [S]uspend, [H]ibernate, [R]eboot, (Pause) shutdown
-# set $mode_system System:  L:  | S:  | P:  | R:  | E: 
-set $mode_system System: (Pause) shutdown | [Q]reboot | [E]logout
+set $mode_system Q:  | P:  | E: logout
+# set $mode_system System: (Pause) shutdown | [Q]reboot | [E]logout
 mode "$mode_system" {
    bindsym e exec --no-startup-id i3-msg exit, mode "default"
    bindsym q exec --no-startup-id systemctl reboot, mode "default"
@@ -174,45 +174,6 @@ bindsym Pause mode "$mode_system"
 # set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 # set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 # bindsym $mod+Shift+g mode "$mode_gaps"
-
-# Start Polybar
-# exec_always --no-startup-id sleep 6 && ~/.config/polybar/launch.sh
-# polybar Depends: jsoncpp
-
-bar {
-   status_command sleep 6 && py3status -c ~/.config/i3/py3status.conf
-   # output DVI-I-2
-   # tray_output HDMI-0
-   position top
-   separator_symbol "|"
-   strip_workspace_numbers yes
-   height 20
-   # mode hide #dock|hide|invisible
-   # mode invisible #dock|hide|invisible
-
-   colors {
-      background $bg
-      statusline $bar_text
-      separator  $separator
-
-      ##Type			border		background	text
-      focused_workspace     	$bg		$bg   		$focused
-      active_workspace      	#444444 	#5f676a   	#ffffff
-      inactive_workspace    	$bg		$bg   		#2f3640
-      # urgent_workspace      	#aa0000		#990000		#ffffff
-      binding_mode          	#323232 	#32323200 	#ffffff
-
-      # focused_workspace	#008fff		#0093b0		#ffffff
-      urgent_workspace     	$client_border	$focused   	#CBCBCB
-   }
-}
-
-# workspace 3 output
-# workspace 1 output DVI-0
-# workspace 2 output DVI-I-1
-# workspace 3 output DVI-D-0
-# workspace 4 output HDMI-0
-# workspace $ws1  output eDP1
 
 #Theme colors
 set $client_border #101010
@@ -338,10 +299,17 @@ assign [class="Meld"]                   $ws7
 assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]   $ws8
 # assign [class=""]                $ws9
 
+# workspace 3 output
+# workspace 1 output DVI-0
+# workspace 2 output DVI-I-1
+# workspace 3 output DVI-D-0
+# workspace 4 output HDMI-0
+# workspace $ws1 output eDP1
+
 bindsym Menu       [class="Tilix"]            scratchpad show
 bindsym Insert     [class="TelegramDesktop"]  scratchpad show
-bindsym $alt+grave [class="Deadbeef"]         scratchpad show
-bindsym $mod+grave [class="QOwnNotes"]        scratchpad show
+bindsym $mod+grave [class="Deadbeef"]         scratchpad show
+bindsym $alt+grave [class="QOwnNotes"]        scratchpad show
 
 for_window [window_role="pop-up|task_dialog"] floating enable
 # move container to workspace $ws8
@@ -387,8 +355,10 @@ for_window [class="Deadbeef" title="^DeaDBeeF-devel$"]	move window to scratchpad
 for_window [class="QOwnNotes" title="- QOwnNotes"] 	move window to scratchpad, move position 0 20,  resize set 1050 700, move scratchpad
 for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
 
-# Start Conky
-# exec_always --no-startup-id conky
+
+# Start Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+# polybar Depends: jsoncpp
 
 # startup applications
 # exec --no-startup-id i3lock -c 000000 -n
