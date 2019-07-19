@@ -342,8 +342,8 @@
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"
        selcue="1">
       <group
-         id="lineheight"
-         display_unit="0" />
+         display_unit="0"
+         id="lineheight" />
     </eventcontext>
     <eventcontext
        id="nodes"
@@ -432,12 +432,12 @@
        offset="0"
        offsetunits="mm" />
     <group
-       id="measure"
-       fontsize="10"
-       precision="2"
-       scale="100"
+       unit="px"
        offset="5"
-       unit="px" />
+       scale="100"
+       precision="2"
+       fontsize="10"
+       id="measure" />
   </group>
   <group
      id="palette">
@@ -664,8 +664,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="309"
-       h="552"
+       w="1"
+       h="1"
        visible="1"
        state="3"
        placement="1">
@@ -676,15 +676,15 @@
          id="defaultxdpi"
          value="96.4" />
       <group
-         id="hideexceptselected"
-         value="0" />
+         value="0"
+         id="hideexceptselected" />
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.svg.inkscape"
+       default="org.inkscape.output.png.cairo"
        append_extension="1"
        enable_preview="1"
-       path="/home/art/projects/godot/svg/sprites/svg"
+       path="/home/art/projects/godot"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -695,7 +695,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/media/Data 1/" />
+       path="/home/art/projects/godot/svg/sprites/svg/" />
     <group
        id="import"
        enable_preview="1"
@@ -737,7 +737,7 @@
        x="0"
        y="0"
        w="226"
-       h="401"
+       h="154"
        visible="1"
        state="2"
        placement="1" />
@@ -771,19 +771,19 @@
        on-blur="0.50"
        animate-time="100" />
     <group
-       id="pixelart"
-       panel_size="1"
-       panel_ratio="100"
-       panel_mode="1"
-       panel_wrap="0"
-       panel_border="0"
-       x="0"
-       y="0"
-       w="294"
-       h="251"
-       visible="0"
+       placement="1"
        state="2"
-       placement="1" />
+       visible="0"
+       h="251"
+       w="294"
+       y="0"
+       x="0"
+       panel_border="0"
+       panel_wrap="0"
+       panel_mode="1"
+       panel_ratio="100"
+       panel_size="1"
+       id="pixelart" />
   </group>
   <group
      id="printing">

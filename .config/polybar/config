@@ -13,6 +13,7 @@ background = #101010
 # background = #1D1F21
 text = #dfdfdf
 icon = #707880
+icon-alt = #748aa6
 active-workspaces = #444
 deactive-workspaces = #555
 # alert = #f00
@@ -42,9 +43,9 @@ include-file = ~/.config/polybar/modules/date.conf
 include-file = ~/.config/polybar/modules/powermenu.conf
 
 [bar/main_bar]
-modules-left = i3 gmail dmenu deadbeef
+modules-left = i3 dmenu deadbeef
 modules-center =
-modules-right = weather xkeyboard volume date powermenu
+modules-right = xkeyboard weather gmail volume date powermenu
 ; wlan cpu memory network xwindow wmname
 
 # monitor = ${env:MONITOR:HDMI-0}
