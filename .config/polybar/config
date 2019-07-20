@@ -6,7 +6,7 @@
 ;   The README contains alot of information
 ;
 ;=====================================================
-# https://github.com/polybar/polybar/wiki/
+# https://github.com/polybar/polybar/wiki/Configuration
 
 [colors]
 background = #101010
@@ -20,12 +20,7 @@ deactive-workspaces = #555
 alert = #FF410D
 underline = #267fb5
 
-# [module/demo]
-# format-background = #f00
-# format-foreground = #000
-# format-padding = 4
-# format-name-underline = ${self.format-connected-underline}
-
+[section/base]
 include-file = ~/.config/polybar/modules/i3.conf
 include-file = ~/.config/polybar/modules/dmenu.conf
 # include-file = ~/.config/polybar/modules/memory.conf
@@ -33,28 +28,44 @@ include-file = ~/.config/polybar/modules/dmenu.conf
 # include-file = ~/.config/polybar/modules/network.conf
 
 # include-file = ~/.config/polybar/modules/xwindow.conf
+include-file = ~/.config/polybar/modules/xkeyboard.conf
 
 include-file = ~/.config/polybar/modules/gmail.conf
 include-file = ~/.config/polybar/modules/deadbeef.conf
 include-file = ~/.config/polybar/modules/weather.conf
-include-file = ~/.config/polybar/modules/xkeyboard.conf
 include-file = ~/.config/polybar/modules/volume.conf
 include-file = ~/.config/polybar/modules/date.conf
 include-file = ~/.config/polybar/modules/powermenu.conf
 
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
 [bar/main_bar]
 modules-left = i3 dmenu deadbeef
-modules-center =
-modules-right = xkeyboard weather gmail volume date powermenu
+modules-center = xkeyboard
+modules-right = weather gmail volume date powermenu
 ; wlan cpu memory network xwindow wmname
 
 # monitor = ${env:MONITOR:HDMI-0}
 # monitor = ${env:MONITOR:DVI-1}
+
+wm-restack = i3
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+tray-detached = false
+tray-position = right
+tray-padding = 3
+tray-offset-y = 0%
+tray-offset-x = 0%
+tray-maxsize = 18
+tray-transparent = true
+# tray-background = ${colors.background}
+
 width = 100%
-height = 18
-# height = 25
-# height = 27
-# height = 30
+height = 20
 ;offset-x = 2%
 ;offset-y = 1%
 radius = 0.0
@@ -65,11 +76,10 @@ background = ${colors.background}
 foreground = ${colors.text}
 
 line-size = 2
-line-color = #f00
+line-color = ${colors.underline}
 
-border-size = 1
-# border-size = 3
-border-color = #00000000
+border-size = 0
+border-color = ${colors.underline}
 
 padding-left = 0
 padding-right = 2
@@ -77,8 +87,6 @@ padding-right = 2
 module-margin-left = 3
 module-margin-right = 0
 
-# font-0 = Droid Sans:size=10
-# font-1 = FontAwesome:size=10
 
 # font-0 = Droid Sans:fontformat=truetype:size=9;3
 font-0 = Hack:fontformat=truetype:size=8;4
@@ -86,42 +94,5 @@ font-1 = FontAwesome5Free:style=Solid:size=8;4
 font-2 = FontAwesome5Free:style=Regular:size=8;4
 font-3 = FontAwesome5Brands:style=Regular:size=8;4
 
-# tray-position = right
-# tray-padding = 3
-# tray-transparent = true
-# tray-background = #0063ff
-
-tray-position = right
-tray-padding = 5
-tray-transparent = false
-tray-offset-y = 0%
-tray-offset-x = 0%
-tray-maxsize = 18
-tray-detached = false
-tray-background = ${colors.background}
-
-wm-restack = i3
-
-;override-redirect = true
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
 [settings]
 screenchange-reload = true
-;compositing-background = over
-;compositing-foreground = over
-;compositing-overline = over
-;compositing-underline = over
-;compositing-border = over
-
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-
-[global/wm]
-margin-top = 0
-margin-bottom = 0
-;fixed-center = true
-;override-redirect = true
