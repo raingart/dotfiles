@@ -38,7 +38,7 @@ alias yrr='yaourt -Rnsc'
 
 # alias upmiror="sudo curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > sudo /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
 alias upmiror="sudo reflector --country UA --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
-alias up='upmiror && yaourt -Syua' # ;and pacman -Scc'
+alias up='upmiror; yaourt -Syua' # ;and pacman -Scc'
 # alias up='pacman -Syu ;and yaourt -Su --aur'
 # alias upy='pacman -Syu --noconfirm ;and yaourt -Su --aur --noconfirm'
 # alias upy='yaourt -Syyu --aur --noconfirm'

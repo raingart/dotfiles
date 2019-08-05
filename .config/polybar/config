@@ -10,7 +10,7 @@
 
 [colors]
 background = #101010
-# background = #1D1F21
+# background2 = #1D1F21
 text = #dfdfdf
 icon = #707880
 icon-alt = #748aa6
@@ -22,30 +22,30 @@ underline = #267fb5
 
 [section/base]
 include-file = ~/.config/polybar/modules/i3.conf
-include-file = ~/.config/polybar/modules/dmenu.conf
-# include-file = ~/.config/polybar/modules/memory.conf
+# include-file = ~/.config/polybar/modules/dmenu.conf
+include-file = ~/.config/polybar/modules/memory.conf
 # include-file = ~/.config/polybar/modules/cpu.conf
 # include-file = ~/.config/polybar/modules/network.conf
 
 # include-file = ~/.config/polybar/modules/xwindow.conf
-include-file = ~/.config/polybar/modules/xkeyboard.conf
 
+include-file = ~/.config/polybar/modules/xkeyboard.conf
 include-file = ~/.config/polybar/modules/gmail.conf
 include-file = ~/.config/polybar/modules/deadbeef.conf
 include-file = ~/.config/polybar/modules/weather.conf
 include-file = ~/.config/polybar/modules/volume.conf
 include-file = ~/.config/polybar/modules/date.conf
-include-file = ~/.config/polybar/modules/powermenu.conf
+# include-file = ~/.config/polybar/modules/powermenu.conf
 
 [global/wm]
 margin-top = 0
 margin-bottom = 0
 
 [bar/main_bar]
-modules-left = i3 dmenu deadbeef
-modules-center = xkeyboard
-modules-right = weather gmail volume date powermenu
-; wlan cpu memory network xwindow wmname
+modules-left = i3 deadbeef
+modules-center = gmail
+modules-right = xkeyboard weather volume date 
+; wlan cpu network xwindow wmname powermenu dmenu memory
 
 # monitor = ${env:MONITOR:HDMI-0}
 # monitor = ${env:MONITOR:DVI-1}
@@ -75,7 +75,8 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.text}
 
-line-size = 2
+# line-size = 2
+line-size = 1
 line-color = ${colors.underline}
 
 border-size = 0

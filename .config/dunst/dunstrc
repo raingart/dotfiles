@@ -50,7 +50,7 @@
 [urgency_normal]
     background = "#181818"
     foreground = "#CECFD1"
-    timeout = 8
+    timeout = 5
     
 [urgency_critical]
     # background = "#267fb5"
@@ -58,3 +58,7 @@
     background = "#181818"
     foreground = "#CECFD1"
     timeout = 8
+
+# [play_sound]
+# summary = "*"
+# script = paplay /path/to/alert.wav

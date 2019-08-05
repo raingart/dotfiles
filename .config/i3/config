@@ -85,15 +85,24 @@ bindsym $alt+Tab focus mode_toggle
 
 # Name the workspaces
 # http://fortawesome.github.io/Font-Awesome/cheatsheet/
-set $ws1 1:
-set $ws2 2:
-set $ws3 3:
-set $ws4 4:
-set $ws5 5:
-set $ws6 6:
-set $ws7 7:
-set $ws8 8:
-set $ws9 9:
+# set $ws1 1:
+# set $ws2 2:
+# set $ws3 3:
+# set $ws4 4:
+# set $ws5 5:
+# set $ws6 6:
+# set $ws7 7:
+# set $ws8 8:
+# set $ws9 9:
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
+set $ws6 6:
+set $ws7 7:
+set $ws8 8:
+set $ws9 9:
 
 # switch to workspace
 bindsym F1 workspace $ws1
@@ -293,7 +302,7 @@ assign [class="Chromium"]               $ws1
 assign [class="Code|Geany|Godot"]   	$ws2
 assign [class="Spacefm|Filezilla"]  	$ws3
 assign [class="qBittorrent"]            $ws4
-assign [class="XnView|inkscape|Pinta"]	$ws5
+assign [class="XnView|Inkscape|Pinta"]	$ws5
 assign [class="smplayer"]               $ws6
 assign [class="Meld"]                   $ws7
 assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]   $ws8

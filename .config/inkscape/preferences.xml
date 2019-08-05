@@ -331,7 +331,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -432,7 +432,7 @@
        offset="0"
        offsetunits="mm" />
     <group
-       unit="px"
+       unit="mm"
        offset="5"
        scale="100"
        precision="2"
@@ -671,7 +671,7 @@
        placement="1">
       <group
          id="exportarea"
-         value="drawing" />
+         value="page" />
       <group
          id="defaultxdpi"
          value="96.4" />
