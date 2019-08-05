@@ -59,6 +59,6 @@
     foreground = "#CECFD1"
     timeout = 8
 
-# [play_sound]
-# summary = "*"
-# script = paplay /path/to/alert.wav
+[play_sound]
+summary = "*"
+script = ~/.config/dunst/sound.sh
