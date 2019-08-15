@@ -20,10 +20,10 @@ pacman -Sy yaourt --noconfirm
 #htop xf86-video-ati alsa-utils lxappearance wget gsimplecal dmenu mc dconf-editor conky --noconfirm
 #conky-manager inkscape pinta gthumb
 
-pacman -S lxdm avahi fish i3-gaps chromium compton git file-roller nitrogen geany dunst qt5ct xorg-xprop xclip xxkb ttf-droid ttf-dejavu ttf-liberation faenza-icon-theme gnome-calculator python-pip xdiskusage meld gnome-screenshot smplayer qbittorrent filezilla xnviewmp fzf --noconfirm
+pacman -S lxdm avahi fish i3-gaps chromium compton git file-roller nitrogen geany dunst sox qt5ct xorg-xprop xclip xxkb ttf-droid ttf-dejavu ttf-liberation faenza-icon-theme gnome-calculator python-pip xdiskusage meld gnome-screenshot smplayer qbittorrent filezilla xnviewmp fzf --noconfirm
 
-yaourt -S tilix-bin polybar spacefm-git vertex-themes reflector downgrade unclutter-xfixes-git qt5-styleplugins ttf-ms-fonts ttf-font-awesome visual-studio-code-bin deadbeef-git qownnotes telegram-desktop-bin --noconfirm
-#epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb
+yaourt -S tilix-bin polybar spacefm-git vertex-themes reflector downgrade unclutter-xfixes-git qt5-styleplugins ttf-ms-fonts ttf-font-awesome visual-studio-code-bin goodvibes qownnotes telegram-desktop-bin --noconfirm
+#epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb deadbeef-git
 
 # coredump OFF
 echo -e 'Storage=none' >> /etc/systemd/coredump.conf

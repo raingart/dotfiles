@@ -23,7 +23,9 @@ underline = #267fb5
 [section/base]
 include-file = ~/.config/polybar/modules/i3.conf
 # include-file = ~/.config/polybar/modules/dmenu.conf
-include-file = ~/.config/polybar/modules/memory.conf
+include-file = ~/.config/polybar/modules/deadbeef.conf
+include-file = ~/.config/polybar/modules/goodvibes.conf
+# include-file = ~/.config/polybar/modules/memory.conf
 # include-file = ~/.config/polybar/modules/cpu.conf
 # include-file = ~/.config/polybar/modules/network.conf
 
@@ -31,7 +33,6 @@ include-file = ~/.config/polybar/modules/memory.conf
 
 include-file = ~/.config/polybar/modules/xkeyboard.conf
 include-file = ~/.config/polybar/modules/gmail.conf
-include-file = ~/.config/polybar/modules/deadbeef.conf
 include-file = ~/.config/polybar/modules/weather.conf
 include-file = ~/.config/polybar/modules/volume.conf
 include-file = ~/.config/polybar/modules/date.conf
@@ -42,7 +43,7 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main_bar]
-modules-left = i3 deadbeef
+modules-left = i3 deadbeef goodvibes
 modules-center = gmail
 modules-right = xkeyboard weather volume date 
 ; wlan cpu network xwindow wmname powermenu dmenu memory

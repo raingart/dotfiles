@@ -20,8 +20,8 @@ bindsym --release $mod+Shift+q exec xkill
 bindsym $mod+Escape [class="^.*"] kill
 
 # start dmenu (a program launcher)
-bindsym $mod+End exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 20"
+bindsym $alt+F1 exec dmenu_run
+bindsym $alt+F2 exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 20"
 
 # if Insert kbkey
 bindsym KP_Insert focus 
@@ -268,19 +268,13 @@ bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set Master $MasterDefaultLev
 # bindsym XF86AudioMicMute 	exec pactl set-source-mute 2 toggle
 # bindsym $mod+XF86AudioMute    	exec pavucontrol
 
-# Multimedia hotkey
-# bindsym XF86AudioPlay exec "deadbeef --play-pause||mpc toggle"
-# bindsym XF86AudioStop exec "deadbeef --stop||mpc stop"
-# bindsym XF86AudioNext exec "deadbeef --next||mpc next"
-# bindsym XF86AudioPrev exec "deadbeef --previous||mpc previous"
-
 bindsym XF86Calculator      exec gnome-calculator
 bindsym XF86HomePage        exec $Browser
 bindsym XF86Mail            exec --no-startup-id spacefm
 # bindsym $mod+XF86Mail       exec --no-startup-id gthumb
 bindsym $mod+XF86Mail       exec --no-startup-id xnviewmp
 bindsym XF86Search          exec smplayer
-bindsym $mod+XF86Search     exec --no-startup-id ~/bin/deadbeef
+bindsym $mod+XF86Search     exec --no-startup-id goodvibes
 # bindsym $mod+XF86Back       exec --no-startup-id ???
 bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes
 bindsym XF86Favorites       exec --no-startup-id code
@@ -317,7 +311,7 @@ assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]   $ws8
 
 bindsym Menu       [class="Tilix"]            scratchpad show
 bindsym Insert     [class="TelegramDesktop"]  scratchpad show
-bindsym $mod+grave [class="Deadbeef"]         scratchpad show
+bindsym $mod+grave [class="Goodvibes"]        scratchpad show
 bindsym $alt+grave [class="QOwnNotes"]        scratchpad show
 
 for_window [window_role="pop-up|task_dialog"] floating enable
@@ -360,7 +354,7 @@ for_window [class="Godot" title=".*Godot Engine*."] floating disable, border 1px
 # scratchpad show - restore
 for_window [class="(?i)xxkb"]  	move window to scratchpad
 for_window [class="Tilix"] 	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
-for_window [class="Deadbeef" title="^DeaDBeeF-devel$"]	move window to scratchpad, move position 0 20, resize set 471 342,  move scratchpad
+for_window [class="Goodvibes" title="^Goodvibes$"]	move window to scratchpad, move position 0 20, move scratchpad
 for_window [class="QOwnNotes" title="- QOwnNotes"] 	move window to scratchpad, move position 0 20,  resize set 1050 700, move scratchpad
 for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
 
