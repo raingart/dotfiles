@@ -18,7 +18,7 @@ function fish_right_prompt -d "Write out the right prompt"
       if test $duration -ge 5
          # --icon=dialog-information
          notify-send "Terminal" "$history[1] finished in $duration ($status)" -u low &
-         sh ~/.config/dunst/sound.sh &
+         sh ~/.config/dunst/sound.sh
       end
          
       if test $duration -gt 0

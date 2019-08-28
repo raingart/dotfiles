@@ -27,4 +27,8 @@
     <uri>http://94.245.35.107:80/radioactive48</uri>
     <name>radioactive48</name>
   </Station>
+  <Station>
+    <uri>http://radio.ukr.radio:8000/ur1-mp3</uri>
+    <name>ur1</name>
+  </Station>
 </Stations>
