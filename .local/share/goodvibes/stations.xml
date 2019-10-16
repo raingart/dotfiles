@@ -27,12 +27,4 @@
     <uri>http://stream.dbmedia.se/crr48.m3u</uri>
     <name>crr48.m3u</name>
   </Station>
-  <Station>
-    <uri>http://stream.punkrockers-radio.de:8000/ogg.m3u</uri>
-    <name>Punkrockers Radio</name>
-  </Station>
-  <Station>
-    <uri>http://94.245.35.107:80/radioactive48</uri>
-    <name>radioactive48</name>
-  </Station>
 </Stations>
