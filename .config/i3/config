@@ -203,8 +203,8 @@ client.background	#client_border
 
 # Gaps
 # Set inner/outer gaps
-gaps inner 1
-gaps outer 0
+# gaps inner 1
+# gaps outer 0
 
 # smart_gaps on
 # smart_borders on
@@ -288,13 +288,12 @@ bindsym $mod+Insert   exec --no-startup-id telegram-desktop
 bindsym Print         exec --no-startup-id gnome-screenshot --interactive --clipboard
 bindsym Control+Print exec --no-startup-id sh -c 'gnome-screenshot --area --clipboard'
 bindsym $mod+F10      exec --no-startup-id qbittorrent
-# bindsym $mod+Delete   exec --no-startup-id sh -c 'i3lock -c 000000 -n'
 
 
 # Where to run
 assign [class="Chromium"]               $ws1
 assign [class="Code|Geany|Godot"]   	$ws2
-assign [class="Spacefm|Filezilla"]  	$ws3
+assign [class="Spacefm|Filezilla|AnyDesk"]  	$ws3
 assign [class="qBittorrent"]            $ws4
 assign [class="XnView|Inkscape|Pinta"]	$ws5
 assign [class="smplayer"]               $ws6

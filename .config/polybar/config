@@ -52,19 +52,19 @@ modules-right = xkeyboard weather volume date
 # monitor = ${env:MONITOR:HDMI-0}
 # monitor = ${env:MONITOR:DVI-1}
 
-wm-restack = i3
+# wm-restack = i3
+# override-redirect = false
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-tray-detached = false
 tray-position = right
 tray-padding = 3
-tray-offset-y = 0%
-tray-offset-x = 0%
-tray-maxsize = 18
-tray-transparent = true
-# tray-background = ${colors.background}
+# tray-offset-y = 0%
+# tray-offset-x = 0%
+# tray-maxsize = 18
+# tray-transparent = true
+tray-background = ${colors.background}
 
 width = 100%
 height = 20
