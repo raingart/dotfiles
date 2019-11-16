@@ -115,12 +115,12 @@ def get_gmail(URL):
     r = requests.get(URL)
        
     if r.status_code == 401:
-       logging.warning("login [%s] or password [%s] is incorrect\n%s" %
+       print("login [%s] or password [%s] is incorrect\n%s" %
        (user, passwd, 'Also try enable "Allow less secure apps" on https://myaccount.google.com/lesssecureapps'))
        return False
        
     elif r.status_code != 200:
-       logging.warning("Requests error [%s] - %s" % (r.status_code, URL))
+       print("Requests error [%s] - %s" % (r.status_code, URL))
        return False
        
     contents = r.text
@@ -136,11 +136,11 @@ def get_gmail(URL):
 
         #  send_noti("Gmail", "%s %s" % (fullcount, ed))
         #  print(" %s" % fullcount)
-        print(fullcount)
+        #  print(fullcount)
         return contents
 
     elif int(fullcount) != 0:
-        logging.critical("gmail format xml is changed")
+        print("gmail format xml is changed")
         send_noti("Gmail error:", "xml format is broken", "critical")
     else:
         logging.info("new mail not found")
@@ -156,6 +156,8 @@ def main():
             new_gmail=get_gmail(mail_url)
             if new_gmail:
                 open_rss_link(new_gmail)
+            else:
+                print('')
             
         logging.info("completed.")
 

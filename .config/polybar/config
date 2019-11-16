@@ -23,7 +23,7 @@ underline = #267fb5
 [section/base]
 include-file = ~/.config/polybar/modules/i3.conf
 # include-file = ~/.config/polybar/modules/dmenu.conf
-include-file = ~/.config/polybar/modules/deadbeef.conf
+# include-file = ~/.config/polybar/modules/deadbeef.conf
 include-file = ~/.config/polybar/modules/goodvibes.conf
 # include-file = ~/.config/polybar/modules/memory.conf
 # include-file = ~/.config/polybar/modules/cpu.conf
@@ -44,10 +44,10 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main_bar]
-modules-left = i3 deadbeef goodvibes
+modules-left = i3 goodvibes
 modules-center = gmail memory_warn
 modules-right = xkeyboard weather volume date 
-; wlan cpu network xwindow wmname powermenu dmenu memory
+; wlan cpu network xwindow wmname powermenu dmenu memory deadbeef
 
 # monitor = ${env:MONITOR:HDMI-0}
 # monitor = ${env:MONITOR:DVI-1}

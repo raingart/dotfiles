@@ -35,16 +35,16 @@ end
 abbr --add gs='git status'
 abbr --add gaf='git add -f'
 # abbr --add gps='git push'
-abbr --add gpl='git pull'
+# abbr --add gpl='git pull'
 abbr --add gd='git diff'
 abbr --add gdc='git diff --cached'
 abbr --add gdt='git difftool'
 abbr --add grm='git rm -r --cached'
 abbr --add grmf='git rm -rf'
 abbr --add gcl='git clone'
-abbr --add gco='git checkout'
-abbr --add gcm='git commit -m'
-abbr --add gcv='git commit --verbose'
+abbr --add gc='git checkout'
+# abbr --add gcm='git commit -m'
+# abbr --add gcv='git commit --verbose'
 alias gl="git log \
             --graph \
             --abbrev-commit \

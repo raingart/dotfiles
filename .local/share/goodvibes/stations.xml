@@ -8,12 +8,12 @@
     <name>AniSonFM</name>
   </Station>
   <Station>
-    <uri>http://server-23.stream-server.nl:8438/listen.pls?sid=1</uri>
-    <name>Alternative Rock Variety @ MEGASHUFFLE.com (ARV)</name>
-  </Station>
-  <Station>
     <uri>http://79.120.77.11:8000/powermetal</uri>
     <name>powermetal</name>
+  </Station>
+  <Station>
+    <uri>http://server-23.stream-server.nl:8438/listen.pls?sid=1</uri>
+    <name>Alternative Rock Variety @ MEGASHUFFLE.com (ARV)</name>
   </Station>
   <Station>
     <uri>http://91.218.212.84:8000/radionv.mp3.m3u</uri>
