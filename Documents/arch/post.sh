@@ -15,7 +15,7 @@ echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$a
 # Install Apps
 #pacman -S pavucontrol avahi reflector downgrade lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp compton --noconfirm
 
-pacman -S chromium htop xf86-video-ati alsa-utils git openssh i3-wm fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-screenshot gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g unrar gst-plugins-good
+pacman -S chromium htop xf86-video-ati alsa-utils git openssh i3-wm fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-screenshot gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g unrar gst-plugins-good qt5-tools
 
 # yay
 cd /tmp
@@ -27,7 +27,7 @@ yay -S polybar spacefm vertex-themes unclutter-xfixes-git ttf-ms-fonts visual-st
 
 # epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb deadbeef mpg123 --noconfirm
 
-# goodvibes => gst-plugins-good, gst-plugins-base-libs, gst-plugins-bad
+# goodvibes => gst-plugins-good, gst-plugins-base-libs, gst-plugins-bad, qt5-tools
 # spacefm => ntfs-3g, unrar
 # qownnotes => from official site
 
@@ -80,6 +80,9 @@ echo -e '127.0.0.1	ssl.google-analytics.com' >> /etc/hosts
 systemctl disable swap.target
 
 # sync time ON
+echo -e '
+NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
+FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org' >> /etc/systemd/timesyncd.conf
 timedatectl set-ntp true
 
 sed -i.bak 's/timeout=5/timeout=1/g' /boot/grub/grub.cfg

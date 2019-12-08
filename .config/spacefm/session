@@ -10,7 +10,7 @@ no_confirm=1
 
 [Window]
 width=1280
-height=986
+height=1004
 maximized=0
 
 [Desktop]
@@ -412,7 +412,7 @@ panel2_show_toolbox1-b=1
 panel2_show_devmon1-b=1
 panel2_show_book1-b=1
 panel2_show_sidebar1-b=2
-panel2_detcol_name1-y=312
+panel2_detcol_name1-y=318
 panel2_detcol_name1-b=1
 panel2_detcol_size1-y=54
 panel2_detcol_size1-b=1
@@ -509,7 +509,7 @@ cstm_43e834ed-prev=cstm_4cb74c39
 app_dlg-s=441
 app_dlg-x=600
 app_dlg-y=600
-app_dlg-z=347
+app_dlg-z=392
 text_dlg-s=600
 text_dlg-z=713
 
