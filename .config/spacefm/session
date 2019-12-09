@@ -276,6 +276,7 @@ panel1_sort_extra-b=1
 panel1_book_fol-b=1
 panel2_show_toolbox-b=1
 panel2_show_devmon-b=1
+panel2_show_dirtree-b=1
 panel2_show_book-b=1
 panel2_show_sidebar-b=2
 panel2_list_detailed-x=0

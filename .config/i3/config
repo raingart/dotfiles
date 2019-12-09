@@ -365,7 +365,6 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # startup applications
 # exec --no-startup-id i3lock -c 000000 -n
-# exec --no-startup-id compton
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
@@ -377,6 +376,6 @@ exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping 
 # exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && megasync & sleep 60 && killall megasync'
 exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid
 exec --no-startup-id sleep 5 && QOwnNotes
-exec --no-startup-id xset -dpms && xset s off
 exec --no-startup-id goodvibes
+exec --no-startup-id xset -dpms && xset s off
 # exec --no-startup-id i3-msg "workspace $ws3; exec spacefm --no-desktop; layout tabbed"
