@@ -31,7 +31,6 @@ include-file = ~/.config/polybar/modules/goodvibes.conf
 
 # include-file = ~/.config/polybar/modules/xwindow.conf
 include-file = ~/.config/polybar/modules/gmail.conf
-include-file = ~/.config/polybar/modules/memory_warn.conf
 
 include-file = ~/.config/polybar/modules/xkeyboard.conf
 include-file = ~/.config/polybar/modules/weather.conf

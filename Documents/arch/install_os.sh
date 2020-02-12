@@ -53,7 +53,8 @@ resolvectl status
 --Setting Timezone
 # ls /usr/share/zoneinfo
 ln -sf /usr/share/zoneinfo/Europe/Kiev /etc/localtime
-hwclock --systohc --utc
+hwclock --systohc --localtime
+# timedatectl set-local-rtc 1 --adjust-system-clock
 --
 pacman -Syyuu
 ---

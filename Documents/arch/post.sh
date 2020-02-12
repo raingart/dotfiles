@@ -13,7 +13,7 @@ pacman -Syuw --noconfirm #generated new mirrorlist
 echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 
 # Install Apps
-#pacman -S pavucontrol avahi reflector downgrade lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp compton --noconfirm
+#pacman -S pavucontrol avahi reflector downgrade lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp --noconfirm
 
 pacman -S chromium htop xf86-video-ati alsa-utils git openssh i3-wm fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-screenshot gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g unrar gst-plugins-good qt5-tools
 
@@ -23,7 +23,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay -S polybar spacefm vertex-themes unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes --noconfirm
+yay -S polybar spacefm vertex-themes unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes earlyoom --noconfirm
 
 # epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb deadbeef mpg123 --noconfirm
 
@@ -87,6 +87,10 @@ timedatectl set-ntp true
 
 sed -i.bak 's/timeout=5/timeout=1/g' /boot/grub/grub.cfg
 grub-mkconfig -o /boot/grub/grub.cfg
+
+cp earlyoom.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl restart earlyoom
 
 # read -p "pause 1- sec" -t 10
 #reboot

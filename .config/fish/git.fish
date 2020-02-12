@@ -51,6 +51,17 @@ alias gl="git log \
             --date=relative \
 	    --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset'"
 
+function gf2
+   # git add --all
+   git add .
+   if not test -z (echo $argv)
+      git commit -m "$argv"
+   else
+      git commit -m "current"
+   end
+   git push origin gh-pages
+end
+
 function gf
    # git add -u
    git add --all

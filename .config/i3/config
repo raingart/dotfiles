@@ -295,7 +295,7 @@ assign [class="Chromium"]               $ws1
 assign [class="Code|Geany|Godot"]   	$ws2
 assign [class="Spacefm|Filezilla|AnyDesk"]  	$ws3
 assign [class="qBittorrent"]            $ws4
-assign [class="XnView|(?i)gthumb|Inkscape|Pinta"]	$ws5
+assign [class="XnView|(?i)gthumb|Inkscape|Pinta|lazpaint"]	$ws5
 assign [class="smplayer"]               $ws6
 assign [class="Meld"]                   $ws7
 assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]   $ws8
@@ -333,6 +333,7 @@ for_window [class="Steam" title="^Steam$"]	floating disable
 for_window [class="(?i)gsimplecal"]		floating enable, move position mouse
 for_window [class="System-config-printer.py"]	floating enable
 for_window [class="Chromium" title="Task Manager - Chromium"]	floating enable
+for_window [class="Spacefm" title="Find Files"]	floating enable
 for_window [class="multibootusb"]		floating enable
 for_window [class="Nitrogen"]			floating enable
 for_window [class="mpv|smplayer"]		floating enable
@@ -342,6 +343,7 @@ for_window [class="qt5ct"]			floating enable
 for_window [class="Gnome-calculator"]		floating enable
 for_window [class="GParted"]			floating enable
 for_window [class="ppsspp|PPSSPPSDL"]		floating enable
+for_window [class="lazpaint" title="Color|Layers"]	floating enable
 for_window [class="Flashplayer"]		floating enable
 for_window [class="Pavucontrol"]		floating enable
 for_window [class="SimpleScreenRecorder"]	floating enable
@@ -359,7 +361,8 @@ for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad,
 
 
 # Start Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; ~/.config/polybar/launch.sh'
 # exec_always --no-startup-id compton
 # polybar Depends: jsoncpp
 
@@ -378,4 +381,5 @@ exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev
 exec --no-startup-id sleep 5 && QOwnNotes
 exec --no-startup-id goodvibes
 exec --no-startup-id xset -dpms && xset s off
+# exec --no-startup-id earlyoom -n -M=307200
 # exec --no-startup-id i3-msg "workspace $ws3; exec spacefm --no-desktop; layout tabbed"
