@@ -17,10 +17,12 @@ timedatectl status
 --Installation
 pacstrap /mnt base base-devel linux linux-firmware nano linux-headers
 genfstab -U -p /mnt >> /mnt/etc/fstab
---
-arch-chroot /mnt
-hostnamectl status
-hostnamectl set-hostname "pc"
+
+--Setting Timezone
+# ls /usr/share/zoneinfo
+ln -sf /usr/share/zoneinfo/Europe/Kiev /etc/localtime
+hwclock --systohc --localtime
+# timedatectl set-local-rtc 1 --adjust-system-clock
 
 --Setting up Locale
 localectl list-locales
@@ -31,6 +33,10 @@ en_GB ISO-8859-1" > /etc/locale.gen
 locale-gen
 echo LANG=en_GB.UTF-8 > /etc/locale.conf
 export LANG=en_GB.UTF-8
+--
+arch-chroot /mnt
+hostnamectl status
+hostnamectl set-hostname "pc"
 ---
 nano /etc/systemd/network/20-wired.network
 [Match]
@@ -40,9 +46,9 @@ Name=en*
 [Network]
 DHCP=ipv4
 --
-cat /etc/systemd/resolved.conf
-[Resolve]
-DNS=8.8.8.8 8.8.4.4
+# cat /etc/systemd/resolved.conf
+# [Resolve]
+# DNS=8.8.8.8 8.8.4.4
 --
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
@@ -50,13 +56,6 @@ systemctl disable dhcpcd
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 # ls -la /etc/resolv.conf
 resolvectl status
---Setting Timezone
-# ls /usr/share/zoneinfo
-ln -sf /usr/share/zoneinfo/Europe/Kiev /etc/localtime
-hwclock --systohc --localtime
-# timedatectl set-local-rtc 1 --adjust-system-clock
---
-pacman -Syyuu
 ---
 passwd
 useradd -g users -G wheel,storage,power,autologin,audio art
@@ -65,6 +64,8 @@ passwd art
 --
 # pacman -S sudo
 echo "%wheel ALL=(ALL) ALL" > /etc/sudoers
+--
+pacman -Syyuu
 --
 # pacman -S grub efibootmgr dosfstools os-prober mtools
 # check is install in base? - dosfstools mtools

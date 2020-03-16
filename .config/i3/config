@@ -237,11 +237,11 @@ for_window [class="(?i)"] focus
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
-no_focus [class="conkypanel"]
+# no_focus [class="conkypanel"]
+# no_focus [title="conky (pc)"]
 # no_focus [window_role="*"]
 # no_focus [tiling]
 # no_focus [class=".*"]
-no_focus [title="conky (pc)"]
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+KP_Subtract [floating] move scratchpad
@@ -254,19 +254,19 @@ set $volumeStep 4%
 set $MasterDefaultLevel 50%
 set $MicStatus `amixer get Capture |grep "Front Left:" | awk '{ print ($7) }'`
 
-bindsym XF86AudioRaiseVolume  exec amixer -q set Master $volumeStep+ unmute
-bindsym XF86AudioLowerVolume  exec amixer -q set Master $volumeStep- unmute
-bindsym XF86AudioMute         exec ~/.config/i3/scripts/toggle_vol.sh
-bindsym $alt+XF86AudioMute    exec amixer -q set Capture toggle && notify-send "Asla Mic/Capture" "$MicStatus" -u low -t 1000;
-bindsym $mod+XF86AudioMute    exec tilix -e "alsamixer"
+bindsym XF86AudioRaiseVolume	exec amixer -q set Master $volumeStep+ unmute
+bindsym XF86AudioLowerVolume	exec amixer -q set Master $volumeStep- unmute
+bindsym XF86AudioMute		exec ~/.config/i3/scripts/toggle_vol.sh
+bindsym $alt+XF86AudioMute	exec amixer -q set Capture toggle && notify-send "Asla Mic/Capture" "$MicStatus" -u low -t 1000;
+bindsym $mod+XF86AudioMute	exec tilix -e "alsamixer"
 bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set Master $MasterDefaultLevel -M
 
 # Pulse Audio controls
 # bindsym XF86AudioRaiseVolume 	exec pactl set-sink-volume 0 +$volumeStep
 # bindsym XF86AudioLowerVolume 	exec pactl set-sink-volume 0 -$volumeStep
-# bindsym XF86AudioMute 		exec pactl set-sink-mute 0 toggle
+# bindsym XF86AudioMute 	exec pactl set-sink-mute 0 toggle
 # bindsym XF86AudioMicMute 	exec pactl set-source-mute 2 toggle
-# bindsym $mod+XF86AudioMute    	exec pavucontrol
+# bindsym $mod+XF86AudioMute    exec pavucontrol
 
 bindsym XF86Calculator      exec gnome-calculator
 bindsym XF86HomePage        exec $Browser
@@ -280,26 +280,26 @@ bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes
 bindsym XF86Favorites       exec --no-startup-id code
 bindsym $mod+XF86Favorites  exec --no-startup-id geany
 
-bindsym $mod+F12      exec --no-startup-id tilix -s ~/.config/tilix/default.json
-# bindsym $mod+F11      exec --no-startup-id tilix -a session-add-down -e htop
-bindsym $mod+F11      exec --no-startup-id tilix -s ~/.config/tilix/htop.json
-# bindsym $mod+Insert   exec --no-startup-id telegram-desktop -startintray
-bindsym $mod+Insert   exec --no-startup-id telegram-desktop
-bindsym Print         exec --no-startup-id gnome-screenshot --interactive --clipboard
-bindsym Control+Print exec --no-startup-id sh -c 'gnome-screenshot --area --clipboard'
-bindsym $mod+F10      exec --no-startup-id qbittorrent
+bindsym $mod+F12	exec --no-startup-id tilix -s ~/.config/tilix/default.json
+# bindsym $mod+F11	exec --no-startup-id tilix -a session-add-down -e htop
+bindsym $mod+F11	exec --no-startup-id tilix -s ~/.config/tilix/htop.json
+# bindsym $mod+Insert	exec --no-startup-id telegram-desktop -startintray
+bindsym $mod+Insert	exec --no-startup-id telegram-desktop
+bindsym Print		exec --no-startup-id gnome-screenshot --interactive --clipboard
+bindsym Control+Print	exec --no-startup-id sh -c 'gnome-screenshot --area --clipboard'
+bindsym $mod+F10	exec --no-startup-id qbittorrent
 
 
 # Where to run
-assign [class="Chromium"]               $ws1
-assign [class="Code|Geany|Godot"]   	$ws2
-assign [class="Spacefm|Filezilla|AnyDesk"]  	$ws3
-assign [class="qBittorrent"]            $ws4
-assign [class="XnView|(?i)gthumb|Inkscape|Pinta|lazpaint"]	$ws5
-assign [class="smplayer"]               $ws6
-assign [class="Meld"]                   $ws7
-assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]   $ws8
-# assign [class=""]                $ws9
+assign [class="Chromium"]		$ws1
+assign [class="Code|Geany|Godot"]	$ws2
+assign [class="Spacefm"]		$ws3
+assign [class="Meld|Filezilla|AnyDesk|multibootusb"]	    $ws4
+assign [class="XnView|(?i)gthumb|Inkscape|Pinta|smplayer"]  $ws5
+assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]     $ws6
+assign [class="qBittorrent"]	$ws7
+# assign [class=""]	$ws8
+# assign [class=""]	$ws9
 
 # workspace 3 output
 # workspace 1 output DVI-0
@@ -308,10 +308,10 @@ assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]   $ws8
 # workspace 4 output HDMI-0
 # workspace $ws1 output eDP1
 
-bindsym Menu       [class="Tilix"]            scratchpad show
-bindsym Insert     [class="TelegramDesktop"]  scratchpad show
-bindsym $mod+grave [class="Goodvibes"]        scratchpad show
-bindsym $alt+grave [class="QOwnNotes"]        scratchpad show
+bindsym Menu	   [class="Tilix"]		scratchpad show
+bindsym Insert	   [class="TelegramDesktop"]	scratchpad show
+bindsym $mod+grave [class="Goodvibes"]		scratchpad show
+bindsym $alt+grave [class="QOwnNotes"]		scratchpad show
 
 for_window [window_role="pop-up|task_dialog"] floating enable
 # move container to workspace $ws8
@@ -353,11 +353,11 @@ for_window [class="Godot" title=".*Godot Engine*."] floating disable, border 1px
 
 # move scratchpad - minimize
 # scratchpad show - restore
-for_window [class="(?i)xxkb"]  	move window to scratchpad
-for_window [class="Tilix"] 	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
-for_window [class="Goodvibes" title="^Goodvibes$"]	move window to scratchpad, move position 0 20, move scratchpad
-for_window [class="QOwnNotes" title="- QOwnNotes"] 	move window to scratchpad, move position 0 20,  resize set 1050 700, move scratchpad
-for_window [class="TelegramDesktop" title="Telegram"]	move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
+for_window [class="(?i)xxkb"]	move window to scratchpad
+for_window [class="Tilix"]	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
+for_window [class="Goodvibes" title="^Goodvibes$"] move window to scratchpad, move position 0 20, move scratchpad
+for_window [class="QOwnNotes" title="- QOwnNotes"] move window to scratchpad, move position 0 20, resize set 1050 700, move scratchpad
+for_window [class="TelegramDesktop" title="Telegram"] move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
 
 
 # Start Polybar

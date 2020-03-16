@@ -17,7 +17,7 @@ alias chgrp='chgrp --preserve-root'
 
 alias pacman='sudo pacman'
 alias pac='pacman'
-alias pacs='pacman -S'
+alias pacs='pacman -Sy'
 # alias pacst='pacman -S --asdeps'
 alias pacsy='pacman -S --noconfirm'
 alias pacss='pacman -Ss'
@@ -32,8 +32,8 @@ alias yrs='yr -S'
 alias yrsy='yr -S --noconfirm'
 
 alias upmiror="sudo curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > sudo /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
-alias up='upmiror ;and pacman -Sy archlinux-keyring --noconfirm ;and pacman -Syu; yr -Syua ;and pacman -Sc'
-alias upy='upmiror ;and pacman -Sy archlinux-keyring --noconfirm ;and pacman -Syu; yr -Syua --noconfirm ;and pacman -Sc --noconfirm'
+alias up='pacman -Syu; yr -Syua ;and pacman -Sc'
+alias upy='pacman -Syu; yr -Syua --noconfirm ;and pacman -Sc --noconfirm'
 alias upi='pacman -Qu'
 
 alias fishr='source ~/.config/fish/config.fish'

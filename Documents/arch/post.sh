@@ -15,7 +15,7 @@ echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$a
 # Install Apps
 #pacman -S pavucontrol avahi reflector downgrade lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp --noconfirm
 
-pacman -S chromium htop xf86-video-ati alsa-utils git openssh i3-wm fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-screenshot gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g unrar gst-plugins-good qt5-tools
+pacman -S usbutils chromium htop xf86-video-ati alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-screenshot gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g unrar gst-plugins-good qt5-tools
 
 # yay
 cd /tmp
@@ -25,11 +25,12 @@ makepkg -si
 
 yay -S polybar spacefm vertex-themes unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes earlyoom --noconfirm
 
-# epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb deadbeef mpg123 --noconfirm
+# epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb-git deadbeef mpg123 --noconfirm
 
 # goodvibes => gst-plugins-good, gst-plugins-base-libs, gst-plugins-bad, qt5-tools
 # spacefm => ntfs-3g, unrar
 # qownnotes => from official site
+# multibootusb-git => udisks2
 
 # coredump OFF
 echo -e 'Storage=none' >> /etc/systemd/coredump.conf
