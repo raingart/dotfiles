@@ -20,7 +20,7 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 --Setting Timezone
 # ls /usr/share/zoneinfo
-ln -sf /usr/share/zoneinfo/Europe/Kiev /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Kiev/etc/localtime
 hwclock --systohc --localtime
 # timedatectl set-local-rtc 1 --adjust-system-clock
 

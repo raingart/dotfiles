@@ -12,6 +12,7 @@ function ts --description 'download .ts segments and combine to .mp4 from .m3u8'
       set name $name".mp4"
    end
    
+   echo 'create:' $name
    command ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "$url" -c copy "$name"
    echo 'done:' $name
 end
