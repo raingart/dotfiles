@@ -104,6 +104,13 @@ set $ws7 7:
 set $ws8 8:
 set $ws9 9:
 
+# workspace 3 output
+# workspace 1 output DVI-0
+# workspace 2 output DVI-I-1
+# workspace 3 output DVI-D-0
+# workspace 4 output HDMI-0
+# workspace $ws1 output eDP1
+
 # switch to workspace
 bindsym F1 workspace $ws1
 bindsym F2 workspace $ws2
@@ -250,16 +257,18 @@ bindsym $mod+KP_Subtract scratchpad show
 
 # Alsa Audio controls
 # set $volumeStep 1dB
-set $volumeStep 4%
+set $volumeStep 5%
 set $MasterDefaultLevel 50%
-set $MicStatus `amixer get Capture |grep "Front Left:" | awk '{ print ($7) }'`
+# set $volumeSource "Master"
+set $volumeSource "Speaker"
+# set $MicStatus `amixer get Capture |grep "Front Left:" | awk '{ print ($7) }'`
 
-bindsym XF86AudioRaiseVolume	exec amixer -q set Master $volumeStep+ unmute
-bindsym XF86AudioLowerVolume	exec amixer -q set Master $volumeStep- unmute
+bindsym XF86AudioRaiseVolume	exec amixer -q set $volumeSource $volumeStep+ unmute
+bindsym XF86AudioLowerVolume	exec amixer -q set $volumeSource $volumeStep- unmute
 bindsym XF86AudioMute		exec ~/.config/i3/scripts/toggle_vol.sh
 # bindsym $alt+XF86AudioMute	exec amixer -q set Capture toggle && notify-send "Asla Mic/Capture" "$MicStatus" -u low -t 1000;
 bindsym $mod+XF86AudioMute	exec tilix -e "alsamixer"
-bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set Master $MasterDefaultLevel -M
+bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set $volumeSource $MasterDefaultLevel -M
 
 # Pulse Audio controls
 # bindsym XF86AudioRaiseVolume 	exec pactl set-sink-volume 0 +$volumeStep
@@ -301,12 +310,6 @@ assign [class="qBittorrent"]	$ws7
 # assign [class=""]	$ws8
 # assign [class=""]	$ws9
 
-# workspace 3 output
-# workspace 1 output DVI-0
-# workspace 2 output DVI-I-1
-# workspace 3 output DVI-D-0
-# workspace 4 output HDMI-0
-# workspace $ws1 output eDP1
 
 bindsym Menu	   [class="Tilix"]		scratchpad show
 bindsym Insert	   [class="TelegramDesktop"]	scratchpad show
@@ -371,7 +374,7 @@ exec_always --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
-exec --no-startup-id amixer -q set Headphone 90% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% -M unmute; amixer -q set Master $MasterDefaultLevel -M;
+# exec --no-startup-id amixer -q set Headphone 90% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% -M unmute; amixer -q set Master $MasterDefaultLevel -M;
 exec --no-startup-id xxkb
 exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
 exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser'

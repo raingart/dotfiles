@@ -84,21 +84,17 @@ function gitignore
    cat .gitignore
 end
 
-
-# Выбираем нужный бранч(ветку), у меня она master
-# git checkout master
-#
-# делаем откат изменений в репозитории для примера на два коммита назад
-# git reset --hard HEAD~2
-#
-# Можно сделать до какого то определенного коммита по хешу
-# git reset --hard HASH
-# Хеш можно взять в вебинтерфейсе гитхаба.
-#
-# Далее делаем принудительный коммит в основной репо на гитхабе
-# git push -f origin master
-# без -f будет ругаться что у вас версия младше чем в гитхабе и вам надо сделать pull
-
+function greset
+   if test "$argv"
+      git checkout master
+      # git reset --hard HEAD~2
+      git reset --hard "$argv"
+      git push -f origin master
+      echo "ready. Apply changes and pull it."
+   else
+      echo "empty hash"
+   end
+end
 
 # alias gt='git tag'
 # abbr --add gb='git branch'

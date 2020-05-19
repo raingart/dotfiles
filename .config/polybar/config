@@ -30,7 +30,7 @@ include-file = ~/.config/polybar/modules/goodvibes.conf
 # include-file = ~/.config/polybar/modules/network.conf
 
 # include-file = ~/.config/polybar/modules/xwindow.conf
-include-file = ~/.config/polybar/modules/gmail.conf
+# include-file = ~/.config/polybar/modules/gmail.conf
 
 include-file = ~/.config/polybar/modules/xkeyboard.conf
 include-file = ~/.config/polybar/modules/weather.conf
@@ -44,7 +44,7 @@ margin-bottom = 0
 
 [bar/main_bar]
 modules-left = i3 goodvibes
-modules-center = gmail memory_warn
+modules-center = memory_warn
 modules-right = xkeyboard weather volume date 
 ; wlan cpu network xwindow wmname powermenu dmenu memory deadbeef
 
