@@ -8,3 +8,5 @@ if [[ $(pidof goodvibes 2>/dev/null) && "$goodvibes_status" == "Playing" ]];then
 fi
 
 echo $player_track_name
+
+exit

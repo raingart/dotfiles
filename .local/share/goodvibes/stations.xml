@@ -12,15 +12,7 @@
     <name>powermetal</name>
   </Station>
   <Station>
-    <uri>http://79.111.119.111:8000/screamoemo</uri>
-    <name>screamoemo</name>
-  </Station>
-  <Station>
     <uri>http://server-23.stream-server.nl:8438/listen.pls?sid=1</uri>
     <name>Alternative Rock Variety @ MEGASHUFFLE.com (ARV)</name>
-  </Station>
-  <Station>
-    <uri>http://media2.brg.ua:8000/power_l</uri>
-    <name>Power FM</name>
   </Station>
 </Stations>

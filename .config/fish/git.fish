@@ -88,7 +88,7 @@ function greset
    if test "$argv"
       git checkout master
       # git reset --hard HEAD~2
-      git reset --hard "$argv"
+      git reset --hard "$argv" #commit
       git push -f origin master
       echo "ready. Apply changes and pull it."
    else
