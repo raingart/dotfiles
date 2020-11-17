@@ -9,4 +9,4 @@ fi
 
 echo $player_track_name
 
-exit
+# exit
