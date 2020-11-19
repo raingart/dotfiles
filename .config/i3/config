@@ -317,6 +317,7 @@ bindsym Insert	   [class="TelegramDesktop"]	scratchpad show
 bindsym $mod+grave [class="Goodvibes"]		scratchpad show
 bindsym $alt+grave [class="QOwnNotes"]		scratchpad show
 
+# xprop
 for_window [window_role="pop-up|task_dialog"] floating enable
 # move container to workspace $ws8
 # for_window [title="(?)open*.|(?)^save*.|(?)add location|settings"]  floating enable, move container to workspace $ws9

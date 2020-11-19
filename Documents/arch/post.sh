@@ -13,9 +13,10 @@ pacman -Syuw --noconfirm #generated new mirrorlist
 echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 
 # Install Apps
-#pacman -S xf86-video-ati pavucontrol avahi reflector downgrade lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp --noconfirm
+#pacman -S xf86-video-ati pavucontrol avahi reflector lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp gnome-screenshot --noconfirm
+# gnome-screenshot-3.36.0-1
 
-pacman -S xf86-video-amdgpu usbutils chromium htop alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-screenshot gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g unrar gst-plugins-good qt5-tools
+pacman -S xf86-video-amdgpu usbutils chromium htop alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g unrar gst-plugins-good qt5-tools
 
 # yay
 cd /tmp
@@ -23,7 +24,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca polybar spacefm vertex-themes unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes --noconfirm
+yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca polybar spacefm vertex-themes unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
 
 # epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb-git deadbeef mpg123 earlyoom --noconfirm
 
