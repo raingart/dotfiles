@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=smplayer-layer
+Exec=/home/art/bin/smplayer-layer %U
+GenericName=Media Player
+Icon=smplayer
+Type=Application
