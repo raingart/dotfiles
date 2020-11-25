@@ -360,7 +360,7 @@ for_window [class="Godot" title=".*Godot Engine*."] floating disable, border 1px
 # move scratchpad - minimize
 # scratchpad show - restore
 for_window [class="(?i)xxkb"]	move window to scratchpad
-for_window [class="Tilix"]	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
+for_window [class="Tilix" title="^Tilix:"]	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
 for_window [class="Goodvibes" title="^Goodvibes$"] move window to scratchpad, move position 0 20, move scratchpad
 for_window [class="QOwnNotes" title="- QOwnNotes"] move window to scratchpad, move position 0 20, resize set 1050 700, move scratchpad
 for_window [class="TelegramDesktop" title="Telegram"] move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show

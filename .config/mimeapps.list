@@ -1,0 +1,26 @@
+[Default Applications]
+x-scheme-handler/tg=telegramdesktop.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+inode/directory=spacefm-find.desktop;
+application/pdf=chromium.desktop;
+text/plain=geany.desktop;visual-studio-code.desktop;
+application/vnd.adobe.flash.movie=flashplayer-standalone.desktop;
+video/mp4=smplayer.desktop;
+image/jpeg=org.gnome.gThumb.desktop;
+application/xhtml+xml=chromium.desktop;
+application/x-partial-download=org.gnome.FileRoller.desktop;
+application/x-mswinurl=chromium.desktop;
+x-scheme-handler/mpv=smplayer-layer.desktop
+
+[Added Associations]
+inode/directory=spacefm-find.desktop;
+application/pdf=chromium.desktop;
+text/plain=geany.desktop;visual-studio-code.desktop;
+application/vnd.adobe.flash.movie=flashplayer-standalone.desktop;
+video/mp4=smplayer.desktop;
+image/jpeg=org.gnome.gThumb.desktop;
+application/xhtml+xml=chromium.desktop;
+application/x-partial-download=org.gnome.FileRoller.desktop;
+application/x-mswinurl=chromium.desktop;
