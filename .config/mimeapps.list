@@ -13,6 +13,7 @@ application/xhtml+xml=chromium.desktop;
 application/x-partial-download=org.gnome.FileRoller.desktop;
 application/x-mswinurl=chromium.desktop;
 x-scheme-handler/mpv=smplayer-layer.desktop
+x-scheme-handler/viber=viber.desktop
 
 [Added Associations]
 inode/directory=spacefm-find.desktop;
