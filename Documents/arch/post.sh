@@ -75,6 +75,18 @@ echo -e 'allowed_internal_devices = *' >> /etc/udevil/udevil.conf
 # limit systemd journald
 echo -e 'SystemMaxUse=50\nMaxFileSec=1week' >> /etc/udevil/udevil.conf
 
+# allow spacefm power-off-drive
+echo -e '
+polkit.addRule(function(action, subject) {
+  var YES = polkit.Result.YES;
+  var permission = {
+    "org.freedesktop.udisks2.power-off-drive-other-seat": YES
+  };
+  if (subject.isInGroup("users")) {
+    return permission[action.id];
+  }
+});' >> /etc/polkit-1/rules.d/50-udisks.rules
+
 # OFF analytics
 echo -e '127.0.0.1	ssl.google-analytics.com' >> /etc/hosts
 
