@@ -1,28 +1,29 @@
 [Default Applications]
 x-scheme-handler/tg=userapp-Telegram Desktop-H628Z0.desktop
-x-scheme-handler/http=chromium.desktop
-x-scheme-handler/https=chromium.desktop
-x-scheme-handler/about=chromium.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
 inode/directory=spacefm-find.desktop;
-application/pdf=chromium.desktop;
+application/pdf=google-chrome.desktop;
 text/plain=geany.desktop;visual-studio-code.desktop;
 application/vnd.adobe.flash.movie=flashplayer-standalone.desktop;
 video/mp4=smplayer.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
-application/xhtml+xml=chromium.desktop;
+application/xhtml+xml=google-chrome.desktop;
+application/x-mswinurl=google-chrome.desktop;
 application/x-partial-download=org.gnome.FileRoller.desktop;
-application/x-mswinurl=chromium.desktop;
 x-scheme-handler/mpv=smplayer-layer.desktop
-x-scheme-handler/viber=viber.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+text/html=google-chrome.desktop
 
 [Added Associations]
 inode/directory=spacefm-find.desktop;
-application/pdf=chromium.desktop;
+application/pdf=google-chrome.desktop;
 text/plain=geany.desktop;visual-studio-code.desktop;
 application/vnd.adobe.flash.movie=flashplayer-standalone.desktop;
 video/mp4=smplayer.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
-application/xhtml+xml=chromium.desktop;
+application/xhtml+xml=google-chrome.desktop;
 application/x-partial-download=org.gnome.FileRoller.desktop;
-application/x-mswinurl=chromium.desktop;
+application/x-mswinurl=google-chrome.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-H628Z0.desktop;

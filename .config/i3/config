@@ -9,7 +9,7 @@ floating_modifier $mod
 # font pango: Droid Sans 9
 font pango: FontAwesome 8
 
-set $Browser chromium
+set $Browser google-chrome-stable
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -304,7 +304,7 @@ bindsym $mod+F10	exec --no-startup-id qbittorrent
 
 
 # Where to run
-assign [class="Chromium"]		$ws1
+assign [class="Chromium|Google-chrome"]	$ws1
 assign [class="Code|Geany|Godot"]	$ws2
 assign [class="Spacefm"]		$ws3
 assign [class="Meld|Filezilla|AnyDesk|multibootusb"]	    $ws4
@@ -341,6 +341,7 @@ for_window [class="Steam" title="^Steam$"]	floating disable
 for_window [class="(?i)gsimplecal"]		floating enable, move position mouse
 for_window [class="System-config-printer.py"]	floating enable
 for_window [class="Chromium" title="Task Manager - Chromium"]	floating enable
+for_window [title="Task Manager - Google Chrome"]	floating enable
 for_window [class="Spacefm" title="Find Files"]	floating enable
 for_window [class="multibootusb"]		floating enable
 for_window [class="Nitrogen"]			floating enable
@@ -377,7 +378,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # startup applications
 # exec --no-startup-id i3lock -c 000000 -n
-exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id tilix -s ~/.config/tilix/default.json
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter --timeout 2
 # exec --no-startup-id amixer -q set Headphone 90% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% -M unmute; amixer -q set Master $MasterDefaultLevel -M;
