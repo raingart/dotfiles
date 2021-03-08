@@ -52,8 +52,8 @@ modules-right = xkeyboard weather volume date
 # wm-restack = i3
 # override-redirect = false
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsprev
+scroll-down = i3wm-wsnext
 
 tray-position = right
 tray-padding = 3

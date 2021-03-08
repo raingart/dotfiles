@@ -1,7 +1,8 @@
 #!/bin/bash
 # toggle_vol -- toggle between speaker and headphones
 
-speaker_control="Front"
+# speaker_control="Front"
+speaker_control="Speaker"
 headphone_control="Headphone"
 
 if [[ "$(amixer sget ${speaker_control} |grep '%' |awk '{print $7}' |tail -n1)" == "[on]" ]];then

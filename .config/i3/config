@@ -139,6 +139,9 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
+bindsym --whole-window $mod+button4 workspace prev_on_output
+bindsym --whole-window $mod+button5 workspace next_on_output
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -258,10 +261,10 @@ bindsym $mod+KP_Subtract scratchpad show
 # Alsa Audio controls
 # set $volumeStep 1dB
 set $volumeStep 5%
-# set $MasterDefaultLevel 50%
-set $MasterDefaultLevel 30%
-set $volumeSource "Master"
-# set $volumeSource "Speaker"
+set $MasterDefaultLevel 50%
+set $volumeSource "Speaker"
+# set $volumeSource "Master"
+# set $MasterDefaultLevel 30%
 # set $MicStatus `amixer get Capture |grep "Front Left:" | awk '{ print ($7) }'`
 
 bindsym XF86AudioRaiseVolume	exec amixer -q set $volumeSource $volumeStep+ unmute
@@ -346,6 +349,7 @@ for_window [class="qBittorrent"]		floating enable
 for_window [class="Lxappearance"]		floating enable
 for_window [class="qt5ct"]			floating enable
 for_window [class="Gnome-calculator"]		floating enable
+for_window [class="Gnome-screenshot"]		floating enable
 for_window [class="GParted"]			floating enable
 for_window [class="ppsspp|PPSSPPSDL"]		floating enable
 for_window [class="lazpaint" title="Color|Layers"]	floating enable
@@ -379,12 +383,13 @@ exec --no-startup-id unclutter --timeout 2
 # exec --no-startup-id amixer -q set Headphone 90% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% -M unmute; amixer -q set Master $MasterDefaultLevel -M;
 exec --no-startup-id amixer -q set $volumeSource $MasterDefaultLevel -M
 exec --no-startup-id xxkb
-exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
-exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser'
-# & megasync & sleep 60 && killall megasync'
 # exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && megasync & sleep 60 && killall megasync'
 # exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid && QOwnNotes
+# exec --no-startup-id sleep 20 && udisksctl power-off -b /dev/disk/by-label/Data\\x201 --no-user-interaction
+# & megasync & sleep 60 && killall megasync'
 exec --no-startup-id udevil mount /dev/disk/by-label/WINDOWS -o noatime,nodev,nosuid && QOwnNotes
+exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
+exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser'
 exec --no-startup-id goodvibes
 exec --no-startup-id xset -dpms && xset s off
 # exec --no-startup-id earlyoom -n -M=307200

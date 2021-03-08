@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/tg=telegramdesktop.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-H628Z0.desktop
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
 x-scheme-handler/about=chromium.desktop
@@ -25,3 +25,4 @@ image/jpeg=org.gnome.gThumb.desktop;
 application/xhtml+xml=chromium.desktop;
 application/x-partial-download=org.gnome.FileRoller.desktop;
 application/x-mswinurl=chromium.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-H628Z0.desktop;

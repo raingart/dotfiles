@@ -69,15 +69,14 @@ echo -e "[Settings]\ngtk-recent-files-max-age=0\ngtk-recent-files-limit=0" > ~/.
 # from GTK 2
 echo 'gtk-recent-files-max-age=0' >> ~/.gtkrc-2.0
 
-# allow spacefm mount partitions without USERS
-echo -e 'allowed_internal_devices = *' >> /etc/udevil/udevil.conf
-
 # limit systemd journald
 echo -e 'SystemMaxUse=50\nMaxFileSec=1week' >> /etc/udevil/udevil.conf
 
-# allow spacefm power-off-drive
-echo -e '
-polkit.addRule(function(action, subject) {
+# allow SpaceFM mount partitions without USERS
+echo -e 'allowed_internal_devices = *' >> /etc/udevil/udevil.conf
+
+# allow SpaceFM power-off-drive
+echo -e 'polkit.addRule(function(action, subject) {
   var YES = polkit.Result.YES;
   var permission = {
     "org.freedesktop.udisks2.power-off-drive-other-seat": YES
@@ -87,11 +86,21 @@ polkit.addRule(function(action, subject) {
   }
 });' >> /etc/polkit-1/rules.d/50-udisks.rules
 
+echo -e 'Section "Device"
+    Identifier           "AMD"
+    Driver               "amdgpu"
+    Option "DRI"         "3"
+    Option "TearFree"    "true"
+EndSection' >> /etc/X11/xorg.conf.d/20-amdgpu.conf
+
 # OFF analytics
 echo -e '127.0.0.1	ssl.google-analytics.com' >> /etc/hosts
 
 # OFF swap
 systemctl disable swap.target
+
+# OFF Realteck Audio
+echo -e 'blacklist snd_hda_intel' >> /etc/modprobe.d/blacklist.conf
 
 # sync time ON
 echo -e '
