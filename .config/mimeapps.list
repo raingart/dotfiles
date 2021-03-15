@@ -12,7 +12,6 @@ image/jpeg=org.gnome.gThumb.desktop;
 application/xhtml+xml=google-chrome.desktop;
 application/x-mswinurl=google-chrome.desktop;
 application/x-partial-download=org.gnome.FileRoller.desktop;
-x-scheme-handler/mpv=smplayer-layer.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 text/html=google-chrome.desktop
 

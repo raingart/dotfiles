@@ -380,6 +380,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # exec --no-startup-id i3lock -c 000000 -n
 exec --no-startup-id tilix -s ~/.config/tilix/default.json
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id radeon-profile
 exec --no-startup-id unclutter --timeout 2
 # exec --no-startup-id amixer -q set Headphone 90% mute; amixer -q set Front unmute;amixer sset Capture nocap; amixer -q set Digital 70% -M unmute; amixer -q set Master $MasterDefaultLevel -M;
 exec --no-startup-id amixer -q set $volumeSource $MasterDefaultLevel -M

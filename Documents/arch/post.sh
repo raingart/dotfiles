@@ -24,7 +24,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay -S google-chrome polybar spacefm vertex-themes unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
+yay -S google-chrome polybar spacefm vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
 # yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca
 
 # epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb-git deadbeef mpg123 earlyoom --noconfirm
