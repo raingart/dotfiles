@@ -4,7 +4,7 @@
     <ExecProfiles/>
     <FanProfiles>
         <fanProfile name="default">
-            <step temperature="35" speed="30"/>
+            <step temperature="35" speed="33"/>
             <step temperature="65" speed="49"/>
             <step temperature="75" speed="100"/>
         </fanProfile>
