@@ -14,6 +14,13 @@ if [ -d "/usr/sbin" ] ; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d ${HOME}/bin ] ; then
-    PATH="${HOME}"/bin:"${PATH}"
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
 fi
+
+# if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  # startx #openbox-session
+# fi
+# if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty2 ]]; then
+  # XKB_DEFAULT_LAYOUT=us MOZ_ENABLE_WAYLAND=1 GDK_BACKEND=wayland exec sway
+# fi
