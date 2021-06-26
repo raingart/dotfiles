@@ -5,6 +5,7 @@ export DESKTOP_SESSION="gnome"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export $(dbus-launch)
 
+
 # include sbin in PATH
 if [ -d "/sbin" ] ; then
     PATH="/sbin:$PATH"

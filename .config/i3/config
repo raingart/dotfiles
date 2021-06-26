@@ -9,7 +9,8 @@ floating_modifier $mod
 # font pango: Droid Sans 9
 font pango: FontAwesome 8
 
-set $Browser google-chrome-stable --simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT'
+# set $Browser "google-chrome-stable --check-for-update-interval=31536000 --simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT'"
+set $Browser google-chrome-stable
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
