@@ -43,7 +43,6 @@ haveged
 htop
 i3-wm
 libtool
-lidarr
 linux
 linux-firmware
 linux-headers
@@ -72,6 +71,7 @@ qownnotes
 qt5-styleplugins
 qt5-tools
 qt5ct
+radeon-profile-daemon-git
 rsync
 sed
 simplescreenrecorder
@@ -80,7 +80,7 @@ sox
 spacefm
 sudo
 sway
-telegram-desktop
+telegram-desktop-bin
 texinfo
 tilix-bin
 ttf-dejavu

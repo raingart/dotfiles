@@ -34,6 +34,7 @@ alias downgrade='sudo downgrade'
 
 alias upmiror="sudo curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > sudo /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
 alias up='pacman -Syu; yr -Syua ;and pacman -Sc'
+# pacman -Sy archlinux-keyring; 
 alias upy='pacman -Syu; yr -Syua --noconfirm ;and pacman -Sc --noconfirm'
 alias upi='pacman -Qu'
 

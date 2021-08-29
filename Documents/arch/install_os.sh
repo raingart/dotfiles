@@ -40,7 +40,7 @@ hostnamectl set-hostname "pc"
 ---
 nano /etc/systemd/network/20-wired.network
 [Match]
-Name=en*
+Name=e*
 # Name=enp3s0f0
 
 [Network]
