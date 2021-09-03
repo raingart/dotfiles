@@ -1,3 +1,3 @@
 function fish_greeting
-   echo (color_digit)(uname -mnprs)(color_off)
+   echo (color_digit)(uname -nmsr)(color_off)
 end
