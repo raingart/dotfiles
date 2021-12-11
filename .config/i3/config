@@ -271,7 +271,8 @@ set $volumeSource "PCM"
 
 bindsym XF86AudioRaiseVolume	exec amixer -q set $volumeSource $volumeStep+ unmute
 bindsym XF86AudioLowerVolume	exec amixer -q set $volumeSource $volumeStep- unmute
-bindsym XF86AudioMute		exec ~/.config/i3/scripts/toggle_vol.sh
+bindsym XF86AudioMute		exec amixer -q set $volumeSource toggle
+# bindsym XF86AudioMute		exec ~/.config/i3/scripts/toggle_vol.sh
 # bindsym $alt+XF86AudioMute	exec amixer -q set Capture toggle && notify-send "Asla Mic/Capture" "$MicStatus" -u low -t 1000;
 bindsym $mod+XF86AudioMute	exec tilix -e "alsamixer"
 bindsym $mod+XF86AudioRaiseVolume    exec amixer -q set $volumeSource $defaultVolumeLevel -M
