@@ -3,7 +3,9 @@
     offset = 1x18
     format = "<b>%s</b>\n%b"
     # format = "%I <b>%s</b>\n%b"
-    transparency = 50
+    show_age_threshold = 60
+    idle_threshold = 120
+    transparency = 20
     monitor = 0
     history_length = 5
     padding = 6
@@ -17,22 +19,27 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    frame_color = "#49ada7"
     background = "#26282B"
     foreground = "#C3D7DF"
     timeout = 3
 
 [urgency_normal]
-    background = "#181818"
-    foreground = "#CECFD1"
+    # background = "#181818"
+    # foreground = "#CECFD1"
+    background = "#252525"
+    foreground = "#c0c0c0"
+    # frame_color = "#c0c0c07"
     timeout = 5
     
 [urgency_critical]
     # background = "#267fb5"
+    # background = "#285577"
     # foreground = "#ffffff"
-    background = "#181818"
-    foreground = "#CECFD1"
+    # frame_color = "#49ada7"
+    # background = "#900000"
+    foreground = "#ffffff"
     timeout = 5
+    
 
 # [play_sound]
 # summary = "*"
