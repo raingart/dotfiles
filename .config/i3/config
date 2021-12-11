@@ -263,7 +263,8 @@ bindsym $mod+KP_Subtract scratchpad show
 # set $volumeStep 1dB
 set $volumeStep 5%
 set $defaultVolumeLevel 50%
-set $volumeSource "Speaker"
+set $volumeSource "PCM"
+# set $volumeSource "Speaker"
 # set $volumeSource "Master"
 # set $defaultVolumeLevel 30%
 # set $MicStatus `amixer get Capture |grep "Front Left:" | awk '{ print ($7) }'`
@@ -310,7 +311,7 @@ assign [class="Code|Geany|Godot"]	$ws2
 assign [class="Spacefm"]		$ws3
 assign [class="Meld|Filezilla|AnyDesk|multibootusb"]	    $ws4
 assign [class="XnView|(?i)gthumb|Inkscape|Pinta|smplayer|FBReader"]  $ws5
-assign [class="ppsspp|PPSSPPSDL|FTL|Flashplayer|Steam"]     $ws6
+assign [class="PPSSPPQt|PPSSPPSDL|FTL|Flashplayer|Steam"]     $ws6
 assign [class="qBittorrent"]	$ws7
 # assign [class=""]	$ws8
 # assign [class=""]	$ws9

@@ -16,7 +16,7 @@ echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$a
 #pacman -S chromium xf86-video-ati pavucontrol avahi reflector lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp gnome-screenshot --noconfirm
 # gnome-screenshot-3.36.0-1
 
-pacman -S xf86-video-amdgpu usbutils htop alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g unrar gst-plugins-good qt5-tools
+pacman -S xf86-video-amdgpu usbutils htop alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g earlyoom unrar gst-plugins-good qt5-tools
 
 # yay
 cd /tmp
@@ -24,10 +24,19 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay -S google-chrome polybar spacefm vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
-# yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca
+yay -Sa linux-ck-uksm linux-ck-uksm-headers
 
-# epson-inkjet-printer-escpr flashplayer-standalone megasync simplescreenrecorder multibootusb-git deadbeef mpg123 earlyoom --noconfirm
+yay -S spacefm google-chrome polybar vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
+# yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca ventoy-bin flashplayer-standalone megasync-bin
+
+# build spacefm
+# git clone git@github.com:thermitegod/spacefm.git
+# cd spacefm && mkdir build && cd build
+# pacman -S exo ffmpegthumbnailer
+# meson ..
+# ninja
+
+# epson-inkjet-printer-escpr simplescreenrecorder multibootusb-git deadbeef mpg123 earlyoom --noconfirm
 
 # goodvibes => gst-plugins-good, gst-plugins-base-libs, gst-plugins-bad, qt5-tools
 # spacefm => ntfs-3g, unrar
@@ -111,13 +120,16 @@ timedatectl set-ntp true
 
 sed -i.bak 's/timeout=5/timeout=1/g' /boot/grub/grub.cfg
 grub-mkconfig -o /boot/grub/grub.cfg
+# save manual select kenter
+echo -e 'GRUB_SAVEDEFAULT=true
+GRUB_DEFAULT=saved' >> /etc/default/grub
 
-cp earlyoom.service /etc/systemd/system/
-systemctl daemon-reload
-
-# echo -e '
-# EARLYOOM_ARGS="-M 488281"' >> /etc/default/earlyoom
-# systemctl restart earlyoom
+# earlyoom
+systemctl enable earlyoom.service
+# systemctl start earlyoom.service
+echo -e '
+EARLYOOM_ARGS="-M 488281"' >> /etc/default/earlyoom
+systemctl restart earlyoom
 
 # read -p "pause 1- sec" -t 10
 #reboot

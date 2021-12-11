@@ -24,7 +24,6 @@ underline = #267fb5
 include-file = ~/.config/polybar/modules/i3.conf
 # include-file = ~/.config/polybar/modules/dmenu.conf
 include-file = ~/.config/polybar/modules/goodvibes.conf
-# include-file = ~/.config/polybar/modules/memory.conf
 # include-file = ~/.config/polybar/modules/cpu.conf
 # include-file = ~/.config/polybar/modules/network.conf
 

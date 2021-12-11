@@ -30,6 +30,7 @@ alias pacfix='sudo rm -f /var/lib/pacman/db.lck ;and pacman -Syyuu'
 alias yr='yay'
 alias yrs='yr -S'
 alias yrsy='yr -S --noconfirm'
+alias yru='yr -Syua'
 alias downgrade='sudo downgrade'
 
 alias upmiror="sudo curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > sudo /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
