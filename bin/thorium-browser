@@ -17,4 +17,4 @@ fi
 
 args=("$@")
 
-$CHROMIUM_PATCH/chrome $args $CHROMIUM_FLAGS --user-data-dir=$CHROMIUM_PATCH/profile
+$CHROMIUM_PATCH/chrome "$args" $CHROMIUM_FLAGS --user-data-dir=$CHROMIUM_PATCH/profile
