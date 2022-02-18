@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Copyright (c) 2022 Alex313031
+
+export GNOME_DISABLE_CRASH_DIALOG=SET_BY_GOOGLE_CHROME
+
+# if [ -f $XDG_CONFIG_HOME/chromium-flags.conf ]; then
+   # CHROMIUM_FLAGS="$(cat $XDG_CONFIG_HOME/chromium-flags.conf)"
+# fi
+
+CHROMIUM_PATCH=$HOME/bin/thorium-browser_99.0.4803.0-1_amd64
+CHROMIUM_FLAGS_PATCH=$HOME/.config/chromium-flags.conf
+
+if [ -f $CHROMIUM_FLAGS_PATCH ]; then
+   CHROMIUM_FLAGS="$(cat $CHROMIUM_FLAGS_PATCH)"
+fi
+
+args=("$@")
+
+$CHROMIUM_PATCH/chrome $args $CHROMIUM_FLAGS --user-data-dir=$CHROMIUM_PATCH/profile

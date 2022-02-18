@@ -67,12 +67,15 @@ echo "%wheel ALL=(ALL) ALL" > /etc/sudoers
 --
 pacman -Syyuu
 --
+pacman -S refind
+# refind-install
+--
 # pacman -S grub efibootmgr dosfstools os-prober mtools
 # check is install in base? - dosfstools mtools
-pacman -S os-prober grub
-grub-install --recheck /dev/sda
-mkinitcpio -p linux
-grub-mkconfig -o /boot/grub/grub.cfg
+# pacman -S os-prober grub
+# grub-install --recheck /dev/sda
+# mkinitcpio -p linux
+# grub-mkconfig -o /boot/grub/grub.cfg
 --
 pacman -S lxdm
 systemctl enable lxdm.service

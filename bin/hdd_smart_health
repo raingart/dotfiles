@@ -1,0 +1,3 @@
+#!/bin/bash
+
+for i in {a..z}; do printf "\n/dev/sd$i\n"; smartctl --all /dev/sd$i | grep -i '$family\|model\|capacity\|Serial Number\|reallocated_Sector\|Uncorrectable\|Start_Stop_Count\|Power_On_Hours\|Power_Cycle_Count\|Command_Timeout\|High_Fly_Writes\|Load_Cycle_Count\|Current_Pending_Sector\|Reported_Uncorrect'; done

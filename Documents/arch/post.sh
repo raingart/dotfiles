@@ -18,16 +18,16 @@ echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$a
 
 pacman -S xf86-video-amdgpu usbutils htop alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g earlyoom unrar gst-plugins-good qt5-tools
 
-# yay
 cd /tmp
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+# yay
+pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
+# paru
+# pacman -S --needed git base-devel && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si
 
 yay -Sa linux-ck-uksm linux-ck-uksm-headers
 
-yay -S spacefm google-chrome polybar vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
-# yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca ventoy-bin flashplayer-standalone megasync-bin
+yay -S spacefm polybar vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
+# yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca ventoy-bin flashplayer-standalone megasync-bin google-chrome chromium
 
 # build spacefm
 # git clone git@github.com:thermitegod/spacefm.git
@@ -118,11 +118,11 @@ NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.
 FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org' >> /etc/systemd/timesyncd.conf
 timedatectl set-ntp true
 
-sed -i.bak 's/timeout=5/timeout=1/g' /boot/grub/grub.cfg
-grub-mkconfig -o /boot/grub/grub.cfg
+# sed -i.bak 's/timeout=5/timeout=1/g' /boot/grub/grub.cfg
+# grub-mkconfig -o /boot/grub/grub.cfg
 # save manual select kenter
-echo -e 'GRUB_SAVEDEFAULT=true
-GRUB_DEFAULT=saved' >> /etc/default/grub
+# echo -e 'GRUB_SAVEDEFAULT=true
+# GRUB_DEFAULT=saved' >> /etc/default/grub
 
 # earlyoom
 systemctl enable earlyoom.service
