@@ -8,7 +8,9 @@ export GNOME_DISABLE_CRASH_DIALOG=SET_BY_GOOGLE_CHROME
    # CHROMIUM_FLAGS="$(cat $XDG_CONFIG_HOME/chromium-flags.conf)"
 # fi
 
-CHROMIUM_PATCH=$HOME/bin/thorium-browser_99.0.4803.0-1_amd64
+# CHROMIUM_PATCH=$HOME/bin/thorium-browser_99.0.4803.0-1_amd64/chrome
+# CHROMIUM_PATCH=chromium-browser-unstable
+CHROMIUM_PATCH=chromium-browser-stable
 CHROMIUM_FLAGS_PATCH=$HOME/.config/chromium-flags.conf
 
 if [ -f $CHROMIUM_FLAGS_PATCH ]; then
@@ -17,4 +19,5 @@ fi
 
 args=("$@")
 
-$CHROMIUM_PATCH/chrome "$args" $CHROMIUM_FLAGS --user-data-dir=$CHROMIUM_PATCH/profile
+$CHROMIUM_PATCH "$args" $CHROMIUM_FLAGS
+# $CHROMIUM_PATCH "$args" $CHROMIUM_FLAGS --user-data-dir=$CHROMIUM_PATCH/profile

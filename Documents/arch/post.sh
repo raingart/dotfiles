@@ -27,7 +27,7 @@ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin
 yay -Sa linux-ck-uksm linux-ck-uksm-headers
 
 yay -S spacefm polybar vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
-# yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca ventoy-bin flashplayer-standalone megasync-bin google-chrome chromium
+# yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca ventoy-bin flashplayer-standalone megasync-bin gnome-boxes google-chrome chromium
 
 # build spacefm
 # git clone git@github.com:thermitegod/spacefm.git
@@ -110,7 +110,7 @@ echo -e '127.0.0.1	ssl.google-analytics.com' >> /etc/hosts
 systemctl disable swap.target
 
 # OFF Realteck Audio
-echo -e 'blacklist snd_hda_intel' >> /etc/modprobe.d/blacklist.conf
+# echo -e 'blacklist snd_hda_intel' >> /etc/modprobe.d/blacklist.conf
 
 # sync time ON
 echo -e '

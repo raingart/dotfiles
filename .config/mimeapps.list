@@ -1,15 +1,15 @@
 [Default Applications]
 x-scheme-handler/tg=userapp-Telegram Desktop-514J80.desktop
-x-scheme-handler/http=thorium-browser.desktop
-x-scheme-handler/https=thorium-browser.desktop
-x-scheme-handler/about=thorium-browser.desktop
+x-scheme-handler/http=chromium-browser-stable.desktop
+x-scheme-handler/https=chromium-browser-stable.desktop
+x-scheme-handler/about=chromium-browser-stable.desktop
 inode/directory=spacefm-find.desktop;
 text/plain=geany.desktop;visual-studio-code.desktop;
 application/vnd.adobe.flash.movie=flashplayer-standalone.desktop;
 video/mp4=smplayer.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
-x-scheme-handler/unknown=thorium-browser.desktop
-text/html=thorium-browser.desktop
+x-scheme-handler/unknown=chromium-browser-stable.desktop
+text/html=chromium-browser-stable.desktop
 
 [Added Associations]
 inode/directory=spacefm-find.desktop;
@@ -17,9 +17,9 @@ text/plain=geany.desktop;visual-studio-code.desktop;
 application/vnd.adobe.flash.movie=flashplayer-standalone.desktop;
 video/mp4=smplayer.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
-application/pdf=thorium-browser.desktop;
-application/xhtml+xml=thorium-browser.desktop;
-application/x-mswinurl=thorium-browser.desktop;
+application/pdf=chromium-browser-stable.desktop;
+application/xhtml+xml=chromium-browser-stable.desktop;
+application/x-mswinurl=chromium-browser-stable.desktop;
 application/x-partial-download=org.gnome.FileRoller.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-H628Z0.desktop;userapp-Telegram Desktop-514J80.desktop;
 application/vnd.rar=org.gnome.FileRoller.desktop;
