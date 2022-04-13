@@ -9,8 +9,7 @@ floating_modifier $mod
 # font pango: Droid Sans 9
 font pango: FontAwesome 8
 
-# set $Browser chromium
-set $Browser thorium-browser
+set $Browser chromium
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
