@@ -84,6 +84,16 @@ function gitignore
    cat .gitignore
 end
 
+function g_ignore_file
+   if test "$argv[1]"
+      # git update-index --assume-unchanged "$argv[1]"
+      echo "$argv[1]"
+   else
+      echo "empty file patch"
+   end
+end
+
+
 function greset
    if test "$argv"
       git checkout master
