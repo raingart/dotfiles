@@ -16,7 +16,7 @@ echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$a
 #pacman -S chromium xf86-video-ati pavucontrol avahi reflector lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp gnome-screenshot --noconfirm
 # gnome-screenshot-3.36.0-1
 
-pacman -S xf86-video-amdgpu usbutils htop alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation faenza-icon-theme gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g earlyoom unrar gst-plugins-good qt5-tools
+pacman -S xf86-video-amdgpu amdvlk usbutils htop xorg-xkill alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation noto-fonts-emoji faenza-icon-theme gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g earlyoom unrar gst-plugins-good qt5-tools
 
 cd /tmp
 # yay
@@ -26,8 +26,9 @@ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin
 
 yay -Sa linux-ck-uksm linux-ck-uksm-headers
 
-yay -S spacefm polybar vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts visual-studio-code-bin goodvibes downgrade --noconfirm
+yay -S spacefm polybar qownnotes vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts ttf-unifont visual-studio-code-bin goodvibes downgrade --noconfirm
 # yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca ventoy-bin flashplayer-standalone megasync-bin gnome-boxes google-chrome chromium
+# amdvlk - add vulcan
 
 # build spacefm
 # git clone git@github.com:thermitegod/spacefm.git
@@ -40,7 +41,6 @@ yay -S spacefm polybar vertex-themes radeon-profile-git unclutter-xfixes-git ttf
 
 # goodvibes => gst-plugins-good, gst-plugins-base-libs, gst-plugins-bad, qt5-tools
 # spacefm => ntfs-3g, unrar
-# qownnotes => from official site
 # multibootusb-git => udisks2
 
 # coredump OFF

@@ -25,7 +25,7 @@ alias pacqs='pacman -Qs'
 alias pacu='pacman -U'
 alias paci='pacman -Si'
 alias pacr='pacman -Rnsc'
-alias pacclear='pacman -Rnsc (pacman -Qtdq); yr -Qdt'
+alias pacclear='pacman -Rnsc (pacman -Qtdq); yr -Qdt; rm /etc/pacman.d/gnupg && pacman -Sy archlinux-keyring && pacman-key --init && pacman-key --populate archlinux'
 alias pacfix='sudo rm -f /var/lib/pacman/db.lck ;and pacman -Syyuu'
 # alias yr='paru --skipreview'
 alias yr='yay'
@@ -34,7 +34,7 @@ alias yrsy='yr -S --noconfirm'
 alias yru='yr -Syua'
 alias downgrade='sudo downgrade'
 
-alias upmiror="sudo curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > sudo /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
+alias upmiror="curl -s 'https://archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /tmp/mirrorlist.backup; sudo cp /tmp/mirrorlist.backup /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
 alias up='pacman -Syu; yr -Syua ;and pacman -Sc'
 # pacman -Sy archlinux-keyring; 
 alias upy='pacman -Syu; yr -Syua --noconfirm ;and pacman -Sc --noconfirm'

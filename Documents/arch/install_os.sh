@@ -1,3 +1,7 @@
+pacman -S archinstall
+
+archinstall
+
 ---Creating filesystem
 cfdisk /dev/sda
 
