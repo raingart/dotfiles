@@ -83,5 +83,4 @@ function fish_prompt --description 'Write out the prompt'
     show_pwd
     show_status
     show_prompt
-
 end
