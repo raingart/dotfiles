@@ -14,7 +14,7 @@ x-scheme-handler/discord-712465656758665259=discord-712465656758665259.desktop
 x-scheme-handler/viber=viber.desktop
 
 [Added Associations]
-inode/directory=spacefm-find.desktop;
+inode/directory=spacefm.desktop;
 text/plain=geany.desktop;visual-studio-code.desktop;
 application/vnd.adobe.flash.movie=flashplayer-standalone.desktop;
 video/mp4=smplayer.desktop;

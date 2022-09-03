@@ -131,5 +131,8 @@ echo -e '
 EARLYOOM_ARGS="-M 488281"' >> /etc/default/earlyoom
 systemctl restart earlyoom
 
+# disable thumbnails
+dconf write /org/gnome/desktop/thumbnailers/disable "['application/pdf','image/jpeg','video/mp4']"
+
 # read -p "pause 1- sec" -t 10
 #reboot
