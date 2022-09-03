@@ -292,14 +292,15 @@ bindsym XF86Search          exec smplayer
 bindsym $mod+XF86Search     exec --no-startup-id goodvibes
 # bindsym $mod+XF86Back       exec --no-startup-id ???
 bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes
-bindsym XF86Favorites       exec --no-startup-id code
+bindsym XF86Favorites       exec --no-startup-id VSCodium.AppImage
+# bindsym XF86Favorites       exec --no-startup-id code
 bindsym $mod+XF86Favorites  exec --no-startup-id geany
 
 bindsym $mod+F12	exec --no-startup-id tilix -s ~/.config/tilix/default.json
 # bindsym $mod+F11	exec --no-startup-id tilix -a session-add-down -e htop
 bindsym $mod+F11	exec --no-startup-id tilix -s ~/.config/tilix/htop.json
 # bindsym $mod+Insert	exec --no-startup-id telegram-desktop -startintray
-bindsym $mod+Insert	exec --no-startup-id telegram-desktop
+bindsym $mod+Insert	exec --no-startup-id Kotatogram
 bindsym Print		exec --no-startup-id gnome-screenshot --interactive --clipboard
 # bindsym $mod+Print	exec --no-startup-id sh -c "gnome-screenshot --area --clipboard"
 bindsym $mod+F10	exec --no-startup-id qbittorrent
@@ -307,18 +308,18 @@ bindsym $mod+F10	exec --no-startup-id qbittorrent
 
 # Where to run
 assign [class="Chromium|Google-chrome"]	$ws1
-assign [class="Code|Geany|Godot"]	$ws2
+assign [class="VSCodium|Code|Geany|Godot"]	$ws2
 assign [class="Spacefm"]		$ws3
 assign [class="Meld|Filezilla|AnyDesk|multibootusb"]			$ws4
 assign [class="XnView|(?i)gthumb|Inkscape|Pinta|smplayer|FBReader"]	$ws5
-assign [class="RPCS3|PPSSPPQt|PPSSPPSDL|FTL|Flashplayer|Steam"]		$ws6
+assign [class="RPCS3|PPSSPPQt|PPSSPPSDL|FTL|Flashplayer|Steam|yuzu"]	$ws6
 assign [class="qBittorrent"]	$ws7
 # assign [class=""]	$ws8
 # assign [class=""]	$ws9
 
 
 bindsym Menu	   [class="Tilix"]		scratchpad show
-bindsym Insert	   [class="TelegramDesktop"]	scratchpad show
+bindsym Insert	   [class="Kotatogram|TelegramDesktop"]	scratchpad show
 bindsym $mod+grave [class="Goodvibes"]		scratchpad show
 bindsym $alt+grave [class="QOwnNotes"]		scratchpad show
 
@@ -345,7 +346,6 @@ for_window [class="System-config-printer.py"]	floating enable
 for_window [class="Chromium" title="Task Manager - Chromium"]	floating enable
 for_window [title="Task Manager - Google Chrome"]	floating enable
 for_window [class="Spacefm" title="Find Files"]	floating enable
-for_window [class="multibootusb"]		floating enable
 for_window [class="Nitrogen"]			floating enable
 for_window [class="mpv|smplayer"]		floating enable
 for_window [class="qBittorrent"]		floating enable
@@ -355,9 +355,10 @@ for_window [class="gnome-calculator"]		floating enable
 for_window [class="Gnome-screenshot"]		floating enable
 for_window [class="GParted"]			floating enable
 for_window [class="ppsspp|PPSSPPSDL"]		floating enable
-for_window [class="lazpaint" title="Color|Layers"]	floating enable
+for_window [class="RPCS3"]			floating enable
 for_window [class="Flashplayer"]		floating enable
 for_window [class="Pavucontrol"]		floating enable
+for_window [class="lazpaint" title="Color|Layers"]	floating enable
 for_window [class="SimpleScreenRecorder"]	floating enable
 for_window [class="FBReader"]			floating enable
 for_window [class="QOwnNotes" title="Settings"]	floating disable
@@ -370,7 +371,7 @@ for_window [class="(?i)xxkb"]	move window to scratchpad
 for_window [class="Tilix" title="^Tilix:"]	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
 for_window [class="Goodvibes" title="^Goodvibes$"] move window to scratchpad, move position 0 20, move scratchpad
 for_window [class="QOwnNotes" title="- QOwnNotes"] move window to scratchpad, move position 0 20, resize set 1050 700, move scratchpad
-for_window [class="TelegramDesktop" title="Telegram"] move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
+for_window [class="KotatogramDesktop|TelegramDesktop" title="Kotatogram|Telegram"] move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
 
 
 # Start Polybar
@@ -394,7 +395,7 @@ exec --no-startup-id sleep 20 && udisksctl power-off -b /dev/disk/by-id/wwn-0x50
 # & megasync & sleep 60 && killall megasync'
 exec --no-startup-id udevil mount /dev/disk/by-label/WINDOWS -o noatime,nodev,nosuid && QOwnNotes
 exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
-exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; telegram-desktop & $Browser'
+exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; Kotatogram & $Browser'
 exec --no-startup-id goodvibes
 exec --no-startup-id xset -dpms && xset s off
 # exec --no-startup-id earlyoom -n -M=307200

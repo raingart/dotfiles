@@ -1,9 +1,5 @@
 <Stations>
   <Station>
-    <uri>http://79.111.14.76:8000/poppunk</uri>
-    <name>poppunk</name>
-  </Station>
-  <Station>
     <uri>http://pool.anison.fm:9000/AniSonFM(256)</uri>
     <name>AniSonFM</name>
   </Station>
@@ -12,19 +8,29 @@
     <name>AnimeRadio.SU</name>
   </Station>
   <Station>
-    <uri>http://79.120.77.11:8000/powermetal</uri>
-    <name>powermetal</name>
-  </Station>
-  <Station>
-    <uri>http://94.245.35.107/crr48</uri>
-    <name>Country Rocks Radio</name>
-  </Station>
-  <Station>
-    <uri>http://server-23.stream-server.nl:8438/stream</uri>
-    <name>Alternative Rock Variety</name>
-  </Station>
-  <Station>
     <uri>http://uk4.internet-radio.com:8049/listen.pls</uri>
     <name>Dance Attack FM</name>
+  </Station>
+  <Station>
+    <uri>https://stream.dbmedia.se/crr96.m3u</uri>
+    <name>CountryRocksRadio</name>
+  </Station>
+  <Station>
+    <uri>http://server-23.stream-server.nl:8438</uri>
+  </Station>
+  <Station>
+    <uri>https://stream.dbmedia.se/dbkjul96.m3u</uri>
+  </Station>
+  <Station>
+    <uri>https://stream.dbmedia.se/gk80tal96.m3u</uri>
+  </Station>
+  <Station>
+    <uri>https://stream.dbmedia.se/gk90tal96.m3u</uri>
+  </Station>
+  <Station>
+    <uri>https://stream.dbmedia.se/gk96.m3u</uri>
+  </Station>
+  <Station>
+    <uri>https://stream.dbmedia.se/kp128.m3u</uri>
   </Station>
 </Stations>
