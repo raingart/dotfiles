@@ -1,5 +1,6 @@
 // pacman -Qe | awk '{print $1}' | sort>1.txt
 alsa-utils
+amdvlk
 android-tools
 anydesk-bin
 autoconf
@@ -22,7 +23,6 @@ file-roller
 filezilla
 findutils
 fish
-flashplayer-standalone
 flex
 fzf
 gawk
@@ -58,16 +58,18 @@ multibootusb-git
 nano
 nitrogen
 nnn
+noto-fonts-emoji
 ntfs-3g
 openssh
 os-prober
 pacman
 patch
+pavucontrol
 pinta
 pkgconf
 polybar
+pulseaudio
 python-pip
-qbittorrent
 qownnotes
 qt5-styleplugins
 qt5-tools
@@ -81,7 +83,6 @@ sox
 spacefm
 sudo
 sway
-telegram-desktop-bin
 texinfo
 tilix-bin
 ttf-dejavu
@@ -89,17 +90,18 @@ ttf-droid
 ttf-font-awesome
 ttf-liberation
 ttf-ms-fonts
+ttf-unifont
 udevil
 udisks2
 unclutter-xfixes-git
 unrar
 usbutils
 vertex-themes
-visual-studio-code-bin
 wget
 which
 xclip
 xf86-video-amdgpu
 xorg-xinit
+xorg-xkill
 xxkb
 yay-bin

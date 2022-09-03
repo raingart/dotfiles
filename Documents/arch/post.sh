@@ -4,7 +4,7 @@
 #chmod +x i.sh
 #sudo ./i.sh
 
-curl -s 'https://www.archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /etc/pacman.d/mirrorlist
+curl -s 'https://archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /etc/pacman.d/mirrorlist
 
 # Upgrade System
 pacman -Syuw --noconfirm #generated new mirrorlist
@@ -13,10 +13,12 @@ pacman -Syuw --noconfirm #generated new mirrorlist
 echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 
 # Install Apps
-#pacman -S chromium xf86-video-ati pavucontrol avahi reflector lxdm qt5ct xorg-xprop lxappearance qt5ct qt5-styleplugins python-pip xdiskusage python-pip xdiskusage qbittorrent pinta xnviewmp gnome-screenshot --noconfirm
+#pacman -S telegram-desktop pavucontrol reflector lxappearance qt5ct qt5-styleplugins python-pip xdiskusage fzf python-pip xdiskusage earlyoom qbittorrent pinta xnviewmp gnome-screenshot --noconfirm
+# xboxdrv smartmontools
 # gnome-screenshot-3.36.0-1
 
-pacman -S xf86-video-amdgpu amdvlk usbutils htop xorg-xkill alsa-utils git openssh i3-wm bash-completion fish tilix geany rsync dmenu udevil file-roller nitrogen gsimplecal sox dunst xclip xxkb ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation noto-fonts-emoji faenza-icon-theme gnome-calculator telegram-desktop filezilla smplayer gthumb fzf meld gparted ntfs-3g earlyoom unrar gst-plugins-good qt5-tools
+pacman -S i3-wm chromium xf86-video-amdgpu amdvlk htop xorg-xprop xorg-xkill alsa-utils usbutils git openssh fish tilix bash-completion geany rsync dmenu sox dunst xclip xxkb nitrogen gsimplecal  ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation noto-fonts-emoji faenza-icon-theme file-roller filezilla smplayer gthumb meld gparted udevil ntfs-3g unrar gst-plugins-good
+# qt5-tools avahi
 
 cd /tmp
 # yay
@@ -26,8 +28,8 @@ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin
 
 yay -Sa linux-ck-uksm linux-ck-uksm-headers
 
-yay -S spacefm polybar qownnotes vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts ttf-unifont visual-studio-code-bin goodvibes downgrade --noconfirm
-# yay -S amdgpu-pro-libgl vulkan-amdgpu-pro opencl-amdgpu-pro-orca ventoy-bin flashplayer-standalone megasync-bin gnome-boxes google-chrome chromium
+yay -S spacefm polybar qownnotes vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts ttf-unifont goodvibes downgrade --noconfirm
+# yay -S visual-studio-code-bin ventoy-bin flashplayer-standalone megasync-bin gnome-boxes
 # amdvlk - add vulcan
 
 # build spacefm
@@ -42,6 +44,9 @@ yay -S spacefm polybar qownnotes vertex-themes radeon-profile-git unclutter-xfix
 # goodvibes => gst-plugins-good, gst-plugins-base-libs, gst-plugins-bad, qt5-tools
 # spacefm => ntfs-3g, unrar
 # multibootusb-git => udisks2
+# lsusb => usbutils
+# polybar(goodvibes) => xclip
+# dmenu(audio) => sox
 
 # coredump OFF
 echo -e 'Storage=none' >> /etc/systemd/coredump.conf
@@ -125,13 +130,13 @@ timedatectl set-ntp true
 # GRUB_DEFAULT=saved' >> /etc/default/grub
 
 # earlyoom
-systemctl enable earlyoom.service
-# systemctl start earlyoom.service
-echo -e '
-EARLYOOM_ARGS="-M 488281"' >> /etc/default/earlyoom
-systemctl restart earlyoom
+# systemctl enable earlyoom.service
+## systemctl start earlyoom.service
+# echo -e '
+# EARLYOOM_ARGS="-M 488281"' >> /etc/default/earlyoom
+# systemctl restart earlyoom
 
-# disable thumbnails
+# disable thumbnails cache
 dconf write /org/gnome/desktop/thumbnailers/disable "['application/pdf','image/jpeg','video/mp4']"
 
 # read -p "pause 1- sec" -t 10
