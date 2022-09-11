@@ -291,7 +291,7 @@ bindsym $mod+XF86Mail       exec --no-startup-id gthumb
 bindsym XF86Search          exec smplayer
 bindsym $mod+XF86Search     exec --no-startup-id goodvibes
 # bindsym $mod+XF86Back       exec --no-startup-id ???
-bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes
+bindsym $mod+XF86Forward    exec --no-startup-id QOwnNotes-x86_64.AppImage
 bindsym XF86Favorites       exec --no-startup-id VSCodium.AppImage
 # bindsym XF86Favorites       exec --no-startup-id code
 bindsym $mod+XF86Favorites  exec --no-startup-id geany
@@ -394,9 +394,9 @@ exec --no-startup-id xxkb
 # exec --no-startup-id sleep 20 && udisksctl power-off -b /dev/disk/by-label/Data\\x201 --no-user-interaction
 exec --no-startup-id sleep 20 && udisksctl power-off -b /dev/disk/by-id/wwn-0x50000f001b615739
 # & megasync & sleep 60 && killall megasync'
-exec --no-startup-id udevil mount /dev/disk/by-label/WINDOWS -o noatime,nodev,nosuid && QOwnNotes
+exec --no-startup-id udevil mount /dev/disk/by-label/WINDOWS -o noatime,nodev,nosuid && QOwnNotes-x86_64.AppImage
 exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
-exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; Kotatogram & $Browser'
+exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; Kotatogram & $Browser & Viber.AppImage'
 exec --no-startup-id goodvibes
 exec --no-startup-id xset -dpms && xset s off
 # exec --no-startup-id earlyoom -n -M=307200

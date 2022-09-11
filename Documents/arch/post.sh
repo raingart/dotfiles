@@ -26,7 +26,8 @@ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin
 # paru
 # pacman -S --needed git base-devel && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si
 
-yay -Sa linux-ck-uksm linux-ck-uksm-headers
+# yay -Sa linux-ck-uksm linux-ck-uksm-headers
+yay -Sa linux linux-headers
 
 yay -S spacefm polybar qownnotes vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts ttf-unifont goodvibes downgrade --noconfirm
 # yay -S visual-studio-code-bin ventoy-bin flashplayer-standalone megasync-bin gnome-boxes

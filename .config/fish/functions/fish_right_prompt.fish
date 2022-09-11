@@ -13,10 +13,9 @@ function fish_right_prompt -d "Write out the right prompt"
       
    # Show duration of the last command in ms
    else if test $CMD_DURATION -ge $max_duration_ms
-      humantime $CMD_DURATION
       
       # --icon=dialog-information
-      notify-send "Terminal" "[$last_status_code] $history[1] finished in $duration" -u low &
+      notify-send "Terminal" "[$last_status_code] $history[1] finished in $(humantime $CMD_DURATION)" -u low &
       sh ~/.config/dunst/sound.sh
       
    # show time
