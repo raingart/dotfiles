@@ -32,4 +32,4 @@ startMinimized=true
 temperatureHysteresis=0
 updateGraphs=false
 updateInterval=1
-windowGeometry=@Rect(0 20 1280 1004)
+windowGeometry=@Rect(0 38 1280 986)

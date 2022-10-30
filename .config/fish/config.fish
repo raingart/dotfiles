@@ -7,7 +7,7 @@ set -x VISUAL 	geany
 set -x TERMINAL tilix
 # set -x BROWSER 	chromium
 # set -x GREP_OPTIONS  '--color=always'
-set -x GREP_COLOR    '1;33'
+set -x GREP_COLOR    'mt=1;33'
 # set -x GREP_COLOR    '1;35;40'
 
 # colors

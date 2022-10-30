@@ -14,7 +14,6 @@ dmenu
 dosfstools
 downgrade
 dunst
-earlyoom
 f2fs-tools
 faenza-icon-theme
 fakeroot
@@ -54,7 +53,6 @@ m4
 make
 meld
 mtools
-multibootusb-git
 nano
 nitrogen
 nnn
@@ -70,7 +68,6 @@ pkgconf
 polybar
 pulseaudio
 python-pip
-qownnotes
 qt5-styleplugins
 qt5-tools
 qt5ct

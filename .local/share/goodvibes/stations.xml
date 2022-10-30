@@ -12,23 +12,33 @@
     <name>AnimeRadio.SU</name>
   </Station>
   <Station>
-    <uri>https://stream.dbmedia.se/crr96.m3u</uri>
-    <name>CountryRocksRadio</name>
-  </Station>
+    <uri>http://server-23.stream-server.nl:8438/</uri>
   </Station>
   <Station>
-    <uri>http://server-23.stream-server.nl:8438</uri>
+    <uri>http://stream.dbmedia.se/crr96</uri>
+    <name>crr96</name>
   </Station>
   <Station>
-    <uri>https://stream.dbmedia.se/gk80tal96.m3u</uri>
+    <uri>http://stream.dbmedia.se/gk80tal96</uri>
+    <name>gk80tal96</name>
   </Station>
   <Station>
-    <uri>https://stream.dbmedia.se/gk90tal96.m3u</uri>
+    <uri>http://stream.dbmedia.se/gk90tal96</uri>
+    <name>gk90tal96</name>
   </Station>
   <Station>
-    <uri>https://stream.dbmedia.se/gk96.m3u</uri>
+    <uri>http://stream.dbmedia.se/gk96</uri>
+    <name>gk96</name>
   </Station>
   <Station>
-    <uri>https://stream.dbmedia.se/kp128.m3u</uri>
+    <uri>http://stream.dbmedia.se/kp128</uri>
+  </Station>
+  <Station>
+    <uri>http://79.111.14.76:8000/poppunk</uri>
+    <name>poppunk</name>
+  </Station>
+  <Station>
+    <uri>http://79.120.77.11:8000/powermetal</uri>
+    <name>powermetal</name>
   </Station>
 </Stations>

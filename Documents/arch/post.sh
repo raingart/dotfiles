@@ -29,8 +29,8 @@ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin
 # yay -Sa linux-ck-uksm linux-ck-uksm-headers
 yay -Sa linux linux-headers
 
-yay -S spacefm polybar qownnotes vertex-themes radeon-profile-git unclutter-xfixes-git ttf-ms-fonts ttf-unifont goodvibes downgrade --noconfirm
-# yay -S visual-studio-code-bin ventoy-bin flashplayer-standalone megasync-bin gnome-boxes
+yay -S spacefm polybar  vertex-themes radeon-profile-daemon-git unclutter-xfixes-git ttf-ms-fonts ttf-unifont goodvibes downgrade --noconfirm
+# yay -S visual-studio-code-bin ventoy-bin flashplayer-standalone megasync-bin gnome-boxes qownnotes notepadnext
 # amdvlk - add vulcan
 
 # build spacefm
@@ -48,6 +48,8 @@ yay -S spacefm polybar qownnotes vertex-themes radeon-profile-git unclutter-xfix
 # lsusb => usbutils
 # polybar(goodvibes) => xclip
 # dmenu(audio) => sox
+# yuzu => libibus qt5-multimedia pulseaudio pavucontrol
+# wmctrl => viber (close window)
 
 # coredump OFF
 echo -e 'Storage=none' >> /etc/systemd/coredump.conf
@@ -129,6 +131,8 @@ timedatectl set-ntp true
 # save manual select kenter
 # echo -e 'GRUB_SAVEDEFAULT=true
 # GRUB_DEFAULT=saved' >> /etc/default/grub
+# add after "linux	/boot/vmlinuz"
+# noibrs noibpb nopti nospectre_v2 nospectre_v1 l1tf=off nospec_store_bypass_disable no_stf_barrier mds=off tsx=on tsx_async_abort=off mitigations=off
 
 # earlyoom
 # systemctl enable earlyoom.service
