@@ -1,5 +1,6 @@
 [General]
 aleternateRowColors=true
+alternateRowColors=true
 appendSysEnv=true
 closeToTray=true
 connConfirmMethod=1
@@ -14,6 +15,7 @@ fanProfileName=default
 fanSpeedSlider=30
 graphOffset=true
 graphRange=600
+language=
 minimizeToTray=true
 ocProfileName=default
 overclockMemValue=0
@@ -32,4 +34,4 @@ startMinimized=true
 temperatureHysteresis=0
 updateGraphs=false
 updateInterval=1
-windowGeometry=@Rect(0 38 1280 986)
+windowGeometry=@Rect(1720 20 1720 1420)

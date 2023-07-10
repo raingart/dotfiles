@@ -68,6 +68,7 @@ pkgconf
 polybar
 pulseaudio
 python-pip
+qt5-multimedia
 qt5-styleplugins
 qt5-tools
 qt5ct
@@ -96,7 +97,9 @@ usbutils
 vertex-themes
 wget
 which
+wmctrl
 xclip
+xdiskusage
 xf86-video-amdgpu
 xorg-xinit
 xorg-xkill

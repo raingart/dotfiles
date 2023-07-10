@@ -5,16 +5,16 @@
     <FanProfiles>
         <fanProfile name="default" hysteresis="0" sensorInstance="0">
             <step temperature="35" speed="33"/>
-            <step temperature="65" speed="49"/>
+            <step temperature="60" speed="40"/>
             <step temperature="75" speed="100"/>
         </fanProfile>
     </FanProfiles>
     <Plots/>
     <TopbarItems>
         <topbarItem type="0" primaryValueId="0" primaryColor="#f3f3f5" secondaryValueIdEnabled="1" secondaryValueId="1" secondaryColor="#f3f3f5" pieMaxValue="100"/>
-        <topbarItem type="1" primaryValueId="6" primaryColor="#f3f3f5" secondaryValueIdEnabled="0" secondaryValueId="65296" secondaryColor="#000000" pieMaxValue="100"/>
-        <topbarItem type="2" primaryValueId="13" primaryColor="#0000ff" secondaryValueIdEnabled="0" secondaryValueId="65296" secondaryColor="#000000" pieMaxValue="100"/>
-        <topbarItem type="2" primaryValueId="10" primaryColor="#ff0000" secondaryValueIdEnabled="0" secondaryValueId="65296" secondaryColor="#000000" pieMaxValue="100"/>
+        <topbarItem type="1" primaryValueId="6" primaryColor="#f3f3f5" secondaryValueIdEnabled="0" secondaryValueId="65304" secondaryColor="#000000" pieMaxValue="100"/>
+        <topbarItem type="2" primaryValueId="13" primaryColor="#0000ff" secondaryValueIdEnabled="0" secondaryValueId="65304" secondaryColor="#000000" pieMaxValue="100"/>
+        <topbarItem type="2" primaryValueId="10" primaryColor="#ff0000" secondaryValueIdEnabled="0" secondaryValueId="65304" secondaryColor="#000000" pieMaxValue="100"/>
         <topbarItem type="2" primaryValueId="11" primaryColor="#ffff00" secondaryValueIdEnabled="1" secondaryValueId="12" secondaryColor="#000000" pieMaxValue="100"/>
     </TopbarItems>
     <OcProfiles/>

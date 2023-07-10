@@ -1,6 +1,14 @@
 <Stations>
   <Station>
-    <uri>http://uk4.internet-radio.com:8049/listen.pls</uri>
+    <uri>https://icecast01.mycloudserver.info/lsl-rocks</uri>
+    <name>lsl-rocks</name>
+  </Station>
+  <Station>
+    <uri>https://stream-58.zeno.fm/u18tuaphwzzuv?zs=JuYv5COpQBWLyo8s8YqYXw</uri>
+    <name>zeno.fm</name>
+  </Station>
+  <Station>
+    <uri>http://uk4.internet-radio.com:8049/stream</uri>
     <name>Dance Attack FM</name>
   </Station>
   <Station>
@@ -8,37 +16,45 @@
     <name>AniSonFM</name>
   </Station>
   <Station>
-    <uri>http://animeradio.su:8000/</uri>
-    <name>AnimeRadio.SU</name>
-  </Station>
-  <Station>
     <uri>http://server-23.stream-server.nl:8438/</uri>
-  </Station>
-  <Station>
-    <uri>http://stream.dbmedia.se/crr96</uri>
-    <name>crr96</name>
-  </Station>
-  <Station>
-    <uri>http://stream.dbmedia.se/gk80tal96</uri>
-    <name>gk80tal96</name>
   </Station>
   <Station>
     <uri>http://stream.dbmedia.se/gk90tal96</uri>
     <name>gk90tal96</name>
   </Station>
   <Station>
-    <uri>http://stream.dbmedia.se/gk96</uri>
-    <name>gk96</name>
-  </Station>
-  <Station>
     <uri>http://stream.dbmedia.se/kp128</uri>
+    <name>kp128</name>
   </Station>
   <Station>
-    <uri>http://79.111.14.76:8000/poppunk</uri>
-    <name>poppunk</name>
+    <uri>https://ais-edge102-live365-dal02.cdnstream.com/a90692</uri>
+    <name>ais-edge102</name>
   </Station>
   <Station>
-    <uri>http://79.120.77.11:8000/powermetal</uri>
-    <name>powermetal</name>
+    <uri>https://radio-stream-1.obozrevatel.com/gangstarap128.mp3</uri>
+    <name>gangstarap</name>
+  </Station>
+  <Station>
+    <uri>https://streaming.radio.co/s8267e5edc/listen</uri>
+  </Station>
+  <Station>
+    <uri>http://yggdrasilradio.net:8000/;stream.nsv</uri>
+    <name>yggdrasil</name>
+  </Station>
+  <Station>
+    <uri>https://ais-sa2.cdnstream1.com/1988_64.aac</uri>
+    <name>1988_64</name>
+  </Station>
+  <Station>
+    <uri>https://kathy.torontocast.com:3560/</uri>
+    <name>kathy</name>
+  </Station>
+  <Station>
+    <uri>http://audio.misproductions.com/japan48kaacp</uri>
+    <name>japan48kaacp</name>
+  </Station>
+  <Station>
+    <uri>http://stream.dbmedia.se/gk9</uri>
+    <name>gk9</name>
   </Station>
 </Stations>

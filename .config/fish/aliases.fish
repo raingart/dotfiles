@@ -35,7 +35,7 @@ alias downgrade='sudo downgrade'
 
 alias upmiror="curl -s 'https://archlinux.org/mirrorlist/?country=UA&protocol=https&use_mirror_status=on' | sed -e 's/^#Server/Server/' > /tmp/mirrorlist.backup; sudo cp /tmp/mirrorlist.backup /etc/pacman.d/mirrorlist ; cat /etc/pacman.d/mirrorlist"
 alias yrup='yr -Syua'
-alias up='pacman -Syu; yrup'
+alias up='pacman -Sy archlinux-keyring; pacman -Syu; yrup'
 alias upi='pacman -Syy; pacman -Qu; yrup'
 
 alias fishr='source ~/.config/fish/config.fish'
@@ -46,5 +46,6 @@ alias off='shutdown -P now'
 alias x='exit'
 
 alias ed='sudo geany'
-alias myip='curl ipinfo.io/ip ;or curl icanhazip.com'
+# alias myip='curl ipinfo.io/ip ;or curl icanhazip.com'
+alias myip='curl -s https://api.my-ip.io/ip.txt ;or curl ipinfo.io/ip ;or curl icanhazip.com'
 alias steam='env LD_PRELOAD="/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so" STEAM_RUNTIME=1 steam'

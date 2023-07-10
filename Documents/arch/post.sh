@@ -13,11 +13,11 @@ pacman -Syuw --noconfirm #generated new mirrorlist
 echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 
 # Install Apps
-#pacman -S telegram-desktop pavucontrol reflector lxappearance qt5ct qt5-styleplugins python-pip xdiskusage fzf python-pip xdiskusage earlyoom qbittorrent pinta xnviewmp gnome-screenshot --noconfirm
+#pacman -S telegram-desktop pavucontrol reflector lxappearance qt5ct qt5-styleplugins python-pip xdiskusage fzf python-pip xdiskusage earlyoom qbittorrent pinta xnviewmp gnome-screenshot blueman --noconfirm
 # xboxdrv smartmontools
 # gnome-screenshot-3.36.0-1
 
-pacman -S i3-wm chromium xf86-video-amdgpu amdvlk htop xorg-xprop xorg-xkill alsa-utils usbutils git openssh fish tilix bash-completion geany rsync dmenu sox dunst xclip xxkb nitrogen gsimplecal  ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation noto-fonts-emoji faenza-icon-theme file-roller filezilla smplayer gthumb meld gparted udevil ntfs-3g unrar gst-plugins-good
+pacman -S i3-wm chromium xf86-video-amdgpu amdvlk htop xorg-xprop xorg-xkill alsa-utils usbutils git openssh fish tilix bash-completion geany rsync dmenu sox dunst xclip xxkb nitrogen gsimplecal  ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation noto-fonts-emoji faenza-icon-theme file-roller filezilla smplayer gthumb meld gparted udevil ntfs-3g unrar gst-plugins-good xdg-desktop-portal xdg-desktop-portal-gtk
 # qt5-tools avahi
 
 cd /tmp
@@ -29,9 +29,18 @@ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin
 # yay -Sa linux-ck-uksm linux-ck-uksm-headers
 yay -Sa linux linux-headers
 
-yay -S spacefm polybar  vertex-themes radeon-profile-daemon-git unclutter-xfixes-git ttf-ms-fonts ttf-unifont goodvibes downgrade --noconfirm
+yay -S spacefm polybar vertex-themes radeon-profile-daemon-git unclutter-xfixes-git ttf-ms-fonts ttf-unifont goodvibes downgrade --noconfirm
 # yay -S visual-studio-code-bin ventoy-bin flashplayer-standalone megasync-bin gnome-boxes qownnotes notepadnext
 # amdvlk - add vulcan
+
+# blueman
+# sudo systemctl enable --now bluetooth.service
+
+# build radeon-profile-daemon-git
+# yrs qt5-charts; git clone https://github.com/Oxalin/radeon-profile.git && cd radeon-profile/radeon-profile qmake && make
+# yrs qt5-charts; git clone https://github.com/Oxalin/radeon-profile-daemon.git && cd radeon-profile-daemon/radeon-profile-daemon qmake && make
+# sudo cp radeon-profile-daemon.service /etc/systemd/system/
+# systemctl enable radeon-profile-daemon.service && systemctl start radeon-profile-daemon.service
 
 # build spacefm
 # git clone git@github.com:thermitegod/spacefm.git
@@ -50,6 +59,7 @@ yay -S spacefm polybar  vertex-themes radeon-profile-daemon-git unclutter-xfixes
 # dmenu(audio) => sox
 # yuzu => libibus qt5-multimedia pulseaudio pavucontrol
 # wmctrl => viber (close window)
+# xdg-desktop-portal => appimage (promt file)
 
 # coredump OFF
 echo -e 'Storage=none' >> /etc/systemd/coredump.conf

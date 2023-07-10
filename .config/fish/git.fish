@@ -41,7 +41,7 @@ abbr --add gdc='git diff --cached'
 abbr --add gdt='git difftool'
 abbr --add grm='git rm -r --cached'
 abbr --add grmf='git rm -rf'
-abbr --add gcl='git clone --recursive'
+# abbr --add gcl='git clone --recursive'
 abbr --add gco='git checkout'
 # abbr --add gcm='git commit -m'
 # abbr --add gcv='git commit --verbose'
@@ -50,6 +50,21 @@ alias gl="git log \
             --abbrev-commit \
             --date=relative \
 	    --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset'"
+
+function gcl
+   if test "$argv[1]"
+      git clone --recursive "$argv[1]"
+      # set -l myarray string split / "$argv"
+      # echo myarray | selectArr 2 | string replace -r '.git' ''
+      set -l dir (string split / "$argv[1]" | sed -n 2p | sed 's/\.git//')
+      cd "./$dir"
+   end
+
+   # function selectArr
+     # read --local --array --null arr
+     # echo $arr[$argv]
+   # end
+end
 
 function gf2
    # git add --all
@@ -65,7 +80,7 @@ end
 function gf
    # git add -u
    git add --all
-   if not test -z (echo $argv)
+   if test "$argv"
       git commit -m "$argv"
       # git commit -m "$*"
    else

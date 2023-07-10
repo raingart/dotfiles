@@ -228,8 +228,6 @@ hide_edge_borders none
 
 bindsym $mod+b border toggle
 
-# hide_edge_borders both
-# workspace_layout <default|stacking|tabbed>
 focus_follows_mouse no
 # focus_follows_mouse yes
 # force_focus_wrapping yes
@@ -238,7 +236,10 @@ workspace_auto_back_and_forth yes
 # force_display_urgency_hint 400 ms
 # focus_on_window_activation smart|urgent|focus|none
 focus_on_window_activation smart
-workspace_layout tabbed
+# hide_edge_borders both
+# workspace_layout <default|stacking|tabbed>
+# workspace_layout tabbed
+workspace_layout stacking
 
 # auto-focus to all new windows
 for_window [class="(?i)"] focus
@@ -307,15 +308,15 @@ bindsym $mod+F10	exec --no-startup-id qbittorrent
 
 
 # Where to run
-assign [class="Chromium|Google-chrome"]	$ws1
-assign [class="VSCodium|Code|Geany|Godot"]	$ws2
-assign [class="Spacefm"]		$ws3
+assign [class="Chromium|Google-chrome"]		$ws1
+# assign [class="VSCodium|Code|Geany|Godot"]	$ws2
+assign [class="Spacefm"]			$ws3
 assign [class="Meld|Filezilla|AnyDesk|multibootusb"]			$ws4
 assign [class="XnView|(?i)gthumb|Inkscape|Pinta|smplayer|FBReader"]	$ws5
 assign [class="RPCS3|PPSSPPQt|PPSSPPSDL|FTL|Flashplayer|Steam|yuzu"]	$ws6
 assign [class="qBittorrent"]	$ws7
-assign [class="Viber"]	$ws8
-# assign [class=""]	$ws9
+assign [class="Viber"]		$ws8
+# assign [class=""]		$ws9
 
 
 bindsym Menu	   [class="Tilix"]		scratchpad show
@@ -362,17 +363,20 @@ for_window [class="Pavucontrol"]		floating enable
 for_window [class="lazpaint" title="Color|Layers"]	floating enable
 for_window [class="SimpleScreenRecorder"]	floating enable
 for_window [class="FBReader"]			floating enable
+# for_window [class="FLTK" title="Disk Usage Display"]		floating enable
 for_window [class="QOwnNotes" title="Settings"]	floating disable
 for_window [class="Godot"]			floating enable
 for_window [class="Godot" title=".*Godot Engine*."] floating disable, border 1px, move container to workspace $ws3
 
 # move scratchpad - minimize
 # scratchpad show - restore
+# "wmctrl -lG" - to get size, position
 for_window [class="(?i)xxkb"]	move window to scratchpad
 for_window [class="Tilix" title="^Tilix:"]	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
 for_window [class="Goodvibes" title="^Goodvibes$"] move window to scratchpad, move position 0 20, move scratchpad
 for_window [class="QOwnNotes" title="- QOwnNotes"] move window to scratchpad, move position 0 20, resize set 1050 700, move scratchpad
-for_window [class="KotatogramDesktop|TelegramDesktop" title="Kotatogram|Telegram"] move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
+# for_window [class="KotatogramDesktop|TelegramDesktop" title="Kotatogram|Telegram"] move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
+for_window [class="KotatogramDesktop|TelegramDesktop" title="Kotatogram|Telegram"] move window to scratchpad, move position 958 18, resize set 804 1285, scratchpad show
 
 
 # Start Polybar
@@ -392,11 +396,11 @@ exec --no-startup-id xxkb
 # exec --no-startup-id sh -c 'ping -w 60 -c1 8.8.8.8 && megasync & sleep 60 && killall megasync'
 # exec --no-startup-id udevil mount /dev/disk/by-label/Data\\x201 -o noatime,nodev,nosuid && QOwnNotes
 # exec --no-startup-id sleep 20 && udisksctl power-off -b /dev/disk/by-label/Data\\x201 --no-user-interaction
-exec --no-startup-id sleep 20 && udisksctl power-off -b /dev/disk/by-id/wwn-0x50000f001b615739
+# exec --no-startup-id sleep 20 && udisksctl power-off -b /dev/disk/by-id/wwn-0x50000f001b615739
 # & megasync & sleep 60 && killall megasync'
 exec --no-startup-id udevil mount /dev/disk/by-label/WINDOWS -o noatime,nodev,nosuid && QOwnNotes-x86_64.AppImage
 exec --no-startup-id sh -c 'mkdir /tmp/_vscode /tmp/_chrome /tmp/_steam /tmp/_tg && cp -R ~/.local/share/TelegramDesktop_bak/* /tmp/_tg'
-exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; Kotatogram & $Browser & Viber.AppImage & sleep 1 && wmctrl -c "Viber"'
+exec --no-startup-id sh -c 'while ! ping -c2 8.8.8.8 &>/dev/null; do echo "Ping Fail - `date`"; done ; echo "Host Found - `date`" ; Kotatogram & $Browser & Viber.AppImage & sleep 1 && wmctrl -c "Viber" & sleep 300 && pkill -SIGKILL Viber'
 exec --no-startup-id goodvibes
 exec --no-startup-id xset -dpms && xset s off
 # exec --no-startup-id earlyoom -n -M=307200
