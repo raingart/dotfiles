@@ -261,7 +261,7 @@ bindsym $mod+KP_Subtract scratchpad show
 
 # Alsa Audio controls
 # set $volumeStep 1dB
-set $volumeStep 2%
+set $volumeStep 4%
 set $defaultVolumeLevel 50%
 set $volumeSource "PCM"
 # set $volumeSource "Speaker"
