@@ -17,7 +17,7 @@ echo -e '\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$a
 # xboxdrv smartmontools
 # gnome-screenshot-3.36.0-1
 
-pacman -S i3-wm chromium xf86-video-amdgpu amdvlk htop xorg-xprop xorg-xkill alsa-utils usbutils git openssh fish tilix bash-completion geany rsync dmenu sox dunst xclip xxkb nitrogen gsimplecal  ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation noto-fonts-emoji faenza-icon-theme file-roller filezilla smplayer gthumb meld gparted udevil ntfs-3g unrar gst-plugins-good xdg-desktop-portal xdg-desktop-portal-gtk
+pacman -S i3-wm chromium xf86-video-amdgpu amdvlk htop xorg-xprop xorg-xkill alsa-utils usbutils git openssh fish tilix bash-completion geany rsync dmenu sox dunst xclip xxkb nitrogen gsimplecal ttf-droid ttf-dejavu ttf-font-awesome ttf-liberation noto-fonts-emoji faenza-icon-theme file-roller filezilla smplayer gthumb meld gparted udevil ntfs-3g unrar gst-plugins-good xdg-desktop-portal xdg-desktop-portal-gtk
 # qt5-tools avahi
 
 cd /tmp

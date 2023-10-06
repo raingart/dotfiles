@@ -31,10 +31,6 @@
     <name>ais-edge102</name>
   </Station>
   <Station>
-    <uri>https://radio-stream-1.obozrevatel.com/gangstarap128.mp3</uri>
-    <name>gangstarap</name>
-  </Station>
-  <Station>
     <uri>https://streaming.radio.co/s8267e5edc/listen</uri>
   </Station>
   <Station>
@@ -48,13 +44,5 @@
   <Station>
     <uri>https://kathy.torontocast.com:3560/</uri>
     <name>kathy</name>
-  </Station>
-  <Station>
-    <uri>http://audio.misproductions.com/japan48kaacp</uri>
-    <name>japan48kaacp</name>
-  </Station>
-  <Station>
-    <uri>http://stream.dbmedia.se/gk9</uri>
-    <name>gk9</name>
   </Station>
 </Stations>

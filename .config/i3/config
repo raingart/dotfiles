@@ -239,7 +239,7 @@ focus_on_window_activation smart
 # hide_edge_borders both
 # workspace_layout <default|stacking|tabbed>
 # workspace_layout tabbed
-workspace_layout stacking
+# workspace_layout stacking
 
 # auto-focus to all new windows
 for_window [class="(?i)"] focus
@@ -261,7 +261,7 @@ bindsym $mod+KP_Subtract scratchpad show
 
 # Alsa Audio controls
 # set $volumeStep 1dB
-set $volumeStep 5%
+set $volumeStep 2%
 set $defaultVolumeLevel 50%
 set $volumeSource "PCM"
 # set $volumeSource "Speaker"
@@ -374,7 +374,8 @@ for_window [class="Godot" title=".*Godot Engine*."] floating disable, border 1px
 for_window [class="(?i)xxkb"]	move window to scratchpad
 for_window [class="Tilix" title="^Tilix:"]	move window to scratchpad, move position 0 18, resize set 1280 550, move scratchpad
 for_window [class="Goodvibes" title="^Goodvibes$"] move window to scratchpad, move position 0 20, move scratchpad
-for_window [class="QOwnNotes" title="- QOwnNotes"] move window to scratchpad, move position 0 20, resize set 1050 700, move scratchpad
+# for_window [class="QOwnNotes" title="- QOwnNotes"] move window to scratchpad, move position 0 20, resize set 1050 700, move scratchpad
+for_window [class="QOwnNotes" title="- QOwnNotes"] move window to scratchpad, move position 0 20, resize set 1550 1200, move scratchpad
 # for_window [class="KotatogramDesktop|TelegramDesktop" title="Kotatogram|Telegram"] move window to scratchpad, move position 640 20, resize set 640 675, scratchpad show
 for_window [class="KotatogramDesktop|TelegramDesktop" title="Kotatogram|Telegram"] move window to scratchpad, move position 958 18, resize set 804 1285, scratchpad show
 
