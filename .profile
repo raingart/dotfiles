@@ -5,6 +5,13 @@ export DESKTOP_SESSION="gnome"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export $(dbus-launch)
 
+# fix open file/folder in appimage
+if [ -z "$XDG_DATA_DIRS" ]; then
+   # export XDG_DATA_HOME="$HOME/.local/share:/root/.local/share:/usr/local/share/:/usr/share/"
+   # export XDG_DATA_DIRS="$HOME/.local/share:/root/.local/share:/usr/local/share/:/usr/share/"
+   export XDG_DATA_DIRS=/usr/local/share:/usr/share
+   # XDG_CONFIG_DIRS=/etc/xdg #default
+fi
 
 # include sbin in PATH
 if [ -d "/sbin" ] ; then

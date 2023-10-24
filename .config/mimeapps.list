@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/tg=userapp-Kotatogram Desktop-2KC7S1.desktop
+x-scheme-handler/tg=userapp-Kotatogram Desktop-MHB6C2.desktop
 x-scheme-handler/http=userapp-Firefox-F4E861.desktop
 x-scheme-handler/https=userapp-Firefox-F4E861.desktop
 x-scheme-handler/about=chromium-browser-stable.desktop
@@ -36,7 +36,7 @@ application/vnd.rar=org.gnome.FileRoller.desktop;
 application/octet-stream=org.gnome.FileRoller.desktop;
 application/x-java-archive=org.gnome.FileRoller.desktop;
 text/javascript=VSCodium.AppImage-usercreated-1.desktop;
-x-scheme-handler/tg=userapp-Kotatogram Desktop-2KC7S1.desktop;
+x-scheme-handler/tg=userapp-Kotatogram Desktop-2KC7S1.desktop;userapp-Kotatogram Desktop-E9UDD2.desktop;userapp-Kotatogram Desktop-MHB6C2.desktop;
 application/x-compressed-tar=org.gnome.FileRoller.desktop;
 x-scheme-handler/http=userapp-Firefox-F4E861.desktop;
 x-scheme-handler/https=userapp-Firefox-F4E861.desktop;

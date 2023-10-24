@@ -16,6 +16,14 @@
     <name>AniSonFM</name>
   </Station>
   <Station>
+    <uri>https://online-radio.nv.ua/radionv.mp3</uri>
+    <name>radionv</name>
+  </Station>
+  <Station>
+    <uri>https://hromadske.radio/radio_https_upstream</uri>
+    <name>hromadske</name>
+  </Station>
+  <Station>
     <uri>http://server-23.stream-server.nl:8438/</uri>
   </Station>
   <Station>
